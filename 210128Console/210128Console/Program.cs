@@ -679,6 +679,11 @@ namespace _210128Console
 
 
             #endregion
+
+
+            int sefsf=56;
+            Console.WriteLine(sefsf);
+
         }
     }
 }
