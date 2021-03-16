@@ -459,11 +459,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Yücel\\cSharpClassNotes\\c-Class\\210128Console\\210128Console\\210128Console.csproj",
+      "projectUniqueName": "C:\\Users\\Yücel\\cSharpClassNotes\\cSharp-Class\\210128Console\\210128Console\\210128Console.csproj",
       "projectName": "210128Console",
-      "projectPath": "C:\\Users\\Yücel\\cSharpClassNotes\\c-Class\\210128Console\\210128Console\\210128Console.csproj",
+      "projectPath": "C:\\Users\\Yücel\\cSharpClassNotes\\cSharp-Class\\210128Console\\210128Console\\210128Console.csproj",
       "packagesPath": "C:\\Users\\Yücel\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Yücel\\cSharpClassNotes\\c-Class\\210128Console\\210128Console\\obj\\",
+      "outputPath": "C:\\Users\\Yücel\\cSharpClassNotes\\cSharp-Class\\210128Console\\210128Console\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Yücel\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -512,7 +512,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }

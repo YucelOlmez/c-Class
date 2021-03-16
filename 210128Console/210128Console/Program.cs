@@ -674,13 +674,35 @@ namespace _210128Console
             Console.WriteLine(ks3);     //console çıktısında şartlarımızı sağlaması durumuna göre sonuçlar mantıksal operatörlerin değerlerini karşılamışsa ona göre değer döndürecektir/yazacaktır.
 
 
-            Console.WriteLine(((true && true) || false && ((true ^ false) && false) || true));
+            Console.WriteLine(((true && true) || false && ((true ^ false) && false) || true));   //işlem önceliğine göre sonuç console'da true dönecektir.
                                                   
 
 
             #endregion
 
+            #region   Arttırma(++) Azaltma(--) Operatörleri
 
+            // arttırma ve azaltma operatörleri elimizdeki sayıyı sadece 1 arttırır ya da 1 azaltır. 2 arttırıp 3 azaltma işlemi yapmaz.
+            //bu operatörleri daha sonra öğreneceğim döngülerdeki kombinasyonları kontrol edip programlama işlemlerinde kullanacağımı öğreneceğim.
+            //Tanımlanan değişkenin sağına ya da soluna yazılmaları durumunda davranış değişikliği gösterirler.
+            //  ++n; farklı davranış sergiler. Öncelikle n'in değerini 1 arttırır önceki değeri ezer sonra stackten arttırılmış yeni değeri döndürür/çıktısını verir.
+            //  n++; farklı davranış sergiler. Öncelikle n değerini stackten çıktısını verir. Daha sonra çıktısını verdiği değeri ezip 1 arttırır.
+            //C.W(++n); Ekrana direkt arttırılmış değeri yazacaktır.
+            //C.W(n++); Önce ekrana direkt stackteki değerini yazacak daha sonra arttıracaktır. örneğin ekranda 10 yazılıysa bellekteki değeri 11 olacaktır. yeniden C.W(n++); yazarsak 11 yazacak stack'teki değeri 12 olarak tutulup yazılmayı bekliyor olacaktır. 
+            //İşlem neticesinde değişkenin değerini döner.
+
+            int artI = 5;
+            Console.WriteLine(artI++);  // Çıktı : 5  |  Bellek : 6      //compiler şu şekilde çalışmaktadır C.W'ye geldi parantez içine girdi önce stackte gördüğü 5 i çıktı olarak Console yazdırdı ve yoluna 5i 1 arttırıp bellekte 6 olarak tuttu.
+            Console.WriteLine(++artI);  // Çıktı : 7  |  Bellek : 7      //Sonra buraya geldi bellekte 6 olarak tuttuğu değeri 1 arttırıp ezdi 6 değerini silip 7 olarak tuttu ve Console'a yazdırdı. Çalıyolar ama yapıyolarda yav sfekjsefkl
+
+
+            int eksI = 10;
+            int eksII=eksI--;     
+            Console.WriteLine(eksI);         //9 
+            Console.WriteLine(eksII--);      //10
+            Console.WriteLine(eksII--);      //9
+            Console.WriteLine(eksII);        //8  verir
+            #endregion 
            
 
         }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "I/A6MI/MxBnnbCcs9iGRg1Xe0/AAq7eqlcpYjqX8i0N831SG0qlaFIxW5Ueou+dDcU4DeIxgWvCNVkl5ByafXA==",
+  "dgSpecHash": "pHcW2ww8lt3fdSfERRfO415yZQzwJ+R11ne+kyKYoNLEFsqjXJidxbaAy8iudnbfE+igY0Tq5hXjXnJ+QZSA2A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Yücel\\cSharpClassNotes\\c-Class\\210128Console\\210128Console\\210128Console.csproj",
+  "projectFilePath": "C:\\Users\\Yücel\\cSharpClassNotes\\cSharp-Class\\210128Console\\210128Console\\210128Console.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Yücel\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\Yücel\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
