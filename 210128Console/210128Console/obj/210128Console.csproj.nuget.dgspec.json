@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Yücel\\source\\repos\\210128Console\\210128Console\\210128Console.csproj": {}
+    "C:\\Users\\Yücel\\cSharpClassNotes\\c-Class\\210128Console\\210128Console\\210128Console.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Yücel\\source\\repos\\210128Console\\210128Console\\210128Console.csproj": {
+    "C:\\Users\\Yücel\\cSharpClassNotes\\c-Class\\210128Console\\210128Console\\210128Console.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Yücel\\source\\repos\\210128Console\\210128Console\\210128Console.csproj",
+        "projectUniqueName": "C:\\Users\\Yücel\\cSharpClassNotes\\c-Class\\210128Console\\210128Console\\210128Console.csproj",
         "projectName": "210128Console",
-        "projectPath": "C:\\Users\\Yücel\\source\\repos\\210128Console\\210128Console\\210128Console.csproj",
+        "projectPath": "C:\\Users\\Yücel\\cSharpClassNotes\\c-Class\\210128Console\\210128Console\\210128Console.csproj",
         "packagesPath": "C:\\Users\\Yücel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Yücel\\source\\repos\\210128Console\\210128Console\\obj\\",
+        "outputPath": "C:\\Users\\Yücel\\cSharpClassNotes\\c-Class\\210128Console\\210128Console\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Yücel\\AppData\\Roaming\\NuGet\\NuGet.Config",
