@@ -680,6 +680,7 @@ namespace _210128Console
 
             #endregion
 
+
             #region   Arttırma(++) Azaltma(--) Operatörleri
 
             // arttırma ve azaltma operatörleri elimizdeki sayıyı sadece 1 arttırır ya da 1 azaltır. 2 arttırıp 3 azaltma işlemi yapmaz.
@@ -703,6 +704,29 @@ namespace _210128Console
             Console.WriteLine(eksII--);      //9
             Console.WriteLine(eksII);        //8  verir
             #endregion 
+
+
+            #region Üzerine Ekleme/Yığma Operatörleri
+
+            // +=   Sadece bu operatör metinsel ifadelerde kullanılmaktadır.
+            // -=
+            // *=
+            // /=
+            // %=
+
+            int FF = 35;
+            FF += 2; // FF = FF+2; açılımıdır. 
+            FF -= 14;
+            FF *= 4;
+            FF /= 2;
+            FF %= 33;
+            Console.WriteLine(FF);
+
+
+            //Matematiksel işlemleri daha hızlı ve pratik yapmamızı sağlar.
+            //Kısacası buradaki operatörleri farklı kaynak kodların içinde gördüğümde neyi ifade ettiğini bilmem gerekir.
+
+            #endregion
            
 
         }
