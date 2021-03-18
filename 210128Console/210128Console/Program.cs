@@ -746,7 +746,30 @@ namespace _210128Console
 
             int ee1 = 10;
             string ee2 = "Ağaç";
-            Console.WriteLine(ee1 + ee2);
+            Console.WriteLine(ee1 + ee2);    // ee1 + ee2; İşleminde aslında + operatörünün solundaki ee1 int boxing yapılıp bilinçsiz tür dönüşümü yaşamıştır ve bu işlemin sonunda tutulan tür string olarak stack'te tutulacaktır. 
+
+
+             // += Operatörünün Metinsel ifadelerde Kullanımı 
+            string cc1 = "Mavi";
+            string cc2 = "Araba";
+            // cc1 = cc1 + cc2;
+            cc1 += cc2; // compiler şu şekilde çalışmaktadır. cc1 değerine cc2 değerini yanına ekleyip daha sonra cc1 değerine atayacaktır. C.W. metodunda cc1 değişkenini yazdırdığımızda sonuç MaviAraba olarak dönecektir. Kod cimriliği yaptık.
+            Console.WriteLine(cc1);
+
+
+
+            // == Operatörünün Metinsel İfadelerde Kullanımı
+            //Metinsel ifadeleri birbirleri ile kıyaslayıp karşılaştırabiliriz. Eşitlik durumunu karşılaştırabiliyoruz.
+            //İçerik olarak değer olarak biribiri ile aynısı mıdır ?
+            //Sonuç boolean dönecektir.
+            string rr1 = "Joe";
+            string rr2 = "Ellie";
+
+            bool rr3 = rr1 == rr2;
+            bool rr4 = rr1 != rr2;
+            Console.WriteLine(rr3);  //Burada compiler Joe ve Ellie metinsel ifadelerinin == operatörü yardımı ile karşılaştırdığında console çıktısıne false olarak yazdırmıştır. Çünkü eşitmidir sorgusu yapıyorum.
+            Console.WriteLine(rr4);  // != eşit değilmi operatörünün console çıktısı burada true'dur. Çünkü sorgulamam sonucu Joe Ellie 'ye eşit değil mi sorumun cevabı evet eşit değildir.
+
 
             #endregion
         }
