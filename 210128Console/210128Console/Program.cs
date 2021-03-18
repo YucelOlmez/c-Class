@@ -729,6 +729,26 @@ namespace _210128Console
             #endregion
            
 
+           #region Metinsel İfadelerde Kullanılan Operatörler
+
+            //+ Operatörü
+            //Metinsel ifadelerde + operatörü yan yana birleştirilme işleminde kullanılır.
+            //Metinsel ifade ile sayısal bir ifadenin + operatörü ile kullanılması işleminde sonuç string olarak dönecektir. Yani aritmatik bir işlem değil metinsel bir işlem olarak türü tutulacaktır.            
+
+            string ww = "Yücel";
+            string ww2 = "Ölmez";
+            Console.WriteLine(ww + ww2);
+
+
+
+            //Tür dönüşümlerinde herhangi bir değeri string'e dönüştürebilmek için .ToString fonksiyonunu kullanıyorduk.
+            //Diğer yandan ilgili türü string'e dönüştürebilmek için string bir ifade ile + operatörüne tabii tutulması yeterli olacaktır.
+
+            int ee1 = 10;
+            string ee2 = "Ağaç";
+            Console.WriteLine(ee1 + ee2);
+
+            #endregion
         }
     }
 }
