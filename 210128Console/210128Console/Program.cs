@@ -772,6 +772,30 @@ namespace _210128Console
 
 
             #endregion
+
+
+            #region c# Operatörler - ! operatörü
+
+            //Programlamada olumsuzluk anlamına gelir, Değildir olumsuzluk anlamında kullanılır.
+            //Mantıksal yapılarda olumsuzluk ifade eder. true yada false durumlarında gibi...
+
+            // !true   çıktısı  false
+            // !false  çıktısı  true     olur.
+            // != kullanıldığında eşit değillik durumuna ithafen kullanılır
+            //Sorgu yaparken manevratik döndürme işlemlerimizin sonucunu öğrenmede kullanılır.
+
+            // null References (c# 8.0 ile gelmiştir)  string ifadelerde null durumlarında belirli kontroller yapmamızı sağlar ! operatörü forgiven dediğimiz bir noktada kullanıyoruz. Tekrar değinilecek.
+
+            Console.WriteLine(!true);
+
+            int wer=5;
+            int rew=10;
+            Console.WriteLine(wer==rew); //çıktısı false döner çünkü == eşit midir sorgumuzun sonucu hayır eşif değil false'dır
+            Console.WriteLine(wer!=rew); //çıktısı true döner çünkü != eşit değil midir sorgumun sonucu evet eşit değildir true'dır
+            Console.WriteLine(!(wer==rew)); //Bu operatörün dışında sade ve sadece mantıksal değerlerin yanında kullanılabilir.
+
+
+            #endregion 
         }
     }
 }
