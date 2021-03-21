@@ -796,6 +796,70 @@ namespace _210128Console
 
 
             #endregion 
+
+
+           #region Ternary Operatörü
+
+            //Kalıpsal operatördür kalıpsaldan kast edilen ? ...... : .....; yapısıdır. Yani koşulumuzun durumuna göre soru işaretinden sonraki alanı döndürecektir eğer koşul sağlanmıyorsa iki nokta üst üste olanın sağı döndürülecektir.
+            //şarta bağlı değer döndüren operatördür
+            //Kendi kalıbında farklı değerleri şartlara göre döndüren operatörüdür.
+            //Bir değişkene metoda property'e değer atarken eğer ki bu değer şarta göre fark edecekse tek satırda ya da satır bazlı bu şart kontrolunü yaparak duruma göre değeri döndürmemizi sağlayan bir kalıpsal operatördür.
+            //taslak olarak aşağıdaki gibidir
+            int qwe = 2653;
+            int ewq = 546654;
+            int QWE = qwe > ewq ? qwe : ewq;
+            //    şartımKoşulum ? .1..:..2.;      Eğerki şart true ise :'nın solundaki değer yani 1 dönecektir. Eğerki false ise :'nin sağındaki değer yani 2 dönecektir.
+            Console.WriteLine(QWE);
+
+
+
+            //Karşılaştırma ya da mantıksal işlem sonucunda geriye bir boolean değer döndüren yapı.
+            //Dönecek değerler aynı türde olmalıdır. Ki ben ortak değerde karşılayıp o değişkende tutayım.
+            //Polimorfizm kurallarına göre birbirlerinden türeyen değerlerde artık desteklenmektedir.(c# 9.0 ile geldi)
+
+
+
+            //Birden Fazla Condition Uygulama
+            int yas = 27;
+            //Yaşı; 27'den küçük olanlara A, 27 olanlara B, büyük olanlara C değerini döndüren ternary operatörünü oluşturuyorum
+            char sonuc = yas < 27 ? 'A' : (yas == 27 ? 'B':'C');
+            Console.WriteLine(sonuc);
+
+            // Örnek
+            //Kullanıcı tarafından girilen sayının aşağıdaki önergelere göre hesabını gerçekleştiren kodu yazınız.
+            // sayı < 3                           => sayı * 5
+            // sayı > 3 && sayı < 9               => sayı * 3
+            // sayı >=9 && sayı % 2 == 0          => sayı * 10 
+            // sayı % 2 == 1                      => sayı
+            // hiç biri değilse                   => -1
+            Console.WriteLine("Lütfen bir sayı giriniz !");            
+            int _sayi= int.Parse (Console.ReadLine());      // Console.ReadLine(); Kullanıcının girdiği değeri string olarak getiren/yakalayan bir komuttur.
+            int sonnuc=_sayi < 3 ? _sayi * 5 : 
+                (_sayi > 3 && _sayi < 9 ? _sayi * 3 : 
+                (_sayi >= 9 && _sayi % 2 == 0 ? _sayi * 10 : 
+                (_sayi % 2 == 1 ? _sayi : 
+                (-1))));
+            Console.WriteLine("Sonuç " + sonnuc);
+
+
+            //Örnek 2
+            //Hava durumunu tutan string değişkenin değerine göre aşağıdaki önergeleri uygulayan kodu yazınız.
+            // "Yağmurlu"  => "Şemsiye Almalısın"
+            // "Güneşli"   => "D Vitamini alacaksın"
+            // "Kapalı"    => "Dikkatli ol yağmur yağabilir"
+            string havaDurumu = "Kapalı";
+            Console.WriteLine(havaDurumu == "Yağmurlu" ? "Şemsiye almalısın" : 
+                (havaDurumu == "Güneşli" ? "D Vitamini alacaksın" : 
+                "Dikkatli ol yağmur yağabilir"));
+            //En sonuncu önergemizin şartını bildirmeyebiliriz. Zaten 2 ihtimalden birisi olmamışsa geriye kalan sadece 3. ihtimal olacağı için onun gerçekleşme koşulu kesinleşmiş oluyor. 3. durumun kontrol edilmesi gereksiz oluyor.
+
+            #endregion
+
+
+
+
+
+
         }
     }
 }
