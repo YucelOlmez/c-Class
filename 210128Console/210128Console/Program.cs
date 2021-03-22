@@ -856,7 +856,43 @@ namespace _210128Console
             #endregion
 
 
+             #region Atama(assing) Operatörü
+            // Atama operatöründe = sembolünü kullanırız bu sembolün sağ tarafına gelen value(değer) assign operatörünün solundaki değişkene atanır ve artık value alan değişken bellek adresinde saklanıyor olur.
+            #endregion
 
+
+            #region .(Member Access - Üye Erişimi) Operatörü
+            //Elimizdeki değerlerin türleri alt elemanlara sahiptir.
+            //Elimizdeki değerin türüne uygun member'lara erişmemize sağlayan operatördür.
+            //Member Access elimizdeki bir değerin türüne uygun elemanlarını/Fonksiyonlarını/Metotlarını/Propertylerini/field erişmemizi/çalıştırmamızı/çağırmamızı sağlayan bir operatördür.
+            //Member Access kodun devamını getirir.
+            // . (nokta ile sembolize edilir)
+            // int i=5; olarak tanımlanan bir değişkenin 
+            // i.ToString ifadesiyle gördüğümde burada int i'nin altında çıkan özelliklerinden kullanıldığını anlayıp yorumlamam gerekiyor.
+
+            #endregion
+
+
+            #region Cast Operatörü
+            //Genellikle tür dönüşümlerinde kullanılan bir operatördür.
+            // (type)value Value'u type'a dönüştürür. parantez () cast işlemidir. içinde dönüştürmek istediğimiz type vardır.
+
+            //Boxing - Unboxing
+            object o1 = 123;     //boxing işlemi vardır.
+            int o2 = (int)o1;    //Unboxing işlemi vardır.
+
+            //Bilinçli Tür Dönüşümü
+            int r1 = 45;
+            short r2 = (short)r1;
+
+            //Char -> int | int -> Char (ASCII)
+            int asciii = 99;
+            Char asciii2 = (Char)asciii;
+
+            
+            //İleride Polimorfizm durumunda baze class referansıyla işaretlenen bir nesneyi kendi türünde de elde edebilmemizi sağlamaktadır.
+
+            #endregion
 
 
 
