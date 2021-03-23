@@ -881,19 +881,187 @@ namespace _210128Console
             object o1 = 123;     //boxing işlemi vardır.
             int o2 = (int)o1;    //Unboxing işlemi vardır.
 
+
+
             //Bilinçli Tür Dönüşümü
             int r1 = 45;
             short r2 = (short)r1;
+
+            
 
             //Char -> int | int -> Char (ASCII)
             int asciii = 99;
             Char asciii2 = (Char)asciii;
 
-            
-            //İleride Polimorfizm durumunda baze class referansıyla işaretlenen bir nesneyi kendi türünde de elde edebilmemizi sağlamaktadır.
+
+            //İleride Polimorfizm durumunda 'base class' referansıyla işaretlenen bir nesneyi kendi türünde de elde edebilmemizi sağlamaktadır.
 
             #endregion
 
+
+            #region sizeof Operatörü
+            //Metinsel bir keyword'dür.
+            //Verilen türün bellekte kaç byte'lık yer kapladığını integer olarak geriye döndürür.
+
+            Console.WriteLine("int : " + sizeof(int));
+            Console.WriteLine("char : " + sizeof(char));
+            Console.WriteLine("bool : " + sizeof(bool));
+
+            #endregion
+
+
+            #region typeof Operatörü
+            //Verdiğimiz türün type'ını getirir.
+            //ileride düzey programlamada reflection'a girmemize sağlayan bir operatördür. OOP'ta görüp öğreneceğim.
+            //Verilen türün ya da değerin type'ını yani türünü getirir.
+            //İlgili tür ile bilgileri edinmek için kullanılan bir operatördür.
+
+           Type typ= typeof(int); //int türüne ait tüm bilgiler burada t değişkenine atanmıştır.
+            Console.WriteLine(typ.Name);
+            Console.WriteLine(typ.IsValueType);
+            Console.WriteLine(typ.IsPrimitive);
+            Console.WriteLine(typ.IsClass);
+
+            //Elimizdeki verilerin türü (type) ile ilgili bilgileri elde etmek için kullanlır.
+
+            #endregion
+
+
+            #region default Operatörü
+            //Belirtilen türün default değerini döndüren operatördür.
+            //Default değer ne demektir ? Default değerler, her tür için yazılım tarafında tanımlanmış bir varsayılan değer demektir.
+            //sistem tarafından varsayılan değerler atanır.
+
+            //sayısal = 0
+            //bool = false
+            //string = null
+            //char = \0
+            //referans = null
+
+            //null değersiz demektir. çıktısı boşluktur.
+
+            Console.WriteLine(default(bool));
+            Console.WriteLine(default(byte));
+            Console.WriteLine(default(short));
+            Console.WriteLine(default(Program));   //Program bir referans türüdür. Referans'ın default değeri gelecektir.
+
+
+
+
+            #endregion
+
+
+            #region is Operatörü
+            //Boxing'e tabii tutulmuş bir değerin öz türünü öğrenebilmek/check edebilmek/kontrol edebilmek için kullanılan bir operatördür.
+            //is operatörü denetleme neticesinde durumu bool yani true ya da false olarak döndürecektir.
+            //Elimizdeki objectin içerisindeki değerin bazen hangi türe ait olduğunu bilemeyebiliriz. Bilemediğimiz durumlarda is operatörü ile kontrol edeceyiz.
+
+
+            object isX = true;  //Boxing yaptım.
+            Console.WriteLine(isX is bool);
+            Console.WriteLine(isX is string);
+            Console.WriteLine(isX is Program);
+
+            //İleride if yapılanmasında vs. çok tercih ettiğimiz bir operatör olacaktır.
+            //OOP yapılanmasında polimorfizm is operatörü ile kalıtımsal durumlardaki nesnelerin türlerinide öğrenebileceğiz...
+
+
+
+            #endregion
+
+
+            #region is null Operatörü
+            //Bir değişkenin değerinin null olup olmamasını kontrol eden ve sonuç olarak geriye bool türünde bir değer döndüren operatördür.
+            string isnullX = null;
+            Console.WriteLine(isnullX is null);
+
+            //is null operatörünü sadece null olabilen türlerde kullanabilmekteyiz.
+
+            //İki çeşit değişkenlerimiz vardır.
+            //1-Değer Türlü Değişkenler: is null operatörünü sonuçları değerle dönen değişkemlerde kullanılmaz. defaultlarında dahi değerle dönen değişkenlerdir.
+            //2-Referans Türlü Değişkenler: null olabilen değişkenlerdir. Çıktısı boştur. String referans türlü bir değişkendir. is null operatörü kullanılabilir.
+
+
+
+            #endregion
+
+
+            #region is not null Operatörü
+            //Elimizdeki değerin null olup olmamasıyla ilgilenmekte ve geriye boolean sonuç döndürmektedir.
+            string pp1 = null;
+            Console.WriteLine(pp1 is not null);
+
+            //sadece null alan türlerde kullanabilir.
+
+            #endregion
+
+
+            #region as Operetörü
+            // as Operatörü Cast operatörüne alternatif olarak üretilmiş bir operatördür.
+            // Dönüşümde kullanırız.
+            // Cast operatörünün Unboxing işlemine alternatif olarak üretilmiştir.
+            // Sadece Unboxing işlemine alternatif üretilmiştir.
+
+
+            // Unboxing'te type öz Value'ya uygunsa value type'ına uygun şekilde başarılı unboxing çıktısı verecektir.
+            // Fakat type value'su as edilecek type'a uygun değilse HATA VERMEYİP null çıktı verecektir ve bu null çıktısı bizim programımızı patlatmadan code yazmamıza devam etmeyi sağlayacaktır. Bu aşamada cast hata verip programı patlattığı için code yazamıyorduk. Cast işlemine kıyasla böyle bir avantajı vardır.
+            // Programatik olarak yazılımın sonlanmadan akışta kontrol edilmesine müsaade edecek ve işleme devam edecektir.
+
+            //as Operatörü tür uygun olmadığı taktirde geriye null döndüreceği için bu null'u karşılayabilen türlerde çalışmak isteyecektir. Haliyle as operatörü değer türlü değişkenlerde kullanılmadığı için aşağıdaki örnekte Type yerine int olarak kullanamayız. Çünkü eğer unboxing işlemi başarısız olursa yani uygun türe ' 'as' ' edilemediğinde program referans türlü null verebilen değişken türler ile karşılaması hedeflenmiştir.
+
+            object h0 = "ölmez";
+            Program h1 = h0 as Program;
+            Console.WriteLine(h1);
+            #endregion
+
+
+            #region ?(Nullable) Operatörü
+
+            //c# Prog. dilince Değer Türlü Değişkenler normal şartlarda null değer alamazlar yani (not nullable)dır.
+            //Değer türlü değişkenin null değer alabilmesini istersem bunu nullable ? ile yapabilirim.
+
+            int? bb0 = null;  // ? ile işaretledim.
+            bool? bb1 = null; // gibi...
+
+            Console.WriteLine(bb0 is null);  // is sorgusu ile console çıktısına boolean değer döndürdüğü için sonuç true olacaktır.
+
+
+            //Bir değer türlü değişken nullable yapıldıysa eğer; 
+            //is null
+            //is not null
+            //as 
+            //gibi null ile çalışan operatörleri üzerinde kullanabiliriz.
+
+
+            object bb2 = 123;
+           int? bb3 = bb2 as int?;
+            Console.WriteLine(bb3);
+
+            //Bir değişkenin null olup olmamasının kontrolünü nullable ? operatörü ile yapabiliyoruz.
+
+            #endregion
+
+
+            #region ??(Null-Coalescing) Operatörü
+
+            //Elimizdeki değişkenin değerinin null olama durumuna olmasına istinaden farklı bir değer göndermemizi sağlayan operatördür.
+
+            string jk = null;
+            Console.WriteLine(jk ?? "Null olduğu için bu coalescing yüzünden bunu yazdı");
+            //if else yapısı kullanmadan beni sonuca daha efektif ve daha az kod yazarak götürdü.
+
+            // Console.WriteLine(jk ?? 3);    ?? işaretinin sağı ile solundaki türlerin değeri birebir aynı olmalıdır. Bu şekilde bir kullanım yoktur ve çalıştırmaz.
+
+
+            #endregion
+
+
+            #region  ??= Operatörü (Null-Coalescing Assigment) (c#8.0)
+
+            string mm0 = null;
+            Console.WriteLine(mm0 ??= "Null-Coalescing Assigment sonucu mm0 isimli değişkene bu metin bellek adresinde atanmıştır ??= ile");  // işleyiş; eğer ki mm0'ın değeri null ise metini yazdır ve metinin değerini mm0'a ata.
+
+            #endregion
 
 
         }
