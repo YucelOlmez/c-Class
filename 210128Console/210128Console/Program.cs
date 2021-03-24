@@ -1062,6 +1062,71 @@ namespace _210128Console
             Console.WriteLine(mm0 ??= "Null-Coalescing Assigment sonucu mm0 isimli değişkene bu metin bellek adresinde atanmıştır ??= ile");  // işleyiş; eğer ki mm0'ın değeri null ise metini yazdır ve metinin değerini mm0'a ata.
 
             #endregion
+            
+
+
+
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+            #region  Akış Kontrol Mekanizmaları Nelerdir ? Ne Amaçla Kullanılırlar ?
+
+            // Kodun akışında belirli şarta göre gideceğin yönü/çalıştıracağın farklı kodları belirlemeni sağlayan yapılara Akış Kontrol Mekanizması denir.
+            // Akış kontrol mekanizmaları kodun akış sürecinde belirli şartlara göre farklı yönlendirmeleri yapmamızı ve farklı algoritmaları/kodları/yapılanmaları çalıştırmamızı sağlayan mekanizmalardır.
+
+            //temelde if-else ve switch olarak söyleyebiliriz.
+
+            //Akış Kontrol Mekanizmaları neye yaramaktadır ??
+            //Yazılım kodunun akış sürecinde şarta göre yönlendirmesini sağlamaktadır.
+            //Algoritmalarda ciddi anlamda kullanılan yapılanmalardır. O yüzden yazılımcılar açısından olmazsa olmaz yapılanmalardır.
+            //Akış Kontrol Mekanizmalarında if-else ya da switch yapılanmaları aynı işi farklı şekilde yapmamızı sağlayan birbirlerinden farklı yapılanmalardır.
+            //İkisi arasında teknik olarak fark olsa da işleyiş ya da kullanım açısından amaç açısından bir fark yoktur.
+
+            //İstediğimiz şartlara giden yolu değiştiren, durumların yönünü değiştiren yapılardır. 
+
+
+            #endregion
+
+
+            #region Switch Case
+
+            //Switch Case kodun akışında belirli bir şarta göre yönlendirme yapmamızı(Farklı algoritma çalıştırmamızı/farklı operasyon gerçekleştirmemizi/tetiklememizi) sağlayan yapılanmadır.
+            //Switch Case akışın yönlendirilmesi noktasında/dönüm noktasında eşitlik durumuna göre bir şart varsa kullanılabilir.
+            //Switch Case yapılanması sadece bir değişkenin değerini sadece eşitlik durumlarını kontrol ederken kullanılabilir.
+            //Sadece eşitlik durumu check edilecekse o zaman switch kullanılabilir.
+
+            //Switch paratezinde kontrol edilen değer bir değişken yahut sabit/statik bir değer olabilirken case bloklarındaki değerler kesinlikle sabit/statik olmak zorundadır. caselerdeki değerler değişkenlerden alınamaz !!!
+
+            //eşitlik durumu sağlandığı anda diğer kalan case varsa eğer kalanlara bakmadan switch scope'undan çıkıp gidecektir.(compiler)
+            //switch yapılanmasında amaç eşitlik durumuna göre belirli bir kod bluğu tetiklemektir.
+            //case'lerdeki statik/sabit değerlerin sıralaması önemli değiltir. default case'ini istersen ortaya yazabilirsin.
+            //
+
+            string scAdi = "yücel";
+            switch(scAdi)//süreçte eşitlik durumu kontrol edilecek olan değer buraya yazılmalıdır.
+            {
+                case "Ali":
+                    Console.WriteLine("adı Ali");
+                    break;
+
+                case "Ayşe":
+                    Console.WriteLine("adi Ayşe");
+                    break;
+
+                default:
+                    Console.WriteLine("hiç biri değil");   // case bloklarından hiç biri eşleştirmeye uymuyorsa eğer varsa default-break arasındaki kodlar tetiklenir.
+                    break;
+            }    
+
+            #endregion
+
+
+
+
 
 
         }
