@@ -1125,7 +1125,63 @@ namespace _210128Console
             #endregion
 
 
+             #region Switch-Case'de When Şartı
+            //Switch yapılanmasında sadece elimizdeki değerin eşitlik değerini kontrol edebilmekteyiz. Bunun dışında bu kontrol esnasında farklı şartları da değerlendirmek istiyorsak eğer When keyword'unu kullanabiliriz.
+            // case'den sonra when şartı ile switch'i zenginleştiren bu şart koşulu ile farklı sorgulamalarda yapabilmemize olanak sağlamaktadır.
+            // şart varsa sonuç herzaman boolean döner yani mantıksal çıktı değeri vermesi gereyor.
 
+            int satisUcrti = 500;
+            switch(satisUcrti)
+            {
+                case 500 when (3 == 5):
+                    break;
+
+
+                case 500 when (3 == 3):
+                    break;
+
+            }
+
+
+            #endregion
+
+
+            #region Switch-Case'de goto Keyword'ü
+            //Switch case yapılanmasında sadece eşitlik durumunu inceleyebildiğimiz için mantıksal bir işlem gerçekleştirememeteyiz. Dolayısı ile bazen farklı değerlere eşit olma durumunda aynı operasyonu kodu/akışı kullanacağımız senaryolarla karşılaşabilmekteyiz.
+            //case'lerde farklı eşitliklerde aynı kodu çalıştıracaksak eğer kod tekrarına girmemek için goto keyword'ü ile ''şu case'deki kodu çalıştır'' diyebiliyoruz. Yani caseler arasında zıplama yapabiliyoruz.
+
+            int sayyi = 15;
+           switch (sayyi)
+            {
+                case 5:
+                    Console.WriteLine(sayyi * 10);
+                    break;
+
+
+                case 6:
+                    Console.WriteLine(sayyi / 5);
+                    break;
+
+
+                case 7:
+                    goto case 5;    //bu satırda eğer eşitlik durumu 7 ile sağlandığında ve aslında case 5 deki sağlanan kod ile aynı işlemi yapacaksa  case 7 yönlendirmesini 5e gönderiyorum ve Console.WriteLine(sayyi * 10); kodunu çalıştırıyor.
+                    //Burada break; komutunu kaldırmamız önemli çünkü manevratik komutlarımızdan biridir. break olmadığı için goto ile ilgili kodun çalışacağı case'e yönlendirme yapıyoruz.
+
+
+                case 10:
+                    goto case 5;  //case 5'deki kodu çalıştır demiş oluyoruz. goto ile gönderdiğimde şarta bakmadan case içindeki kodu/algoritmayı çalıştırıyor.
+
+                case 11:
+                case 12:
+                case 13:
+                case 14:
+                case 15:
+                    goto case 5;
+                    //birden fazla aynı case'e yönlendirilen goto keyword'ünün kullanıldığı durumlarda yukarıdaki gibi daha pratik bir yaklaşım yapabilmekteyiz.
+
+            }
+
+            #endregion
 
 
 
