@@ -1184,6 +1184,48 @@ namespace _210128Console
             #endregion
 
 
+                #region c# 8.0 Switch Expressions Nedir ?
+            //Tek satırlık işlemler için maliyet düşürücü ve kullanışlı semantıklerdir.
+            //tek satırlık değer atama işlemlerini Switch Expressions ile atayabiliyoruz.
+            string exprssIsim = "";
+            int exp = 10;
+            switch(exp)
+            {
+                case 5:
+                    exprssIsim = "mehmet";
+                    break;
+
+
+                case 7:
+                    exprssIsim = "ayşe";
+                    break;
+
+
+                case 10:
+                    exprssIsim = "Yücel";
+                    break;
+
+            }
+
+
+            int exp1 = 10;                //Yeni yöntem Switch Expression tek satırlık değer atama işlemi daha az maliyetli
+            string expIsim = exp1 switch   // expIsim değişkeninin switch'ine girdi, expIsim'in kıyaslanacağı eşitlik durumları ve değeri altta inceleniyor.
+            {
+                5 => "hacı",       //    => ise anlamına gelmektedir.
+                7 => "ali",
+                10 => "veli"    
+            };
+
+            //yapısal olarak tüm kurallar geçerli, denetlediğim değer tür ile karşılaştırma yapıp hangi değişkene atama yapacaksam o değere uygun bir değer gönderiyorum.
+
+
+
+            #endregion
+
+
+
+
+
 
         }
     }
