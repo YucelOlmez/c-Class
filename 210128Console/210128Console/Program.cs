@@ -1209,7 +1209,7 @@ namespace _210128Console
 
 
             int exp1 = 10;                //Yeni yöntem Switch Expression tek satırlık değer atama işlemi daha az maliyetli
-            string expIsim = exp1 switch   // expIsim değişkeninin switch'ine girdi, expIsim'in kıyaslanacağı eşitlik durumları ve değeri altta inceleniyor.
+            string expIsim = exp1 switch   // expIsim değişkeninin switch'ine girdi, expIsim'in kıyaslanacağı eşitlik durumları ve değeri altta inceleniyor. Değişkenin 5 ise 7 ve 10 olma durumlarına göre "hacı", "ali" ve "veli"  değerleri expIsim değişkenine gönderiliyor.
             {
                 5 => "hacı",       //    => ise anlamına gelmektedir.
                 7 => "ali",
@@ -1223,8 +1223,118 @@ namespace _210128Console
             #endregion
 
 
+           #region Switch Expressions-When Şartı
+
+            //Elimizde kontrol ettiğimiz değeri değişkene tanımlayarak atayabiliyoruz.
+            //ilgili değişken üzerinden birden fazla farklı condisition'ıda verebiliyoruz.
+
+            int y77 = 10;
+            string nname = y77 switch
+            {
+                5 when 3==3  =>  "atilla",  //elimizdeki karşılaştırmaları ise => operatöründen önce yazıyorken aynı satırda when ile farklı şartları yazabiliyoruz. eğerki 3=3 true ise ve karşılaştırılan değer 5 ise "atilla" değeri veriliyor.  'when' ve diye okunarak kodlar yorumlanabilir. bu yol when'in direkt kullanımıdır.
 
 
+                var y88 when y88==7 && y88 % 2 == 1  =>  "metehan", // burada kıyaslanacak değişken değerini yazmadan ve  =>ise operatöründen önce içeride 'var' ile bir değişken tanımlayıp when dedim artık y88 y77'nin o anki değerine takabül ediyor ve sonrasında mantıksal ooperatörler ve aritmatik işlemler kullanıp 'when' şartının 2. kullanım halini de bu şekilde yorumlayabiliyoruz.
+
+                //y77 değişkenin türüne uygun y77 değişkenini karşılayabilen farklı değişkenler ile de tanımlayabiliriz. yani y88'i var ile değil decimal ile de tutabilirdik.
+
+
+               10  =>  "cansu",
+
+
+
+               var yyy9 => "hiç biri" //Default : hiç birinin olmadığı durumlarda default tanımlamasına karşılık gelecektir.
+            };
+
+            ///bir değişken kullanıyorsak kullandığımız değişkende direkt eşitlik durumunu kontrol edeceğimiz bir değer tanımlamaya gerek kalmamaktadır.
+
+            #endregion
+
+
+            #region Switch Expressions-Tuple Patterns
+
+
+            // Tuple Patterns ise switch yapılanmasını Tuple nesnelerini kontrol edebilecek şekilde hem standart hemde yeni yapılanmayla bizlere sunmaktadır.
+
+            int lo1 = 10;
+            int lo2 = 20;
+            string lo3 = "";
+            switch (lo1, lo2)
+            {
+                case (5, 10):
+                    lo3 = "5 ile 10 değerleri";
+                    break;
+
+                case (10, 20):
+                    lo3 = "10 ile 20 değerleri";
+                    break;
+            }
+            Console.WriteLine(lo3);
+            //-------------------------------------------------------- alttaki Switch'Exp-Tuple yöntemi üstteki Switch'Exp-Tuple yöntemine göre daha az kod maliyetli ve daha kullanışlıdır.
+
+            int lo4 = 30;
+            int lo5 = 40;
+
+            string lo6 = (lo4, lo5) switch
+            {
+                (32, 38) => "32 ve 38 değerleri",
+                (30, 40) => "30 ve 40 değerleri"
+            };
+            Console.WriteLine(lo6);
+
+
+
+            //Bu kodların asıl meselesi Switch Case yapılanması içerisinde TEK SATIRLIK İŞLEM yapıyorsak yapmış olduğumuz tek satırlık işlemde bir değişkene değer atıyorsak Switch Expression mantığını kullanabiliyoruz.
+
+
+
+            #endregion
+
+
+             #region Switch Exp-Tuple Patterns When şartı Uygulamak
+            //burada switch içerisindeki tanımladığımız tuple ortak bir tür olarak karşılanmadığı için var keyword'ünü kullanıp değişkeni bu şekilde karşılıyoruz.
+
+            int mko = 10;
+            int mko2 = 20;
+            string mko3 = (mko, mko2) switch
+            {
+                (11, 15) when (true) => "11 ile 15 değerleri",
+                var mko4 when mko4.mko % 2 == 1 || mko4.mko2 == 10 => "10 ile 20 değerleri" //var mko4 değişkeni mko ve mko2 değerlerini yakalıyor ve biz onun üzerinden şart uygulayabiliyoruz.
+            };
+
+            Console.WriteLine(mko3);
+
+            #endregion
+
+
+            #region Switch Exp - Positional Patterns
+
+            //Positional Patterns ise Deconstruct özelliği olan nesneleri kıyaslamak yahut değersel karşılaştırmak için kullanılan bir gelişimdir.
+
+
+            #endregion
+
+
+            #region Switch Exp - Positional Patterns when Şartı
+
+            // Switch Exp-When şartındaki kurallar burada da geçerlidir.
+
+            #endregion
+
+
+            #region Switch Exp - Property Patterns
+
+            // Property Patterns, nesnenin property'lerine (member'larına) girerek belirli durumları hızlı bir şekilde kontrol etmemizi gerçekteştiren ve bunu farklı değerler için birden fazla kez tekrarlı bir şekilde yapmamıza olanak sağlayan güzel bir gelişimdir.
+
+
+            #endregion
+
+
+            #region Switch Exp - Property Patterns when Şartı
+
+            // Switch Exp-When şartındaki kurallar burada da geçerlidir.
+
+            #endregion
 
 
         }
