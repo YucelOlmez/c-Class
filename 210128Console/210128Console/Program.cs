@@ -1337,6 +1337,139 @@ namespace _210128Console
             #endregion
 
 
+             #region if Yapısı-Akış Kontrol
+
+            //Switch ile aynı amaca hizmet ederler. Aralarında küçük bir fark vardır.
+            //Switch elimizdeki bir değerin farklı değerlere olan '''''eşitliğini kontrol''''' eder.
+            //if yapılanması ile tüm şartları karşılaştırma operatörlerin tümünü kullanabiliyoruz ve mantıksal operatörler sonucuna göre yönlendirmeler üstelik null, is not null operatörlerini dahi kullanabiliyoruz.
+
+            // if Yapılanması elimizdeki bir değerin eşitlik durumuda DAHİL tüm bütün kıyaslamaları karşılaştırmaları yapmamızı sağlayan ve sonuca göre akışı yönlendirmemizi sağlayan bir yapılanmadır.
+            // if () içerisinde şartımızı yazıyoruz. bu şart doğru yani true ise altındaki scope {} içindeki içindeki code'lar tetiklenecektir. eğer şartımız false ise compiler if scopunu okumadan yoluna devam edecektir.
+            // if yapılanmasında şartı yazdığımı parantez içi () her daim boolean olmalıdır. yani şartımız boolean olmalıdır.
+            //Karşılaştırma operatörlerin ve mantıksal operatörlerin hepsi burada kullanılabilir. Karşılaştırma operatörleri sonuç olarak true yada false yani boolean mantıksal operatörlerin hepsi true ya da false döndürür. buna göre belirli bir algoritmayı tetikleyeceğim.
+
+            bool medenihal = true;
+
+            if (medenihal == true)
+            {
+                Console.WriteLine("Mutluluklar");
+            }
+
+            bool medenihal2 = true;
+            if (!medenihal2)
+            {
+                Console.WriteLine("tebrikler BU yazı if 'in şart koşulu için kullanılan karşılaştırma operatörsüz çıktı yazısıdır.");
+            }
+            Console.WriteLine("if (!medenihal2) şartı içinde kullandığım ! sonucu true olan medenihal2 ünlem ile false sonucu dönerek bu çıktıyı vermiştir");
+            // if yapılanması tek başına kullanılıyorsa sadece şarta bağlı çalışacak koda odaklanır. Şartın dışındaki duruma odaklanmaz.
+
+
+
+            // if yapılanmasında illa ki else kullanmak zorunda değiliz.
+            int ifsayi = 10;
+            if (ifsayi==10)
+            {
+                Console.WriteLine("if'e merhaba");
+            }
+            Console.WriteLine("if'ten bağımsız merhaba");
+
+
+
+
+
+            #endregion
+
+
+            #region if-else Yapısı
+
+            //if şarta göre scope içerinde çalışmamasını belirliyor. Ayrıyetten şartın sağlanmadığı durumlarda başka bir code'un çalışmasını istiyorsak else scopelarını açıp oraya code'u yazıyoruz.
+            //Yani else scope'u if şartının sağlanmaması sonucunda çalışması gerekli olan alternatif kodları yazacağımız alandır.
+            // if bloğunda else varsa şartın false olması durumunda kesinlikle else bloğu tektiklenir.
+            // if-else yapılanmasında şart bloğu olduğunda sadece if, yanlış olduğunda ise sadece else blokları tetiklenir.
+
+            int ifelsesayi = 10;
+
+            if (ifelsesayi >5)
+            {
+                Console.WriteLine(" ifelsesayi değişkeni 5den büyüktür diye yazdırdı.");
+            }
+            else
+            {
+                Console.WriteLine("ifelsesayi değişkeni 5'den küçüktür diye yazdırdı.");
+            }
+
+
+            int RR1 = 10;
+            if (RR1 !=10)
+            {
+                Console.WriteLine("sayı 10'a eşit değildir.");
+            }
+            else
+            {
+                Console.WriteLine("sayı 10'a eşittir.");
+            }
+            //üstte != ile sayının 10a eşit değilse if bloğuna girmesini eğer sayı 10'a eşitse else bloğuna girmesi gerçekleşir. Manevratik işlem burada yapılmıştır.
+
+
+            //if-else bloklarında code tekrarlarını yaparsan bu gereksiz ve saçma olacaktır. buna alternatif olarak blokların sonrasında yazıp analitik bir çözüm bulabiliriz.
+            // her iki durumda da ortak çalıştırılacak olan komutları if-else bloğunun dışına yazmamız daha analitik çözüm olacaktır.
+            // kod tekrarının olduğunu gördüğün an orada problem vardır. gereksiz kullanım vardır. traş edilmesi gerekir.
+
+
+            #endregion
+
+
+            #region if-else-if Yapısı
+
+            // birden fazla şartın kontrol edilmesini sağlayan yapılanmadır.
+            //eğer ki if-else demeden if-else-if diyorsak mevcut şartın dışında başka bir şartı da kontrol etmek istiyoruz anlamındadır.
+            // birden fazla şartı kontrol etmemizi sağlayan bir yapılanmadır.
+            // eğer hava yağmurluysa şunu yap, değilse bunu yap mantığı if-else yapısıdır.
+            // eğer hava yağmrluysa şunu yap, değilse güneşliyse bunu yap, yine değilse karlıysa botunu giy mantığı if-else-if yapısıdır.
+            //bu yapı içerisinde sadece tek bir şartımız doğruysa ya da istediğimiz durumu karşılıyorsa ilgili şartın içindeki kodlar çalışacaktır.
+            // if-else-if yapısında her if'in başında () vardır ve şartını yazmamız gerekmektedir.
+            // kaçtane şartımız varsa ve bunları kontrol edip şartlar bağlamında kod yazdıracaksak if ()'lerine şartlarımızı yazmamız gerekmetedir.
+
+            //if yapılanmalarından herhangi biri doğrulandıysa eğer diğer else-if yapıları denetlenmeyecektir.
+
+
+            int RR2 = 30;
+            if (RR2 > 5 && RR2 <= 10)
+            {
+                Console.WriteLine(RR2 * 5);
+            }
+            else if (RR2 > 10 && RR2 <=20)
+            {
+                Console.WriteLine(RR2 * 10);
+            }
+            else if ( RR2 > 20 && RR2 <=30)
+            {
+                Console.WriteLine(RR2 * 20);
+            }
+
+
+            // Birden fazla şarta göre birden fazla işlem yapmak istiyorsak if-else-if bizim için mantıksal bir hataya sebep olabilir.
+
+
+
+
+            #endregion
+
+
+            #region Scope'suz if Yapısı
+
+            // if yapılanması tek satırlık bir işlem gerçekleştiriliyorsa eğer bunu scope içerisinde yazmak mecburiyetinde değiliz.
+            // Eğer ki birden fazla konsept/işlem/operasyon barındıracaksa bunları kesinlikle scope içerisine almamız gerekmektedir. Aksi taktirde scopesuz çalışılırsa ilk işlemi if bloğu alacak diğerlerini almayacaktır.
+
+            #endregion
+
+
+
+
+
+
+
+
         }
     }
 }
