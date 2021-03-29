@@ -1464,7 +1464,105 @@ namespace _210128Console
             #endregion
 
 
+              #region if Yapısı ile ilgili Çözümler
 
+            // İki ürün fiyatı girildiğinde toplam fiyat 200 TL'den fazla ise 2. üründen %25 indirim yaparak ödenecek tutarı gösteren uygulamayı yazınız.
+
+            Console.Write("Lütfen birinci ürünün fiyatını giriniz : ");
+            int urun1 = int.Parse(Console.ReadLine());
+            Console.Write("Lütfen ikinci ürünün fiyatını giriniz : ");
+            int urun2 = int.Parse(Console.ReadLine());
+
+            int uruntoplam = urun1 + urun2;
+           
+            if (uruntoplam>200 )
+            {             
+                Console.WriteLine(urun1 + (urun2 * 75 / 100));
+            }
+            else
+            {
+                Console.WriteLine(uruntoplam);
+            }
+
+
+            //Belirlenen kullanıcı adı ve şifre doğru girildiğinde "giriş Başarılı", yanlış girildiğinde "Girdiğiniz kullanıcı adı ve şifre hatalı" mesajı veren console uygulaması yapınız.
+
+            Console.WriteLine("lütfen kullanıcı adınızı yazınız !");
+            string kullaniciAdi = Console.ReadLine();
+            Console.WriteLine("lütfen şifrenizi giriniz !");
+            string sifree = Console.ReadLine();
+
+            //  if (!(kullaniciAdi=="Yücel" && sifree=="12345"))
+            //      Console.WriteLine("Kullanıcı adı ve ya şifre hatalı");                        
+            //  else
+            //      Console.WriteLine("Giriş başarılı");
+
+            //---------------------------------------------------------------------------------------------------------
+
+            //  Console.WriteLine(kullaniciAdi == "Yücel" && sifree == "12345" ? "Giriş Başarılı" : "Kullanıcı adı ve ya şifre hatalı"); // Ternary Operatörlü çözümüdür.
+
+            string kullName = kullaniciAdi;
+            string sifree2 = sifree;
+            switch (kullName)
+            {
+                case "Yücel" when (sifree2 == "12345"):
+                    Console.WriteLine("Giriş başarılı");
+                    break;
+
+                default:
+                    Console.WriteLine("Kullanıcı adı ve ya şifre hatalı");
+                    break;
+
+            }
+
+
+            //Kullanıcıdan alınan iki sayının ve yapılacak işlem türünün (toplama, çıkartma, çarpma, bölme) seçilmesiyle sonucu hesaplayan programı yazınız.
+            Console.WriteLine("Lütfen birinci sayıyı giriniz");
+            int userNumb1 = int.Parse(Console.ReadLine());
+            Console.WriteLine("Lütfen ikinci sayıyı giriniz");
+            int userNumb2 = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Lütfen yapmak istediğiniz işlemi seçiniz");
+            char islmSNC = char.Parse(Console.ReadLine());
+
+            //int SNC = islmSNC switch
+            //{
+            //    '+' => userNumb1 + userNumb2,
+            //    '-' => userNumb1 - userNumb2,
+            //    '*' => userNumb1 + userNumb2,
+            //    '/' => userNumb1 - userNumb2
+            //};
+
+            Console.WriteLine(islmSNC == '+' ? userNumb1 + userNumb2 : 
+                (islmSNC == '-' ? userNumb1 - userNumb2 : 
+                (islmSNC == '*' ? userNumb1 * userNumb2 : userNumb1 / userNumb2)));
+
+
+
+            //girilen sayının değeri 10 değilse ekrana ^^sayı yanlış^^ yazdırınız.
+
+            int Numbdsy = int.Parse(Console.ReadLine());
+            if (Numbdsy!=10)            
+                Console.WriteLine("Sayı yanlış");
+
+
+
+            //Girilen sayının negatif ya da pozitif olduğunu gösteren uygulamayı yazınız.
+            int NPsayi = int.Parse(Console.ReadLine());
+
+            string NPsonuc = "";
+            if (NPsayi > 0)
+            {
+                NPsonuc = "Pozitiftir";
+            }
+            else
+            { 
+                NPsonuc = "Negatiftir"; 
+            }
+            Console.WriteLine(NPsonuc);
+            // Buradaki compiler işleyişi mantığı şu şekildedir; 1) Bazen akış kontrol mekanizma scopeları içerisinde elde edilen değer ilgili scope'tan dışarı çıkartılıp kullanılmak istenilebilir. Dışarıda tanımlanan değişkene scopelar içerisinde değer atanıp daha sonra atanan değeri farklı yerlerde kullanıp işlemek isteyebiliriz. mesela if içerisinde elde ettiğimiz bir değeri(if scopeları içinde atanan bir değeri) if scopelarının dışarısında kullanmak gibi. Yani kısaca burada mantığı değerlendirmek önemlidir.
+
+            #endregion
 
 
 
