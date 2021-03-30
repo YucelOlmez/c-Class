@@ -1565,7 +1565,28 @@ namespace _210128Console
             #endregion
 
 
+            #region c# 7.0 Pattern Matching - Type Pattern
 
+            //Akış kontrol mekanizmalarında belirli kontrolleri yapabildiğimiz yapılanmaların daha da desenleştirilmiş halidir.
+            // İlgili senaryoya bu tasarım eşleşiyor gibi düşünebiliriz.
+            // Tasarım eşleştirmesi anlamına gelmektedir.
+            // c# 7.0 ile gelmiştir. Mevcut sürümde varolanlar daha da güçlendirilmiştir.
+
+
+            // Type Pattern object içerisindeki bir tipin belirlenmesinde kullanılan '''is''' operatörünün desenleştirilmiş halidir.
+            // is ile belirlenen türün direkt dönüşümünü sağlar.
+
+            object tyX = 123;
+            if (tyX is int tyXX)        // Compiler şu şekilde konuşuyor: eğer object tyX değişkenin içindeki değer integer ben sana bunu tyXX değişkenine cast ederim hiç içeride castle uğraşma demektedir. tyXX değişkenini if scopeunun içinde istediğimiz gibi kullanabiliriz. fakat buradan sonraki scopelar dışında da ilgili değişkene ulaşabilirken kullanmak istediğimizde compiler hata verecektir. çünkü burada tanımlanan değişken null olarak dönebilme ihtimalini okumaktadır. bir değişkenin null dönüp dönmeme ihtimali varsa compiler bu ihtimali göz ardı etmez direkt olarak hata döndürüp başka bir yol bul ey yazılımcı demektedir. bu sebeple ulaşılabilir ama kullanılamaz. sadece if scope içinde kullanılıp değer ataanabilir.
+
+                Console.WriteLine(tyXX);
+
+            else if (tyX is decimal tyXXX)  //buradaki kritik eğer if içerisindeki type pattern ile tanımladığımız değişkenin isminin aynısını burada kullanamayız. Farklı bir değişken ismi tanımlamam gerekmektedir.
+                Console.WriteLine(tyXXX);
+
+            
+
+            #endregion
 
 
         }
