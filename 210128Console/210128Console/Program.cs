@@ -1618,7 +1618,23 @@ namespace _210128Console
             #endregion
 
 
+            #region var Pattern (c# 7.0 Pattern Matching)
 
+            // Eldeki veriyi var keyword değişkeni ile elde etmemizi sağlamaktadır.
+            // var verilen değerin türüne bürünen bir keyword'dür. Runtime'da bürünme işlemini gerçekleştirir. yani runtime'da ilgili değişkenin türüne büründüğü anda boxing edilmiş değişkeni unboxing edecektir.
+            // type Pattern'nin daha hızlı hali diyebiliriz.
+
+            object x77 = "sefsfesfs";  //boxing yapılmış değişken
+            if (x77 is var x88)        // burada var keyword'ü ile runtimeda ilgili değişkenin türüne bürünerek unboxing işlemi yapılıyor.
+            { 
+
+            }
+
+            // var Pattern ile normal var arasındaki fark şudur; normal var derleyici sürecinde türü belirler iken var Pattern farkı runtime'da belirlenir. Bu önemlidir. iki var arasındaki davranış değişikliği budur.
+
+            //değişken ile ilgili atanan değerin türüne runtime'da bürüneceksek bu dynamic'tir.
+
+            #endregion
 
 
         }
