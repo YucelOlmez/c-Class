@@ -1589,6 +1589,38 @@ namespace _210128Console
             #endregion
 
 
+            #region Constant Pattern (c# 7.0 Pattern Matching)
+
+            //Elimizdeki bir veriyi sabir bir değer ile karşılaştırabilmemizi sağlar.
+            // == ile aynı görevde çalışır. Değerleri bir biri ile karşılaştırır.
+            //Karşılaştırma işleminin boolean türde true ya da false olarak çalıştırır. compiler mantığı burada boolean ile çalışıyor.
+            int CPxx=150;
+            Console.WriteLine(CPxx is 150);
+
+
+            object CPx=123;
+            if (CPx is 123) //burada değeri karşılaştırıyor Buna Constant Pattern diyebiliriz.
+	          {
+
+	          }
+            if (CPx is int) //burada türünü karşılaştırıyor [is operatörünün kendi işleyişi kullanılıyor]
+	          {
+
+	          }
+
+            // is operatörü bir değişkenin türünü sormamızı/belirlememizi sağlayan bir operatördür ve bu operatörün kullanıldığı değişkenlerin türü illa bir referans türlü olma zorunda değildir.
+            // istersek değer türlü değişkenlerde de is operatörü kullanılabilmektedir ve hatta primitive türlerde bile kullanılabilmektedir.
+            // Eğer ki is operatörü ile bir değişkenin değerini == operatörünün sorumluluğu ile check ediyorsak buna constant pattern denmektedir.
+
+            // Burada önemki olan bölüm şudur: is operatöründe TÜR kontrolü yapıyorsam bu Constant Pattern olmaz. Constant Pattern olması için is operatöründe DEĞER kontrolü yapmam lazım. değişkende değer kontrolü yapıyorsam Constant Pattern'dir. Değişkende tür kontrolü yapıyorsam bu is operatörünün kendi işleyişindeki normal olağan kontrol check işlemidir.
+            //Türe uygun değerleri check etmemiz gerekir. aksi takdirde uygun olmayan değeri kontrol ettiğimizde kod hata verecektir.
+
+            #endregion
+
+
+
+
+
         }
     }
 }
