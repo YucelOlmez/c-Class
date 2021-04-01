@@ -1637,6 +1637,51 @@ namespace _210128Console
             #endregion
 
 
+            #region Recursive Pattern
+
+            //Bu desen switch-case yapılanması üzerinde bir çok yenilik getirmektedir.
+            //Switch bloğunda referans türlü değişkenler de kontrol edilebilmektedir.
+            // c# 7.0'dan önce switch operatörünün () içinde saddece değer türlü değişkenleri kullanabiliyorduk fakat şu an bu () içinde artık referans türlü değişkenleride kontrol edebiliyoruz.
+            //Recursive Pattern, tür kontrolü yaptığı için Type Pattern'i kapsamaktadır.
+            //Switch-Case yapılanmasında referans türlü değişkenlerin türlerini check edebiliyorum ve değişkenlerde bu türleri karşılayabiliyorum. ÖNEMLİ !
+            // Recursive Pattern case null komutu ile ilgili türün/referansın null olup olmamasını kontrol edebilmesinden dolayı Constant Pattern'i kapsamaktadır.
+
+
+            #endregion
+
+
+            #region Var Pattern - Type Pattern Kritik
+
+            object ppp = "sefsefsefes";
+            if (ppp is string ppp1)
+            {
+
+            }
+            if (x is var ppp2)
+            {
+
+            }
+
+            // Type - var patternleri illaki akış kontrol mekanizmalarında kullanmamız gerekmemektedir.
+
+            bool result = ppp is string ppp3;  //ppp is string sonucunu result'a aldım hemde string'den sonra ppp3 isiminde bir değişken tanımlamış oldum. Bu Type Pattern'dir
+            Console.WriteLine(ppp3);
+            // ppp eğer string ise sonuc true olarak result'a gelecek ama false olma ihtimali olduğu için ppp3 dışarda kullanmak istediğimizde buradaki sonucun false olma ihtimali yüzünden kullanmamıza direkt hata veriyor.
+            //Type Pattern'de ppp değişkenin değerinin string olmama ihtimalinde ppp3'in null olma ihtimali söz konusu olduğu için ppp3 kullanılırken hata vermektedir.
+
+            bool result2 = ppp is var ppp4; //Var Pattern'dir.
+            Console.WriteLine(ppp4);
+            //Var Pattern'de ppp değişkenin değerinin ne olursa olsun var ile ppp4'e atanacağından dolayı ppp4'ün null olma ihtimali yoktur. Dolayısı ile ppp4'ü rahatça kullanabilmekteyiz.
+
+            #endregion
+
+
+
+
+
+
+
+
         }
     }
 }
