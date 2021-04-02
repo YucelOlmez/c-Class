@@ -1677,7 +1677,34 @@ namespace _210128Console
 
 
 
+             #region Simple Type Pattern (c# 9.0)
 
+            //Type Pattern'nın geliştirilmiş halidir.
+            // Bir değişken içerisindeki değerin belirli bir türde olup olmadığını hızlı bir şekilde kontrol etmemizi sağlayan bir desendir. Type Pattern ile aynı açıklamayı kullanabiliriz.
+            // c# 7.0'da Type Pattern'de tür kıyaslaması yaparken değişken tanımlayıp kıyaslama yaparken ve bu değişkenin tanımlanması zorunluyken 9.0 ile gelen Simple Type Pattern'de sadece tür odaklı kıyaslama yapmamıza yani kullanmayacağımız yeni değişkeni tanımlamamıza gerek kalmayıp sadece tür kıyaslamamıza odaklanılmıştır. Yeni değişken tanımlayıp check etmemiz gerekmiyor.
+
+
+            #endregion
+
+
+            #region Relational Patterns (c# 9.0)
+
+            // İlişkisel Kıyaslama yapabildiğimiz bir patterndir
+            // Desenlerde < < <= ve >= operatörleri kullanılabilmekte ve belirli karşılaştırmalar hızlıca gerçekleştirilebilmektedir.
+            // Switch özü itibari ile sadece eşitlik durumunu inceleyen bir akış kontrol şemasıYDI. Relational Pattern ile diğer türlü karşılaştrmalarıda yapabilmekteyiz.
+
+            int RLnumber = 123;
+            string resultt = RLnumber switch
+            {
+            < 50 => "50'den küçük",
+            > 50 => "50'den büyük",              
+              _  => "Hiçbiri"  // buradaki _ default anlamına geliyor.                
+            };
+
+            // Kritik; 7.0'dan 9.0'a kadar switch sadece eşitlik durumunu yaparken artık switch diğer karşılaştırmaları yapabilmektedir.
+
+
+            #endregion
 
 
 
