@@ -1707,7 +1707,29 @@ namespace _210128Console
             #endregion
 
 
+            #region Logical Pattern (c# 9.0)
 
+            // Programlamaya mantıksal bir desen getirir.
+            // and, or ve not gibi mantıksal operatörler kullanılabilmektedir.
+            // Relational Pattern ile oldukça uyumludur.
+
+            int logNumb=60;
+            string resultT=logNumb switch 
+	{
+		> 10 and < 50 => "10'dan büyük 50'den küçük",
+        >50 or < 60 =>"50den büyük 100'den küçük",
+        not 51 => "51 değil"
+	};
+
+
+            #endregion
+
+
+            #region Not Pattern (c# 9.0)
+
+            // not operatörünün kullanılabildiği bir desendir.
+           
+            #endregion
 
         }
     }
