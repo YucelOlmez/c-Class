@@ -1731,6 +1731,18 @@ namespace _210128Console
            
             #endregion
 
+
+            #region Hata Kontrol Mekanizmaları Nedir ? Ne Amaçla Kullanılır ?
+
+            // 3 çeşit hata vardır:
+            // 1-Derleyici Hataları (Söz dizimi hataları)
+            // 2-Runtime Hataları
+            // 3-Mantıksal Hatalar
+
+            // Bu hatalara yaklaşım davranışları farklıdır.
+
+            #endregion
+
         }
     }
 }
