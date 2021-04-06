@@ -1743,6 +1743,37 @@ namespace _210128Console
 
             #endregion
 
+
+            #region Hata Türleri - Derleme/Syntax/Sözdizimi Hatası
+
+            // Programlama dili kurallarına aykırı olan tüm hatalara sözdizimi hataları diyoruz.
+            // Derleme/Syntax/Sözdizimi hatalarının üçüde birbirlerinin aynısınıdır. Hepsi aynı kapıya çıkan hatalardır.
+            // Bu hataların birbirleriyle aynı kapıya çıkmasının sebebi ile fark edilmesi ve çözümü en kolay hata türüdür.
+
+
+            #endregion
+
+            #region Runtime Hatası
+
+            // Editörü aldatıp programı ayağa kaldırma sürecini başlattıktan soonra programın işletim sistemi tarafından okunmayacağını bir mesaj ve ya ileti ile developer'a konuşan hatalardır.
+
+            //Çalışma zamani hataları programın işleyişi ortasında direkt kullanıcıyla temas edebilecek hatalardır.
+
+            //Yazılımcılar son kullanıcının run time hataları ile karşılaşmasını istemez.
+            //Olası hataları yazılımcı öngörüp bir şekilde tespit edip alabileceği hataları kullanıcıya çaktırmadan manipüle etmesi gerekiyor.
+            //Örneğin olmayan bir dosyayı mimaride açmaya çalışması bir ön tanımlı mesaj varsa bu ilgili mesaj ile kullanıcıya gönderilir ve manipüle edilir. Eğer hata öngörülüp traşlanmadıysa bu ilgili hata son kullanıcıya işletim sistemi dilinde bir hata fırlatacaktır. Bu hatalar anlamsız ve kompleks olabilir. Kullanıcıda nerede hata yaptığını bilemez ve bu sebeple yazılımcı log kullanma yöntemi ile ilgili mimariye hata kayıt defterini oluşturur. Daha sonra hatayı okuyup yazılımı geliştirmek için kayıtlı hataları gidermek ister.
+            // hataları görebildiğin kadar giderdikten sonra programını testerlara gönderilip kullanıcı gibi hata arama avına başlarlar.
+            //Uygulama mümkün mertebe test edilerek çalışma zamanı hataları tespit edilmeli ve programcı tarafından tanımlanmalıdır.
+
+            //Nasıl yapacağız ?
+            //Yazılımdaki hata kontrol mekanizmalarını devreye sokarız.
+            //Hata Kontrol Mekanizmaları Hatayı kullanıcıya hissettirmeden yakalayabilmek ve ilgili hatayı manipüle edebilmek için vardır.
+            //Hata.K.M.ları run time hatalarını için söz konusudur.
+
+
+
+            #endregion
+
         }
     }
 }
