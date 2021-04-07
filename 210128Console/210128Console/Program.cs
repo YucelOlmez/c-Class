@@ -1753,6 +1753,7 @@ namespace _210128Console
 
             #endregion
 
+
             #region Runtime Hatası
 
             // Editörü aldatıp programı ayağa kaldırma sürecini başlattıktan soonra programın işletim sistemi tarafından okunmayacağını bir mesaj ve ya ileti ile developer'a konuşan hatalardır.
@@ -1773,6 +1774,37 @@ namespace _210128Console
 
 
             #endregion
+
+
+             #region try-catch Mekanizması Teorik Anlatım
+
+            Console.WriteLine("Lütfen birinci sayıyı giriniz.");           
+                int nummb1 = int.Parse(Console.ReadLine());
+            Console.WriteLine("Lütfen ikinci sayıyı giriniz.");
+                int nummb2 = int.Parse(Console.ReadLine());
+                Console.WriteLine("Lütfen ikinci sayıyı giriniz.");
+
+            Console.WriteLine("Toplam: "+(nummb1+nummb2));
+             
+
+           
+
+
+            // run time'da alınan hataları karşılamamızı kontrol ve manipüle etmemizi sağlayan bir yapılanmadır.
+            // try - catch yapılanması uygulama sürecinde yaşanan olası hatayı kullanıcıya hissettirmeksizin farklı bir durum yada olağan bir mesaj gibi göstermemizi sağlayan ve bunun yanındapatlamaya/hataya dair bizlere bilgi sunan ve böylece bu bilgiler eşliğinde kayıtlar/log oluşturmamızı sağlayan bir programatik yapılanmadır.
+
+            //Amaç
+            // 1- Kullanıcıya alınan hatayı hissettirmemek
+            // 2- Alınan hatanın nedenine dair kullanıcıyı bilgilendirmek
+            // 3- İşletim sistemleri aykırı durum yaşandığında uygulamayı sonlandırmak isterler ve sonlandırırlar. try-catch yapılanması ile alınan hataya dair bir manipülasyon gerçekleştiriliyor ve uygulamanın kapanmadan devam edilmesi sağlanabiliyor.
+
+            //try ve catch'in kendisine ait scope'ları vardır. try scope'u içine olası runtime hatalarını verebilecek kodlar yazılır. try içerisinde olası hata söz konusu ise kodun akışı try scope'unda kesilip catch bloğundan devam edecektir.
+
+
+            #endregion
+
+
+
 
         }
     }
