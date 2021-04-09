@@ -1728,7 +1728,7 @@ namespace _210128Console
             #region Not Pattern (c# 9.0)
 
             // not operatörünün kullanılabildiği bir desendir.
-           
+
             #endregion
 
 
@@ -1776,20 +1776,33 @@ namespace _210128Console
             #endregion
 
 
-             #region try-catch Mekanizması Teorik Anlatım
+            #region try-catch Mekanizması Teorik Anlatım
 
-            Console.WriteLine("Lütfen birinci sayıyı giriniz.");           
+            try
+            {
+                // olası çalışma zamanı hatalarını barındıran / verebilecek olan kodları buraya yazıuyoruz
+
+
+                Console.WriteLine("Lütfen birinci sayıyı giriniz.");
                 int nummb1 = int.Parse(Console.ReadLine());
-            Console.WriteLine("Lütfen ikinci sayıyı giriniz.");
+                Console.WriteLine("Lütfen ikinci sayıyı giriniz.");
                 int nummb2 = int.Parse(Console.ReadLine());
                 Console.WriteLine("Lütfen ikinci sayıyı giriniz.");
 
-            Console.WriteLine("Toplam: "+(nummb1+nummb2));
-             
-
-           
+                Console.WriteLine("Toplam: " + (nummb1 + nummb2));
 
 
+            }
+            catch (Exception)
+            {
+                //try içerisinde bir hata söz konusu olduğunda catch bloğu tetiklenecektir.
+                // hataya dair; log, kullanıcı bilgilendirme kontrollü kapanış vs..
+                Console.WriteLine("Lütfen doğru bir ifade giriniz !");
+
+
+            }
+
+            
             // run time'da alınan hataları karşılamamızı kontrol ve manipüle etmemizi sağlayan bir yapılanmadır.
             // try - catch yapılanması uygulama sürecinde yaşanan olası hatayı kullanıcıya hissettirmeksizin farklı bir durum yada olağan bir mesaj gibi göstermemizi sağlayan ve bunun yanındapatlamaya/hataya dair bizlere bilgi sunan ve böylece bu bilgiler eşliğinde kayıtlar/log oluşturmamızı sağlayan bir programatik yapılanmadır.
 
