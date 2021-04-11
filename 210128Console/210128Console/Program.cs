@@ -1778,33 +1778,33 @@ namespace _210128Console
 
             #region try-catch Mekanizması Teorik Anlatım
 
+            Console.WriteLine("Lütfen birinci sayıyı giriniz.");
+            int nummb1 = 0 , nummb2 = 0;
             try
             {
                 // olası çalışma zamanı hatalarını barındıran / verebilecek olan kodları buraya yazıuyoruz
 
-
-                Console.WriteLine("Lütfen birinci sayıyı giriniz.");
-                int nummb1 = int.Parse(Console.ReadLine());
+               nummb1 = int.Parse(Console.ReadLine());
                 Console.WriteLine("Lütfen ikinci sayıyı giriniz.");
-                int nummb2 = int.Parse(Console.ReadLine());
-                Console.WriteLine("Lütfen ikinci sayıyı giriniz.");
-
-                Console.WriteLine("Toplam: " + (nummb1 + nummb2));
-
-
+               nummb2 = int.Parse(Console.ReadLine());
             }
-            catch (Exception)
+            catch
             {
                 //try içerisinde bir hata söz konusu olduğunda catch bloğu tetiklenecektir.
                 // hataya dair; log, kullanıcı bilgilendirme kontrollü kapanış vs..
+                //Hatalara dair kullancıyı manipüle edeceğimiz kodları, kod mtinlerini buraya yazacağız
                 Console.WriteLine("Lütfen doğru bir ifade giriniz !");
-
-
             }
+            Console.WriteLine("Toplam: " + (nummb1 + nummb2));
+            // ve üstteki kullanım en verimli kullanımdır ve ilgili mantığa göre kodlarımı yazarsam performans açısından daha verimli olacaktır.
 
-            
+
+            //try-catch yapısı olası hatanın ihtimal olduğu kodları durmadan kontrol eden MALİYETLİ bir yapıdır. Dolayısi ile try içerisinde kontrol edilen kodlar lüzumsuz yere tüm kodlar olmamalıdır. Sadece olası hata verecek olan kodları barındıran bir yaklaşım sergilemem kontrol maliyeti açısından daha verimli ve performanslı olacaktırç Performans açısından sadece önemli ve ciddi hata verecek kodları buraya yazmam daha doğru olacaktır. Önemli manipülasyonları burada tutmam gerekir.
+
+            //eğer try içerisindeki scopelarda patlama yada hata dönmezse doğal olarak catch'de çalışmayacaktır.
+
             // run time'da alınan hataları karşılamamızı kontrol ve manipüle etmemizi sağlayan bir yapılanmadır.
-            // try - catch yapılanması uygulama sürecinde yaşanan olası hatayı kullanıcıya hissettirmeksizin farklı bir durum yada olağan bir mesaj gibi göstermemizi sağlayan ve bunun yanındapatlamaya/hataya dair bizlere bilgi sunan ve böylece bu bilgiler eşliğinde kayıtlar/log oluşturmamızı sağlayan bir programatik yapılanmadır.
+            // try - catch yapılanması uygulama sürecinde yaşanan olası hatayı kullanıcıya hissettirmeksizin farklı bir durum yada olağan bir mesaj gibi göstermemizi sağlayan ve bunun yanında patlamaya/hataya dair bizlere bilgi sunan ve böylece bu bilgiler eşliğinde kayıtlar/log oluşturmamızı sağlayan bir programatik yapılanmadır.
 
             //Amaç
             // 1- Kullanıcıya alınan hatayı hissettirmemek
@@ -1812,6 +1812,26 @@ namespace _210128Console
             // 3- İşletim sistemleri aykırı durum yaşandığında uygulamayı sonlandırmak isterler ve sonlandırırlar. try-catch yapılanması ile alınan hataya dair bir manipülasyon gerçekleştiriliyor ve uygulamanın kapanmadan devam edilmesi sağlanabiliyor.
 
             //try ve catch'in kendisine ait scope'ları vardır. try scope'u içine olası runtime hatalarını verebilecek kodlar yazılır. try içerisinde olası hata söz konusu ise kodun akışı try scope'unda kesilip catch bloğundan devam edecektir.
+
+
+            //try-catch Hata Parametresi
+            //çalışma zamanında alınan hataya dair bizlere bilgi veren taşıyan parametrelerdir.
+            //Runtime'da hata alındığında bunu editör üzerinden görebilmekteyiz. Bizim aldığımız ya da karşılaştığımız hatanın türünü ifade etmektedir.
+            //Alınan hatanın yapısına göre hata türü fırlatılacaktır.
+            //Yapmak istediğimiz işlemlere işleyişe göre hata fırlatılır.
+
+            try
+            {
+                int trySa = 0, trySa1 = 10;
+                int trySo = trySa / trySa1;
+
+            }
+            catch (Exception xxxHatanin)  //Exception bana fırlatılan hata ile ilgili tüm bilgileri getirecek olan bir üst türdür. Üst Türden kasıt ileride OOP'ta kalıtımsal bir yapılanma ve baseclass olarak anlatılacaktır. Yani bütün hataları karşılayabilen bir türdür. Bu parametre üzerinden bizler alınan hataya dair bilgiler edinebilmekte ve log'lama vs. gibi operasyonları gerçekleştirebilmekteyiz. Bu parametre catch bloğuna tanımlanmak zorunda değildir eğer ki tanımlama yapılırsa hataya dair bilgileri member access ile erişimi ile yazdırabiliyoruz.
+            {
+                Console.WriteLine(" Mesaj : "+xxxHatanin.Message);
+                throw;
+            }
+
 
 
             #endregion
