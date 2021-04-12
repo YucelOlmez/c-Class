@@ -1831,10 +1831,38 @@ namespace _210128Console
                 Console.WriteLine(" Mesaj : "+xxxHatanin.Message);
                 throw;
             }
+            //Exeption tüm hata türlerinin atasıdır. Exeption'ın atası object'tir ve referans türlü bir türdür. 
+            //catch bloğu bir parametre tanımlanmazsa eğer tüm hataları karşılayabilen bir bloktur. Eğer ki parametre tanımlanır ve bu parametrenin türü exception'sa yine tüm hataları karşılayabilecektir. Fakat parametre exception değil özelleştirilmiş bir hataya indirgenmişse böyle bir durumda sadece ilgili türe ait hataları yakalayabilecek ve karşılayabilecektir. Aksi taktirde catch bloğu çalışmadan hata yine kullanıcıya yansıyacaktır.
+            //try bloğu içerisinde birbirinden farklı hata türleri fırlatabileceğini öngördüğümüz zaman her hataya ait spesifik catch bloğu parametresi hata türleri oluşturabiliyoruz.
+            // try bloklarının içerisinde editöre öncesinde tanımlanmış öngöremediğimiz hatalardan birisi çıkarsa ve bu hataları catch bloğu ile yakalayacak öngörüyü yazamadığımız zaman bu ihtimali es geçmemek için tüm catch'lerin altına genel bir exception catch bloğu açarız ve bu durumu ortadan kaldırırız. Yani üstteki catch'ler ile yakalayamadığımız hataları en kötü ihtimal en sona açtığımız exception ile yakalayıp yine manipüle edebiliyoruz.
+            // catch bloğu sıralaması önemlidir ve exception her zaman en sona yazılmalıdır.
 
+
+
+
+            //editöre tanımlanmış hatalar vardır yani hata durumlarının bir türe AİT olduğunu bilmemiz yeterlidir.
+
+
+
+            // c# programlama dilinde ''''türeme'''' kavramı kalıtımdan gelir.
 
 
             #endregion
+
+
+            #region finally Bloğu
+
+            //finally bloğu, try catch yapılanmasında hata alınsada alınmasada her iki durumda da tetiklenmesi/çalıştırılması gereken kodları yazdığımız bloktur.
+            //try, catch ve en son finally bloğunu tanımlamamız gerekiyordur aksi taktirde editör hata verecektir.
+
+            #endregion
+
+            #region try-catch_when
+            // catch bloğunu filtreleyip bir koşul ile kontrol etmek istediğimizde parametrenin () hemen soluna when şart koşulu açıp aynı hata türlerini belirli koşullar olduğunda kontrol edebileceğimiz durumlarda işimize yaramaktadır.
+            #endregion
+
+
+
 
 
 
