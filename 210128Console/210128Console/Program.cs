@@ -1872,7 +1872,23 @@ namespace _210128Console
             //Tüm değişkenlerin akışın kontrol edilmesini sağlayan bir teknolojidir. kodu adım adım incelememizi sağlar.
             #endregion
 
+            #region Döngüler
 
+            //Belirli bir koşula bağlı ve bağlı olunan koşul doğrulandıkça belirlenen tekrarda aynı kodu çalıştıran kombinasyondur.
+            //Programlama dilinin temel yapı taşıdır. Programlama dilince döngü yoksa ilgili dilde bir işlem yapmamız imkansızdır.
+
+            //Hangi döngü nerede kullanılmalıdır? sorusu YANLIŞTIR !
+            //Hangi döngü nereye/hangi senaryoya daha çok yakışır ? sorusu DOĞRUDUR !
+
+
+            #endregion
+
+            #region for Cycle 
+            //Prosedurel programlamada döngü yapılarından biridir.
+            //Genellikle ardışık işlemlerde kullanılan bir döngü yapılanmasıdır.
+
+
+            #endregion
 
 
 
