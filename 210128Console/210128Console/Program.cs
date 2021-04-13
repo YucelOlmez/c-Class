@@ -1862,6 +1862,17 @@ namespace _210128Console
             #endregion
 
 
+            #region Mantıksal Hatalar-Hata Türleri
+            //Programn mantığında akışında algoritmasında stratejisinde bir takım şeylerin yanlış hesaplanması düşünülmesi tasarlanması neticesinde alınan hatalardır.
+            //Syntax, runtime ve derlenmesinde hata çıkmaz. Kod çalışır ve sonuç verir fakat sonuçlar hatalıdır beklenilen sonuçları vermez Bu gibi durumda Logic error MAntıksal Hata denir.
+            //Logic Error Bug olarak nitelendirilir. Mantıksal hatalar bug'dır.
+            //Tespiti çok zordur ve en tehlikeli hata türüdür.
+            //En maliyetli hata olabilir.
+            //Mantıksal hatalarda bazen tek çözüm debug'dır.
+            //Tüm değişkenlerin akışın kontrol edilmesini sağlayan bir teknolojidir. kodu adım adım incelememizi sağlar.
+            #endregion
+
+
 
 
 
