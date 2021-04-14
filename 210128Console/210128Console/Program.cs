@@ -11,9 +11,9 @@ namespace _210128Console
     class Program
     {
 
-        static void Main(string[] args)       
-      
-        {                               
+        static void Main(string[] args)
+
+        {
 
             #region Tuple Türüyle Değer Atama
 
@@ -35,7 +35,7 @@ namespace _210128Console
 
             //default değerler class scopeları içerisinde gönderilir.
 
-            bool x = default(bool);            
+            bool x = default(bool);
             string y = default(string);
             int z = default(int);
             char q = default(char);
@@ -304,15 +304,15 @@ namespace _210128Console
             //dynamic ise runtime'da verilen değerin türüne bürünecektir.
             //dynamic amacı çalışır halde olan programımıza dışarıdan gelecek verilerin/değerlerin neye göre geldiğini anlayıp karar vermesine olanak sağlar. Güzel özellikmiş birader web'de işime yarar.
             //dynamic runtime'da esnek çalışabilmeye olanak sağlar. Kararlı yapısı yoktur. Bi ipnelik var.
-            
+
 
             var dgr = 12; //dediğimizde var dgr değişkeni direkt değere göre int değerini almıştır.
             dynamic dgr2 = 12; // dediğimizde 
-           // dgr2. //dediğimizde dgr2 halen dynamic olduğu için yani türü halen belli olmadından dolayı her hangi bir metotlarına erişemiyorum. Çünkü türünü runtime yapmadığımız için karar veremiyor halen türünü atamıyor.
+                               // dgr2. //dediğimizde dgr2 halen dynamic olduğu için yani türü halen belli olmadından dolayı her hangi bir metotlarına erişemiyorum. Çünkü türünü runtime yapmadığımız için karar veremiyor halen türünü atamıyor.
 
             //dynamic'te kod yazarken kodumuza gönderdiğimiz string*int bir işlemde hata almayız çünkü dynamic türünün ne geleceğine runtime'da karar verdiği için editör hatayı bize göstermez. Taa ki runtime yaptığımızda uygulama patladığında gösterir.
-            
-             dynamic dynmc = "Yücel";
+
+            dynamic dynmc = "Yücel";
             Console.WriteLine(dynmc.GetType());
             dynmc = 33;
             Console.WriteLine(dynmc.GetType());
@@ -382,7 +382,7 @@ namespace _210128Console
 
             Console.WriteLine(pXX * 8); //1. Yol--String değişkenin değeri ile matematiksel işlem yapabildiğim için 'Parse' metodu yardımıyla int türe dönüştürüp işlemimi yaptırdım.
 
-              Console.WriteLine(int.Parse(pX) * 2); //2. Yol--Çözümleme yolu aynı işlemi yapmaktadır. Fakat değişken tanımlamadan direkt dönüşüm yapıp sonuç aldım. ^^Daha kullanışlu sanki ??''
+            Console.WriteLine(int.Parse(pX) * 2); //2. Yol--Çözümleme yolu aynı işlemi yapmaktadır. Fakat değişken tanımlamadan direkt dönüşüm yapıp sonuç aldım. ^^Daha kullanışlu sanki ??''
 
 
             string pY = "<";
@@ -414,7 +414,7 @@ namespace _210128Console
 
             float ts_X = 456;
 
-            string ts_Y= ts_X.ToString();
+            string ts_Y = ts_X.ToString();
 
 
 
@@ -451,7 +451,7 @@ namespace _210128Console
             //
 
 
-           // checked
+            // checked
             {
                 int chckA = 500;        //elimizdeki değer burada byte'i aştığı için check bu scope'lar arasındaki kodları kontrol ediyor ve runtime'da hata gönderiyor. Çünkü değer kaybı var. Eğer check scope'unu kullanmasaydım console'a veri kayıplı halini yazacaktı.
                 byte chckB = (byte)chckA;
@@ -474,10 +474,10 @@ namespace _210128Console
 
             #region bool Türünün Sayısal Türe Dönüştürülmesi
             //Elimizdeki mantıksal bir değeri herhangi bir sayısal değere Convert edersek ilgili değerin mantıksal karşılığını elde edebiliriz.
-         
-                bool boolA = true;
-                decimal boolB = Convert.ToDecimal(boolA);
-                Console.WriteLine(boolB);
+
+            bool boolA = true;
+            decimal boolB = Convert.ToDecimal(boolA);
+            Console.WriteLine(boolB);
 
 
             #endregion
@@ -565,7 +565,7 @@ namespace _210128Console
             //Aritmatik Operatörler Geriye Dönüş Değeri 
             //Aritmatik Operatörler iki sayısal değer üzerinde işlem yapan operatörler oldukları için işlem neticesinde geriye ^^uygun türde^^ sonuç dönerler.
 
-             
+
             int operA = 3 + 5;  //3 + 5 işlemindeki işlemi yapan + operatörünün üstüne geldiğimizde sağındaki ve solundaki int değerlerin çıktısında bize integer sonuç verdiğini söylüyor. İşte buradan yola çıkarak biz okryazarlık yapıyoruz.
 
             //inceleme 2 *****
@@ -577,7 +577,7 @@ namespace _210128Console
             //İki farklı türde sayısal değer üzerinde yapılan aritmatik işlem neticesinde sonuç büyük olan türde dönecektir. Yani long*double işleminin sonucunda double long'a göre büyük kapsamda olduğu için derleyici büyük olanın sonucunda çıktı verir.
             long lng1 = 4654;
             byte dble1 = 25;
-           long snc1= lng1 - dble1;
+            long snc1 = lng1 - dble1;
             Console.WriteLine(snc1);
 
             //inceleme 4*********
@@ -585,7 +585,7 @@ namespace _210128Console
             //Normalde iki aynı türdeki sayısal değer üzerinde yapılan aritmatik işlem neticesinde sonuç aynı türde dönecekken bu iki değer byte ise sonuç her daim integer (int) dönecektir. Bu Böyle Kabul Edilmiştir. İSTİSNADIR !
             byte byt1 = 10;
             byte byt2 = 5;
-            int bytintsonuc=  byt1 - byt2;
+            int bytintsonuc = byt1 - byt2;
 
 
 
@@ -607,8 +607,8 @@ namespace _210128Console
             int krslstrma1 = 1535;
             int krslstrma2 = 5454;
 
-          bool krslstrma3 =  krslstrma1 > krslstrma2;
-            if (krslstrma3==true)
+            bool krslstrma3 = krslstrma1 > krslstrma2;
+            if (krslstrma3 == true)
             {
                 Console.WriteLine("krslstrma1 büyüktür");
             }
@@ -663,11 +663,11 @@ namespace _210128Console
             //Mantıksal operatörler mantıksal değerler üzerinde kullanılır.
             //Kesinlikle boolean değer döndürmesi gerekiyor.
 
-            bool kalem = true , silgi = false;
+            bool kalem = true, silgi = false;
 
-           bool ks1= kalem && silgi;
-           bool ks2= kalem || silgi;
-           bool ks3= kalem ^ silgi;
+            bool ks1 = kalem && silgi;
+            bool ks2 = kalem || silgi;
+            bool ks3 = kalem ^ silgi;
 
             Console.WriteLine(ks1);
             Console.WriteLine(ks2);
@@ -675,7 +675,7 @@ namespace _210128Console
 
 
             Console.WriteLine(((true && true) || false && ((true ^ false) && false) || true));   //işlem önceliğine göre sonuç console'da true dönecektir.
-                                                  
+
 
 
             #endregion
@@ -698,7 +698,7 @@ namespace _210128Console
 
 
             int eksI = 10;
-            int eksII=eksI--;     
+            int eksII = eksI--;
             Console.WriteLine(eksI);         //9 
             Console.WriteLine(eksII--);      //10
             Console.WriteLine(eksII--);      //9
@@ -727,9 +727,9 @@ namespace _210128Console
             //Kısacası buradaki operatörleri farklı kaynak kodların içinde gördüğümde neyi ifade ettiğini bilmem gerekir.
 
             #endregion
-           
 
-           #region Metinsel İfadelerde Kullanılan Operatörler
+
+            #region Metinsel İfadelerde Kullanılan Operatörler
 
             //+ Operatörü
             //Metinsel ifadelerde + operatörü yan yana birleştirilme işleminde kullanılır.
@@ -749,7 +749,7 @@ namespace _210128Console
             Console.WriteLine(ee1 + ee2);    // ee1 + ee2; İşleminde aslında + operatörünün solundaki ee1 int boxing yapılıp bilinçsiz tür dönüşümü yaşamıştır ve bu işlemin sonunda tutulan tür string olarak stack'te tutulacaktır. 
 
 
-             // += Operatörünün Metinsel ifadelerde Kullanımı 
+            // += Operatörünün Metinsel ifadelerde Kullanımı 
             string cc1 = "Mavi";
             string cc2 = "Araba";
             // cc1 = cc1 + cc2;
@@ -788,17 +788,17 @@ namespace _210128Console
 
             Console.WriteLine(!true);
 
-            int wer=5;
-            int rew=10;
-            Console.WriteLine(wer==rew); //çıktısı false döner çünkü == eşit midir sorgumuzun sonucu hayır eşif değil false'dır
-            Console.WriteLine(wer!=rew); //çıktısı true döner çünkü != eşit değil midir sorgumun sonucu evet eşit değildir true'dır
-            Console.WriteLine(!(wer==rew)); //Bu operatörün dışında sade ve sadece mantıksal değerlerin yanında kullanılabilir.
+            int wer = 5;
+            int rew = 10;
+            Console.WriteLine(wer == rew); //çıktısı false döner çünkü == eşit midir sorgumuzun sonucu hayır eşif değil false'dır
+            Console.WriteLine(wer != rew); //çıktısı true döner çünkü != eşit değil midir sorgumun sonucu evet eşit değildir true'dır
+            Console.WriteLine(!(wer == rew)); //Bu operatörün dışında sade ve sadece mantıksal değerlerin yanında kullanılabilir.
 
 
-            #endregion 
+            #endregion
 
 
-           #region Ternary Operatörü
+            #region Ternary Operatörü
 
             //Kalıpsal operatördür kalıpsaldan kast edilen ? ...... : .....; yapısıdır. Yani koşulumuzun durumuna göre soru işaretinden sonraki alanı döndürecektir eğer koşul sağlanmıyorsa iki nokta üst üste olanın sağı döndürülecektir.
             //şarta bağlı değer döndüren operatördür
@@ -822,7 +822,7 @@ namespace _210128Console
             //Birden Fazla Condition Uygulama
             int yas = 27;
             //Yaşı; 27'den küçük olanlara A, 27 olanlara B, büyük olanlara C değerini döndüren ternary operatörünü oluşturuyorum
-            char sonuc = yas < 27 ? 'A' : (yas == 27 ? 'B':'C');
+            char sonuc = yas < 27 ? 'A' : (yas == 27 ? 'B' : 'C');
             Console.WriteLine(sonuc);
 
             // Örnek
@@ -832,12 +832,12 @@ namespace _210128Console
             // sayı >=9 && sayı % 2 == 0          => sayı * 10 
             // sayı % 2 == 1                      => sayı
             // hiç biri değilse                   => -1
-            Console.WriteLine("Lütfen bir sayı giriniz !");            
-            int _sayi= int.Parse (Console.ReadLine());      // Console.ReadLine(); Kullanıcının girdiği değeri string olarak getiren/yakalayan bir komuttur.
-            int sonnuc=_sayi < 3 ? _sayi * 5 : 
-                (_sayi > 3 && _sayi < 9 ? _sayi * 3 : 
-                (_sayi >= 9 && _sayi % 2 == 0 ? _sayi * 10 : 
-                (_sayi % 2 == 1 ? _sayi : 
+            Console.WriteLine("Lütfen bir sayı giriniz !");
+            int _sayi = int.Parse(Console.ReadLine());      // Console.ReadLine(); Kullanıcının girdiği değeri string olarak getiren/yakalayan bir komuttur.
+            int sonnuc = _sayi < 3 ? _sayi * 5 :
+                (_sayi > 3 && _sayi < 9 ? _sayi * 3 :
+                (_sayi >= 9 && _sayi % 2 == 0 ? _sayi * 10 :
+                (_sayi % 2 == 1 ? _sayi :
                 (-1))));
             Console.WriteLine("Sonuç " + sonnuc);
 
@@ -848,15 +848,15 @@ namespace _210128Console
             // "Güneşli"   => "D Vitamini alacaksın"
             // "Kapalı"    => "Dikkatli ol yağmur yağabilir"
             string havaDurumu = "Kapalı";
-            Console.WriteLine(havaDurumu == "Yağmurlu" ? "Şemsiye almalısın" : 
-                (havaDurumu == "Güneşli" ? "D Vitamini alacaksın" : 
+            Console.WriteLine(havaDurumu == "Yağmurlu" ? "Şemsiye almalısın" :
+                (havaDurumu == "Güneşli" ? "D Vitamini alacaksın" :
                 "Dikkatli ol yağmur yağabilir"));
             //En sonuncu önergemizin şartını bildirmeyebiliriz. Zaten 2 ihtimalden birisi olmamışsa geriye kalan sadece 3. ihtimal olacağı için onun gerçekleşme koşulu kesinleşmiş oluyor. 3. durumun kontrol edilmesi gereksiz oluyor.
 
             #endregion
 
 
-             #region Atama(assing) Operatörü
+            #region Atama(assing) Operatörü
             // Atama operatöründe = sembolünü kullanırız bu sembolün sağ tarafına gelen value(değer) assign operatörünün solundaki değişkene atanır ve artık value alan değişken bellek adresinde saklanıyor olur.
             #endregion
 
@@ -887,7 +887,7 @@ namespace _210128Console
             int r1 = 45;
             short r2 = (short)r1;
 
-            
+
 
             //Char -> int | int -> Char (ASCII)
             int asciii = 99;
@@ -916,7 +916,7 @@ namespace _210128Console
             //Verilen türün ya da değerin type'ını yani türünü getirir.
             //İlgili tür ile bilgileri edinmek için kullanılan bir operatördür.
 
-           Type typ= typeof(int); //int türüne ait tüm bilgiler burada t değişkenine atanmıştır.
+            Type typ = typeof(int); //int türüne ait tüm bilgiler burada t değişkenine atanmıştır.
             Console.WriteLine(typ.Name);
             Console.WriteLine(typ.IsValueType);
             Console.WriteLine(typ.IsPrimitive);
@@ -1034,7 +1034,7 @@ namespace _210128Console
 
 
             object bb2 = 123;
-           int? bb3 = bb2 as int?;
+            int? bb3 = bb2 as int?;
             Console.WriteLine(bb3);
 
             //Bir değişkenin null olup olmamasının kontrolünü nullable ? operatörü ile yapabiliyoruz.
@@ -1062,7 +1062,7 @@ namespace _210128Console
             Console.WriteLine(mm0 ??= "Null-Coalescing Assigment sonucu mm0 isimli değişkene bu metin bellek adresinde atanmıştır ??= ile");  // işleyiş; eğer ki mm0'ın değeri null ise metini yazdır ve metinin değerini mm0'a ata.
 
             #endregion
-            
+
 
 
 
@@ -1107,7 +1107,7 @@ namespace _210128Console
             //
 
             string scAdi = "yücel";
-            switch(scAdi)//süreçte eşitlik durumu kontrol edilecek olan değer buraya yazılmalıdır.
+            switch (scAdi)//süreçte eşitlik durumu kontrol edilecek olan değer buraya yazılmalıdır.
             {
                 case "Ali":
                     Console.WriteLine("adı Ali");
@@ -1120,18 +1120,18 @@ namespace _210128Console
                 default:
                     Console.WriteLine("hiç biri değil");   // case bloklarından hiç biri eşleştirmeye uymuyorsa eğer varsa default-break arasındaki kodlar tetiklenir.
                     break;
-            }    
+            }
 
             #endregion
 
 
-             #region Switch-Case'de When Şartı
+            #region Switch-Case'de When Şartı
             //Switch yapılanmasında sadece elimizdeki değerin eşitlik değerini kontrol edebilmekteyiz. Bunun dışında bu kontrol esnasında farklı şartları da değerlendirmek istiyorsak eğer When keyword'unu kullanabiliriz.
             // case'den sonra when şartı ile switch'i zenginleştiren bu şart koşulu ile farklı sorgulamalarda yapabilmemize olanak sağlamaktadır.
             // şart varsa sonuç herzaman boolean döner yani mantıksal çıktı değeri vermesi gereyor.
 
             int satisUcrti = 500;
-            switch(satisUcrti)
+            switch (satisUcrti)
             {
                 case 500 when (3 == 5):
                     break;
@@ -1151,7 +1151,7 @@ namespace _210128Console
             //case'lerde farklı eşitliklerde aynı kodu çalıştıracaksak eğer kod tekrarına girmemek için goto keyword'ü ile ''şu case'deki kodu çalıştır'' diyebiliyoruz. Yani caseler arasında zıplama yapabiliyoruz.
 
             int sayyi = 15;
-           switch (sayyi)
+            switch (sayyi)
             {
                 case 5:
                     Console.WriteLine(sayyi * 10);
@@ -1165,7 +1165,7 @@ namespace _210128Console
 
                 case 7:
                     goto case 5;    //bu satırda eğer eşitlik durumu 7 ile sağlandığında ve aslında case 5 deki sağlanan kod ile aynı işlemi yapacaksa  case 7 yönlendirmesini 5e gönderiyorum ve Console.WriteLine(sayyi * 10); kodunu çalıştırıyor.
-                    //Burada break; komutunu kaldırmamız önemli çünkü manevratik komutlarımızdan biridir. break olmadığı için goto ile ilgili kodun çalışacağı case'e yönlendirme yapıyoruz.
+                                    //Burada break; komutunu kaldırmamız önemli çünkü manevratik komutlarımızdan biridir. break olmadığı için goto ile ilgili kodun çalışacağı case'e yönlendirme yapıyoruz.
 
 
                 case 10:
@@ -1184,12 +1184,12 @@ namespace _210128Console
             #endregion
 
 
-                #region c# 8.0 Switch Expressions Nedir ?
+            #region c# 8.0 Switch Expressions Nedir ?
             //Tek satırlık işlemler için maliyet düşürücü ve kullanışlı semantıklerdir.
             //tek satırlık değer atama işlemlerini Switch Expressions ile atayabiliyoruz.
             string exprssIsim = "";
             int exp = 10;
-            switch(exp)
+            switch (exp)
             {
                 case 5:
                     exprssIsim = "mehmet";
@@ -1213,7 +1213,7 @@ namespace _210128Console
             {
                 5 => "hacı",       //    => ise anlamına gelmektedir.
                 7 => "ali",
-                10 => "veli"    
+                10 => "veli"
             };
 
             //yapısal olarak tüm kurallar geçerli, denetlediğim değer tür ile karşılaştırma yapıp hangi değişkene atama yapacaksam o değere uygun bir değer gönderiyorum.
@@ -1223,7 +1223,7 @@ namespace _210128Console
             #endregion
 
 
-           #region Switch Expressions-When Şartı
+            #region Switch Expressions-When Şartı
 
             //Elimizde kontrol ettiğimiz değeri değişkene tanımlayarak atayabiliyoruz.
             //ilgili değişken üzerinden birden fazla farklı condisition'ıda verebiliyoruz.
@@ -1231,19 +1231,19 @@ namespace _210128Console
             int y77 = 10;
             string nname = y77 switch
             {
-                5 when 3==3  =>  "atilla",  //elimizdeki karşılaştırmaları ise => operatöründen önce yazıyorken aynı satırda when ile farklı şartları yazabiliyoruz. eğerki 3=3 true ise ve karşılaştırılan değer 5 ise "atilla" değeri veriliyor.  'when' ve diye okunarak kodlar yorumlanabilir. bu yol when'in direkt kullanımıdır.
+                5 when 3 == 3 => "atilla",  //elimizdeki karşılaştırmaları ise => operatöründen önce yazıyorken aynı satırda when ile farklı şartları yazabiliyoruz. eğerki 3=3 true ise ve karşılaştırılan değer 5 ise "atilla" değeri veriliyor.  'when' ve diye okunarak kodlar yorumlanabilir. bu yol when'in direkt kullanımıdır.
 
 
-                var y88 when y88==7 && y88 % 2 == 1  =>  "metehan", // burada kıyaslanacak değişken değerini yazmadan ve  =>ise operatöründen önce içeride 'var' ile bir değişken tanımlayıp when dedim artık y88 y77'nin o anki değerine takabül ediyor ve sonrasında mantıksal ooperatörler ve aritmatik işlemler kullanıp 'when' şartının 2. kullanım halini de bu şekilde yorumlayabiliyoruz.
+                var y88 when y88 == 7 && y88 % 2 == 1 => "metehan", // burada kıyaslanacak değişken değerini yazmadan ve  =>ise operatöründen önce içeride 'var' ile bir değişken tanımlayıp when dedim artık y88 y77'nin o anki değerine takabül ediyor ve sonrasında mantıksal ooperatörler ve aritmatik işlemler kullanıp 'when' şartının 2. kullanım halini de bu şekilde yorumlayabiliyoruz.
 
                 //y77 değişkenin türüne uygun y77 değişkenini karşılayabilen farklı değişkenler ile de tanımlayabiliriz. yani y88'i var ile değil decimal ile de tutabilirdik.
 
 
-               10  =>  "cansu",
+                10 => "cansu",
 
 
 
-               var yyy9 => "hiç biri" //Default : hiç birinin olmadığı durumlarda default tanımlamasına karşılık gelecektir.
+                var yyy9 => "hiç biri" //Default : hiç birinin olmadığı durumlarda default tanımlamasına karşılık gelecektir.
             };
 
             ///bir değişken kullanıyorsak kullandığımız değişkende direkt eşitlik durumunu kontrol edeceğimiz bir değer tanımlamaya gerek kalmamaktadır.
@@ -1291,18 +1291,18 @@ namespace _210128Console
             #endregion
 
 
-             #region Switch Exp-Tuple Patterns When şartı Uygulamak
+            #region Switch Exp-Tuple Patterns When şartı Uygulamak
             //burada switch içerisindeki tanımladığımız tuple ortak bir tür olarak karşılanmadığı için var keyword'ünü kullanıp değişkeni bu şekilde karşılıyoruz.
 
-            int mko = 10;
-            int mko2 = 20;
-            string mko3 = (mko, mko2) switch
-            {
-                (11, 15) when (true) => "11 ile 15 değerleri",
-                var mko4 when mko4.mko % 2 == 1 || mko4.mko2 == 10 => "10 ile 20 değerleri" //var mko4 değişkeni mko ve mko2 değerlerini yakalıyor ve biz onun üzerinden şart uygulayabiliyoruz.
-            };
+            //int mko = 10;
+            //int mko2 = 20;
+            //string mko3 = (mko, mko2) switch
+            //{
+            //    (11, 15) when (true) => "11 ile 15 değerleri",
+            //    var mko4 when mko4.mko % 2 == 1 || mko4.mko2 == 10 => "10 ile 20 değerleri" //var mko4 değişkeni mko ve mko2 değerlerini yakalıyor ve biz onun üzerinden şart uygulayabiliyoruz.
+            //};
 
-            Console.WriteLine(mko3);
+            //Console.WriteLine(mko3);
 
             #endregion
 
@@ -1337,7 +1337,7 @@ namespace _210128Console
             #endregion
 
 
-             #region if Yapısı-Akış Kontrol
+            #region if Yapısı-Akış Kontrol
 
             //Switch ile aynı amaca hizmet ederler. Aralarında küçük bir fark vardır.
             //Switch elimizdeki bir değerin farklı değerlere olan '''''eşitliğini kontrol''''' eder.
@@ -1367,7 +1367,7 @@ namespace _210128Console
 
             // if yapılanmasında illa ki else kullanmak zorunda değiliz.
             int ifsayi = 10;
-            if (ifsayi==10)
+            if (ifsayi == 10)
             {
                 Console.WriteLine("if'e merhaba");
             }
@@ -1389,7 +1389,7 @@ namespace _210128Console
 
             int ifelsesayi = 10;
 
-            if (ifelsesayi >5)
+            if (ifelsesayi > 5)
             {
                 Console.WriteLine(" ifelsesayi değişkeni 5den büyüktür diye yazdırdı.");
             }
@@ -1400,7 +1400,7 @@ namespace _210128Console
 
 
             int RR1 = 10;
-            if (RR1 !=10)
+            if (RR1 != 10)
             {
                 Console.WriteLine("sayı 10'a eşit değildir.");
             }
@@ -1438,11 +1438,11 @@ namespace _210128Console
             {
                 Console.WriteLine(RR2 * 5);
             }
-            else if (RR2 > 10 && RR2 <=20)
+            else if (RR2 > 10 && RR2 <= 20)
             {
                 Console.WriteLine(RR2 * 10);
             }
-            else if ( RR2 > 20 && RR2 <=30)
+            else if (RR2 > 20 && RR2 <= 30)
             {
                 Console.WriteLine(RR2 * 20);
             }
@@ -1464,7 +1464,7 @@ namespace _210128Console
             #endregion
 
 
-              #region if Yapısı ile ilgili Çözümler
+            #region if Yapısı ile ilgili Çözümler
 
             // İki ürün fiyatı girildiğinde toplam fiyat 200 TL'den fazla ise 2. üründen %25 indirim yaparak ödenecek tutarı gösteren uygulamayı yazınız.
 
@@ -1474,9 +1474,9 @@ namespace _210128Console
             int urun2 = int.Parse(Console.ReadLine());
 
             int uruntoplam = urun1 + urun2;
-           
-            if (uruntoplam>200 )
-            {             
+
+            if (uruntoplam > 200)
+            {
                 Console.WriteLine(urun1 + (urun2 * 75 / 100));
             }
             else
@@ -1533,8 +1533,8 @@ namespace _210128Console
             //    '/' => userNumb1 - userNumb2
             //};
 
-            Console.WriteLine(islmSNC == '+' ? userNumb1 + userNumb2 : 
-                (islmSNC == '-' ? userNumb1 - userNumb2 : 
+            Console.WriteLine(islmSNC == '+' ? userNumb1 + userNumb2 :
+                (islmSNC == '-' ? userNumb1 - userNumb2 :
                 (islmSNC == '*' ? userNumb1 * userNumb2 : userNumb1 / userNumb2)));
 
 
@@ -1542,7 +1542,7 @@ namespace _210128Console
             //girilen sayının değeri 10 değilse ekrana ^^sayı yanlış^^ yazdırınız.
 
             int Numbdsy = int.Parse(Console.ReadLine());
-            if (Numbdsy!=10)            
+            if (Numbdsy != 10)
                 Console.WriteLine("Sayı yanlış");
 
 
@@ -1556,8 +1556,8 @@ namespace _210128Console
                 NPsonuc = "Pozitiftir";
             }
             else
-            { 
-                NPsonuc = "Negatiftir"; 
+            {
+                NPsonuc = "Negatiftir";
             }
             Console.WriteLine(NPsonuc);
             // Buradaki compiler işleyişi mantığı şu şekildedir; 1) Bazen akış kontrol mekanizma scopeları içerisinde elde edilen değer ilgili scope'tan dışarı çıkartılıp kullanılmak istenilebilir. Dışarıda tanımlanan değişkene scopelar içerisinde değer atanıp daha sonra atanan değeri farklı yerlerde kullanıp işlemek isteyebiliriz. mesela if içerisinde elde ettiğimiz bir değeri(if scopeları içinde atanan bir değeri) if scopelarının dışarısında kullanmak gibi. Yani kısaca burada mantığı değerlendirmek önemlidir.
@@ -1584,7 +1584,7 @@ namespace _210128Console
             else if (tyX is decimal tyXXX)  //buradaki kritik eğer if içerisindeki type pattern ile tanımladığımız değişkenin isminin aynısını burada kullanamayız. Farklı bir değişken ismi tanımlamam gerekmektedir.
                 Console.WriteLine(tyXXX);
 
-            
+
 
             #endregion
 
@@ -1594,19 +1594,19 @@ namespace _210128Console
             //Elimizdeki bir veriyi sabir bir değer ile karşılaştırabilmemizi sağlar.
             // == ile aynı görevde çalışır. Değerleri bir biri ile karşılaştırır.
             //Karşılaştırma işleminin boolean türde true ya da false olarak çalıştırır. compiler mantığı burada boolean ile çalışıyor.
-            int CPxx=150;
+            int CPxx = 150;
             Console.WriteLine(CPxx is 150);
 
 
-            object CPx=123;
+            object CPx = 123;
             if (CPx is 123) //burada değeri karşılaştırıyor Buna Constant Pattern diyebiliriz.
-	          {
+            {
 
-	          }
+            }
             if (CPx is int) //burada türünü karşılaştırıyor [is operatörünün kendi işleyişi kullanılıyor]
-	          {
+            {
 
-	          }
+            }
 
             // is operatörü bir değişkenin türünü sormamızı/belirlememizi sağlayan bir operatördür ve bu operatörün kullanıldığı değişkenlerin türü illa bir referans türlü olma zorunda değildir.
             // istersek değer türlü değişkenlerde de is operatörü kullanılabilmektedir ve hatta primitive türlerde bile kullanılabilmektedir.
@@ -1626,7 +1626,7 @@ namespace _210128Console
 
             object x77 = "sefsfesfs";  //boxing yapılmış değişken
             if (x77 is var x88)        // burada var keyword'ü ile runtimeda ilgili değişkenin türüne bürünerek unboxing işlemi yapılıyor.
-            { 
+            {
 
             }
 
@@ -1665,9 +1665,9 @@ namespace _210128Console
             // Type - var patternleri illaki akış kontrol mekanizmalarında kullanmamız gerekmemektedir.
 
             bool result = ppp is string ppp3;  //ppp is string sonucunu result'a aldım hemde string'den sonra ppp3 isiminde bir değişken tanımlamış oldum. Bu Type Pattern'dir
-            Console.WriteLine(ppp3);
-            // ppp eğer string ise sonuc true olarak result'a gelecek ama false olma ihtimali olduğu için ppp3 dışarda kullanmak istediğimizde buradaki sonucun false olma ihtimali yüzünden kullanmamıza direkt hata veriyor.
-            //Type Pattern'de ppp değişkenin değerinin string olmama ihtimalinde ppp3'in null olma ihtimali söz konusu olduğu için ppp3 kullanılırken hata vermektedir.
+                                               // Console.WriteLine(ppp3);
+                                               // ppp eğer string ise sonuc true olarak result'a gelecek ama false olma ihtimali olduğu için ppp3 dışarda kullanmak istediğimizde buradaki sonucun false olma ihtimali yüzünden kullanmamıza direkt hata veriyor.
+                                               //Type Pattern'de ppp değişkenin değerinin string olmama ihtimalinde ppp3'in null olma ihtimali söz konusu olduğu için ppp3 kullanılırken hata vermektedir.
 
             bool result2 = ppp is var ppp4; //Var Pattern'dir.
             Console.WriteLine(ppp4);
@@ -1677,7 +1677,7 @@ namespace _210128Console
 
 
 
-             #region Simple Type Pattern (c# 9.0)
+            #region Simple Type Pattern (c# 9.0)
 
             //Type Pattern'nın geliştirilmiş halidir.
             // Bir değişken içerisindeki değerin belirli bir türde olup olmadığını hızlı bir şekilde kontrol etmemizi sağlayan bir desendir. Type Pattern ile aynı açıklamayı kullanabiliriz.
@@ -1696,9 +1696,9 @@ namespace _210128Console
             int RLnumber = 123;
             string resultt = RLnumber switch
             {
-            < 50 => "50'den küçük",
-            > 50 => "50'den büyük",              
-              _  => "Hiçbiri"  // buradaki _ default anlamına geliyor.                
+                < 50 => "50'den küçük",
+                > 50 => "50'den büyük",
+                _ => "Hiçbiri"  // buradaki _ default anlamına geliyor.                
             };
 
             // Kritik; 7.0'dan 9.0'a kadar switch sadece eşitlik durumunu yaparken artık switch diğer karşılaştırmaları yapabilmektedir.
@@ -1713,13 +1713,13 @@ namespace _210128Console
             // and, or ve not gibi mantıksal operatörler kullanılabilmektedir.
             // Relational Pattern ile oldukça uyumludur.
 
-            int logNumb=60;
-            string resultT=logNumb switch 
-	{
-		> 10 and < 50 => "10'dan büyük 50'den küçük",
-        >50 or < 60 =>"50den büyük 100'den küçük",
-        not 51 => "51 değil"
-	};
+            int logNumb = 60;
+            string resultT = logNumb switch
+            {
+                > 10 and < 50 => "10'dan büyük 50'den küçük",
+                > 50 or < 60 => "50den büyük 100'den küçük",
+                //not 51 => "51 değil"
+            };
 
 
             #endregion
@@ -1779,14 +1779,14 @@ namespace _210128Console
             #region try-catch Mekanizması Teorik Anlatım
 
             Console.WriteLine("Lütfen birinci sayıyı giriniz.");
-            int nummb1 = 0 , nummb2 = 0;
+            int nummb1 = 0, nummb2 = 0;
             try
             {
                 // olası çalışma zamanı hatalarını barındıran / verebilecek olan kodları buraya yazıuyoruz
 
-               nummb1 = int.Parse(Console.ReadLine());
+                nummb1 = int.Parse(Console.ReadLine());
                 Console.WriteLine("Lütfen ikinci sayıyı giriniz.");
-               nummb2 = int.Parse(Console.ReadLine());
+                nummb2 = int.Parse(Console.ReadLine());
             }
             catch
             {
@@ -1828,7 +1828,7 @@ namespace _210128Console
             }
             catch (Exception xxxHatanin)  //Exception bana fırlatılan hata ile ilgili tüm bilgileri getirecek olan bir üst türdür. Üst Türden kasıt ileride OOP'ta kalıtımsal bir yapılanma ve baseclass olarak anlatılacaktır. Yani bütün hataları karşılayabilen bir türdür. Bu parametre üzerinden bizler alınan hataya dair bilgiler edinebilmekte ve log'lama vs. gibi operasyonları gerçekleştirebilmekteyiz. Bu parametre catch bloğuna tanımlanmak zorunda değildir eğer ki tanımlama yapılırsa hataya dair bilgileri member access ile erişimi ile yazdırabiliyoruz.
             {
-                Console.WriteLine(" Mesaj : "+xxxHatanin.Message);
+                Console.WriteLine(" Mesaj : " + xxxHatanin.Message);
                 throw;
             }
             //Exeption tüm hata türlerinin atasıdır. Exeption'ın atası object'tir ve referans türlü bir türdür. 
@@ -1886,6 +1886,52 @@ namespace _210128Console
             #region for Cycle 
             //Prosedurel programlamada döngü yapılarından biridir.
             //Genellikle ardışık işlemlerde kullanılan bir döngü yapılanmasıdır.
+
+
+            //for döngüsünün içerinde genellikle 3 parametre girilir. (    1   ;    2   ;   3   )
+            //1-Genellikle başlangıç değeri ismi verilen değişken burada tanımlanabilir.İllaki tanımlayıp kullanma zorunluluğu yoktur.
+            //1-Başlangıç değer ya da ilk değer atama kısmıdır.
+            //1-ardışık algoritmalarda for döngüsü başlana bilmesi için genellikle ilk değere ihtiyaç vardır. işte bu ihtiyacı 1. alanda tanımlayabiliroz. bu tanımlama zorunlu değildir.
+            //1- eğer başlangıç değeri tanımlandıysa kesinlikle bir değer atanmalıdır. null olamaz
+            //for döngüsünde 1. adıma compiler tek sefer girmektedir. !!!!
+            //2-Şartı belirlediğimiz yerdir.
+            //2-Herhangi bir şart/koşul ifadesi tanımlanabilir. Genellikle ilk değer olarak tanımlanan değişken durumu burada kontrol edilir. Yani şarta bağlanır. Şart true olduğu sürece döngü tetiklenecektir.
+            //3-Genellikle başlangıç değerinin değerini arttırmak ya da azaltmak için burası kullanılır.
+            //3- Herhangi bir dğeişken üzerinde işlem yapabiliriz. Genellikle başlangıç değeri üzerinde bir arttırma ya da azaltma işlemi yapılır. Lakin 1 değerinin dışında diğer arttırma ve azaltma işlemlerinde ihtiyaca binaen yapılmaktadır. Kullanılma zorunluluğu yoktur.
+            //şart true oldukça for scopeları tetiklenip çalışacaktır.
+
+
+            // bu üç alanı bize zorunlu olarak yapacaksın diye bir diretmesi yoktur.
+
+
+            //Örn: 1 ile 60(dahil) arasındaki çift sayıları toplayarak sonucu ekranda gösteriniz.
+            int toplamSnc = 0;
+            for (int i = 1; i <= 60; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    toplamSnc += i;
+                }
+            }
+            Console.WriteLine("1 ile 60 arasındaki toplam sonuç: " + toplamSnc);
+
+            //Klavyeden girilen sayının faktöriyelini bulan programı yapalım.
+            int fakSayi = int.Parse(Console.ReadLine());
+            int faksonc = 1;
+            string fakSnnc = "";
+            //for (int i = 1; i <= fakSayi; i++)
+            //{
+            //    faksonc *= i;
+            //}
+            //Console.WriteLine("Faktöriyel Sonuç: " + faksonc);
+
+            //2. Çözüm
+            for (int i = faksonc; i>0; i--)
+            {
+                faksonc *= i;
+                fakSnnc += i + (i == 1 ? "=" : "x");
+            }
+            Console.WriteLine("Faktöriyel 2. Çözüm sonucu: "+faksonc);
 
 
             #endregion
