@@ -1934,10 +1934,61 @@ namespace _210128Console
             Console.WriteLine("Faktöriyel 2. Çözüm sonucu: "+faksonc);
 
 
+            int forI = 0;
+            for ( forI=0; forI<10; )
+            {
+                forI++;
+            } //gibi bir kullanım senaryosu vardır.
+            //metodun 1. bölümünde dışarıda tanımlanan forI değişkenini for döngüsünde başlangıç değeri olarak göstermek istiyorsak eğer yine bir başlangıç değeri zorunlu kılmaktadır. Yani içeride bu başlangıç değerini vermemiz gerekmektedir.
+            //2. bölüm olarak tanımlanan kısımdaki koşulun başlangıç değeri olarak tanımlanan değişkene bağlı olma zorunluluğu yoktur. for'dan önce dışarıda tanımlanan herhangi bir string boolean bir değişkene bağlı bir koşulda yazılabilir.
+            // parametre alanını tamamen boş bırakma gibi bir olanağımız vardır fakat bu sonsuz döngüye sokacaktır.
+            //1. ve 3. alanları yazıp 2. alanı boş bırakırsakta sonsuz döngüye girecektir.
+
+            for (int forII = 0, forIII=2; forII<10 && forIII<5; forIII--, forII++)
+            {
+                Console.WriteLine(forII);
+                Console.WriteLine(forIII);
+
+            }
+
+
+
+
             #endregion
 
 
+            #region while Cycle
 
+            //while döngüsü sadece şarta bağlı döngüdür. parametredeki şart doğrulandıkça tetiklenecektir.
+            //orta seviye programlama dillerinde ilk tasarlanmış döngüdür.
+            //bütün dillerde while döngüsü vardır.
+            //Genellikle sonsuz döngülerde ya da süreci bilinmeyen durumlarda kullanılan bir döngüdür. Fakat istedğin yerde kullanabilirsin.
+
+
+
+            #endregion
+
+            #region while - for kıyası
+
+            //while döngüsünde for gibi çalışabilmek için kobinasyonu kendimiz oluşturmamız gerekiyor.
+            //while parametresi taa ki false olana kadar döngü tektiklenecektir.
+            //while döngüsünde çalışırken arttırma ve azaltma işlemlerinin nerede yapıldığına dikkat etmeliyim aksi taktirde mantıksal hata oluşabilir. MAntıksal hata en maliyetli hata idi.
+            for (int i = 0; i < 10; i++)
+            {
+                Console.WriteLine("Yücel");
+            }
+            //----------------------------------------------
+            int ii = 0;
+            while (ii<10)
+            {
+                Console.WriteLine("Ölmez");
+                ii++;
+            }
+
+            //davranış olarak ikiside aynı çıktıyı verecektir fakat kalıpsal farklılık söz konusudur.
+
+
+            #endregion
 
 
         }
