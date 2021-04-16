@@ -1872,6 +1872,7 @@ namespace _210128Console
             //Tüm değişkenlerin akışın kontrol edilmesini sağlayan bir teknolojidir. kodu adım adım incelememizi sağlar.
             #endregion
 
+
             #region Döngüler
 
             //Belirli bir koşula bağlı ve bağlı olunan koşul doğrulandıkça belirlenen tekrarda aynı kodu çalıştıran kombinasyondur.
@@ -1882,6 +1883,7 @@ namespace _210128Console
 
 
             #endregion
+
 
             #region for Cycle 
             //Prosedurel programlamada döngü yapılarından biridir.
@@ -1968,11 +1970,17 @@ namespace _210128Console
 
             #endregion
 
+
             #region while - for kıyası
 
             //while döngüsünde for gibi çalışabilmek için kobinasyonu kendimiz oluşturmamız gerekiyor.
             //while parametresi taa ki false olana kadar döngü tektiklenecektir.
             //while döngüsünde çalışırken arttırma ve azaltma işlemlerinin nerede yapıldığına dikkat etmeliyim aksi taktirde mantıksal hata oluşabilir. MAntıksal hata en maliyetli hata idi.
+            //Yani algoritmada koşul varsa if gibi... kullanılacak değer önce arttırılıp veyahut azaltılıp kullanılmamalıdır. Çünkü mantıksızlık olur.
+
+            //while sonsuza giden algoritmalarda kullanılması daha temiz olur
+            //for ardışık giden algoritmalarda kullanılması daha temiz olur. 
+
             for (int i = 0; i < 10; i++)
             {
                 Console.WriteLine("Yücel");
@@ -1988,8 +1996,45 @@ namespace _210128Console
             //davranış olarak ikiside aynı çıktıyı verecektir fakat kalıpsal farklılık söz konusudur.
 
 
+            //aşağıda anlık tarihin ve saniyenin değeri 5'in katıysa tarihi ekranda gösteren kodu yazıyorum
+
+            while (true) // buradaki true sonsuze gittiğine işaret ediyor.
+            {
+                if (DateTime.Now.Second%5==0)
+                {
+                    Console.WriteLine(DateTime.Now.Second);
+                }
+            }
+
+
             #endregion
 
+
+            #region do-while Cycle
+            //while'da şart true oldukça şart tetikleniyor.
+            //while döngüsünde compiler önce şarta bakıp sonra scopelarını çalıştırır.
+            //do while döngüsünde compiler önce kodu çalıştırır, sonra şarta bakıyor.
+            //while ile yapılan kontrolde şart true olursa döngü tetiklenecek false olursa hiç bir zaman tetiklenmiyor.
+            //do-while döngüsü şart true'da olsa false'da olsa en az 1 kez tetiklenecektir.
+            //do-while metaforlayacak olursam şemsiyeyi önce yanıma alıp havanın durumuna daha sonra bakmam gibi betimlenebilir.
+
+
+            #endregion
+
+
+            #region Scope'less Cycle
+            //döngülerden herhangi biri tek satırlık bir işlemse bunu scopesuz tanımlayabiliyorum.
+
+            //eğer ilgili döngüye ait birden fazla komut işleyecek olursam scope kullanmam şarttır.
+
+            #endregion
+
+
+            #region Endless Cycle
+
+
+
+            #endregion
 
         }
     }
