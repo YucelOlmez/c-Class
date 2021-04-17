@@ -2031,10 +2031,71 @@ namespace _210128Console
 
 
             #region Endless Cycle
+            //aşağıda sonsuz döngülü for'a manevratik bir işlem ile kontrol yapabilmekteyiz.
+            bool dongu = true;
+            for (; true ; )
+            {
+                dongu = !dongu;
+            }
 
+            //While sonsuz döngüsünü manevratik bir işlem ile kontrol edebilmekteyiz.
+            bool dongu2 = false;
+            while (!dongu2)
+            {
+                if (true)
+                {
+                    dongu2 = !dongu2;
+                }
+            }
 
+            //do-while sonsuz döngüsünü manevratik bir işlem ile kontrol edebilmekteyiz.
+            bool dongu3 = true; 
+            do
+            {
+                dongu3 = !dongu3;
+            } while (true);
 
             #endregion
+
+
+            #region Nested Loop
+
+            for (int i = 0; i < 10;  i++)
+            {
+                while (true)
+                {
+                    do
+                    {
+
+                    } while (true);
+                }
+            }
+            //döngünün zaten bir performans maliyeti var. Bir iç içe döngüye aldığımız zaman maliyet daha da artmaktadır.
+            #endregion
+
+
+            #region with for-nested Loop
+            //iç içe for döngülerinde değişken isimleri farklı olmalıdır.
+            //iç içe döngülerde maliyet tüm döngülerin maliyetinin yani tur sayisinin bir başka deyişle periyodik çalışmasına eşittir.
+            for (int k = 0; k<10; k++)
+            {
+                for (int kk = 0; kk < 5; kk++)
+                {
+                    for (int kkk = 0; kkk<3; kkk++)
+                    {
+
+                    }
+                }
+            }
+
+            #endregion
+
+
+            #region foreach bir döngü mü ?
+            //Döngü: Belirli bir kombinasyon eşliğinde çalışan ve belirli bir şarta bağlı olan periyodik işlemler gerçekleştiren yapılanmalardır. Döngüde istediğimiz veriden başlama imkanımız vardır. Her döngü işlemi yapabilen kod parçalarını döngüler başlığına almıyoruz.
+            //İterasyon: İterasyon mantığında ne kombinasyon ne de şart vardır. İterasyonda sonraki veri/oteki veri anlamına gelen itere etme fiili vardır. Bir veri kümesi üzerinde işlem yapmamızı/verileri elde etmemizi sağlayan yapılanmadır. İterasyonda küme içerisinde istediğimiz yerden başlama olanağımız yoktur. Başlangıçtan başlar ve son veriye kadar gider. foreach bir iterasyondur. bu yüzden arraylist dizisinde kümeler dizisinde kullanırız. Bu arada iterasyon döngü maksatlıda kullananlar vardır ama Döngü değildir.
+            #endregion
+
 
         }
     }
