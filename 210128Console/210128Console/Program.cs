@@ -2097,6 +2097,28 @@ namespace _210128Console
             #endregion
 
 
+            #region Keyword Nedir ? Operatörden Farkı Nedir ?
+            //Keyword: Programlama dilinin en atomik küçük parçalarıdır diyebiliriz. Temel yapı taşlarıdır. Keyword'ler üzerinden programlama dilini şekillendiriyoruz.
+            //Önceden tanımlanmış olan metinsel yapılanmalardır. Derleyici açısından ön tanımlı bir amaca hizmet edecek olan operasyonel bir yapılanmalardır.
+            //Derleyici için ön tanımlı olan nerede hangi amaca hizmet edeceği belli olan ve kod içerisinde hangi noktalarda çağrılabileceği/kullanılabileceği kurallarla sınırlandırılmış olan anahtar sözcüklerdir.
+            //Derleyici için ön tanımlı olan kullanım alanları sınırlandırılmış belirli yerlerde belirli alanlarda kullanılır.
+            //Keyword'lerin operatörlerden Farkı
+            //Operatörler esas olarak belirli bir opperasyonu / eylemi üstlenen yapılardır.
+            //Keywordler daha geniş kavramlardırlar. Bazen bir keyword bir operatörü temsil edebilir. is, typeof operatör keywordleridir
+            //Operatör direkt fiile eyleme bir işleme odaklı ise bu zaten kendini operatör olarak belli eder.
+            //Fakat eyleme değil modellemeye odaklı vb. durumlarda kullanılan keyword'ler operatör değildir. Keyword'dür.
+            //Keyword'ler operatörleri kapsar. Yani bir başka deyişle Operatörler Keyword'lerin kapsama alanı içeerisinde kalır.
+            //Her keyword bir operatör değildir ama her operatör bir keyword olarak kullanılabilir. sembolik operatörlerde vardır == ya da + gibi...
+            //Keyword'lerin davranışsal farklılıkları vardır. Yani nerede hangi anda ve alanda kullanmamıza bağlı olarak davranış farklılıkları gösterirler. var keyword'ünün compiler zamanında ve pattern match'de runtime'da farklılık göstermesi gibi...
+
+
+            //Konseptli keywordler while gibi for gibi try-catch gibi belirli bir iskeleti ve parametreler alabilen keywordlerdir. Bunlar tek başına yazıldığında derleyici tarafından bir anlam ifade etmez. Anlam ifade etmeleri için iskeleterinin kalıplarının ya da kullanım standartlarıyla yazılmaları gerekmektedir.
+            //Konseptsiz keywordler tek başına sadece kelime olarak bir anlam ifade eden iskeleti kalıpları olmayan operasyonel olmayan keywordlerdir. return;  break;  goto keywordleri gibi...
+
+
+            #endregion
+
+
         }
     }
 }
