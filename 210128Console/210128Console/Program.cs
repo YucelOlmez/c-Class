@@ -2119,6 +2119,95 @@ namespace _210128Console
             #endregion
 
 
+            #region Yardımcı Manevratik Komutlar
+            //Kodu durdurmak, devamını okumamak, var olan bir döngüden çıkış yapmak ya da komple metodu sonlandırmak yani kodun yönlendirmek için kullanılan komutlardır.
+            //Manevratik komutlar yapamayacağımız şeyleri yapmamızı sağlayan komutlar değildir. Yapabileceğimiz manevraları/kodun yönlendirmelerini daha efektif daha güzel yapmamızı sağlarlar.
+            //4 tane manevra komutu vardır.
+            //break, continue, return, goto
+            #endregion
+
+
+            #region break Command (Komutu)
+            //Sadece 2 yerde kullanılır switch ve döngülerde. foreach iterasyonunda da kullanılır.
+            //Kullanıldığı yapıdan çıkış yapılmasını kullanıldığı yapıyı sonlandırmaya yarayan bir keyword'Dür.
+            //İç içe döngülerde en içteki metotta kullanılırsa sadece ilgili metottan çıkış yapacaktır.
+            //switch'teki kullanımı üstteki belirtilen mantıkla aynıdır. yani switch'te case'in sonunda kullanılmazsa karşılaştırma yaptığımız değeri bulsa bile diğer caseleri okumaya devam edecektir. Bulduğu değeri ilgili case'in sonunda break ile sonlandırırsak. diğer karşılaştırmaları yapmadan kodumuz hızlı bir şekilde compile edilmeye devam edecektir.
+            switch (10) 
+            {
+                case 5:
+                    break;
+                case 10:
+                    break;
+                case 15:
+                    break;
+            }
+
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    if (j == 2)
+                        break;
+                        Console.WriteLine("i: "+i+" j: "+j);
+                }
+            }
+
+
+            //Exercise 1
+            int toplam = 0;
+            while (true)
+            {
+                Console.WriteLine("sayı giriniz");
+                string girilenDeger = Console.ReadLine();
+                if (girilenDeger == "t")
+                {
+                    Console.WriteLine("Toplam Sonuç: " + toplam);
+                    break;
+                }
+                else
+                {
+                    try
+                    {
+                        toplam += int.Parse(girilenDeger);
+                    }
+                    catch (Exception)
+                    {
+                        Console.WriteLine("Lütfen doğru giriniz");
+
+                    }
+
+                }
+            }
+
+            //Exercise 2
+            while (true)
+            {
+                Console.WriteLine("Lütfen sayı giriniz !");
+                try
+                {
+                    int girilenDeger2 = Convert.ToInt32(Console.ReadLine());
+                    if (girilenDeger2 % 37 == 0)
+                    {
+                        Console.WriteLine("Uygulama sonlanmıştır.");
+                        break;
+                    }
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Lütfen uygun değer giriniz !!!");
+                }
+            }
+
+
+            #endregion
+
+
+            
+
+
+
+
+
         }
     }
 }
