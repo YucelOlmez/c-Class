@@ -2280,6 +2280,41 @@ namespace _210128Console
             #endregion
 
 
+            #region Additional Information
+            //Bazen(ki ileride asenkron programlamada) içi boş sonsuz döngülere ihtiyacımız olabilir. Bu durumlarda normal döngü gövdelerini kullanabileceğimiz gibi scopesuz bu şekilde kullanabilmekteyiz.
+
+            while (true) ;
+
+            for (; ; );
+
+            do;
+            while (true);
+
+            #endregion
+
+
+            #region Diziler - Array
+            //Tek bir değişken altında birden fazla aynı türde değeri toplamamızı sağlayan veri kümelerine dizi denir.
+            //diziler içerisinde birden fazla aynı türde değer tutabilen yapılardır.
+            //Prosedürel programlamanın temel veri kümeleridir. Yazılımsal boyutta yazılım adına ram'de birden fazla dğeri tek bir dğişken altında bir veri kümsei halinde tutabilirler.
+            //Diziler veri kümeleri oldukları için içlerindeki birden fazla veri üzerinde kümesel işlemler yapmamızı sağlayabilirler. istatiksel çalışma, tek verilere erişip çalışma yapılabilir gbii..
+            //Diziler prosedürel programlamanın temel yapıları oldukları için daha gelişmiş yapılar olan koleksiyonlarında temelini teşkil etmektedirler ve gelişmelerine katkıda bulunmaktadırlar.
+            //diziler Referans türlü değerlerdir. Yani nesnel yapılardır. Özlerinde class'tırlar(OOP info). Nesnel yapılarda oldukları için bellek yönetimini yaparken nerede çalıştığımızı bilmemizdir.
+            //Yapısal olarak RAM'de Heap'te tutulurlar. Kümesel veri nesnesi bellekteki yani RAM'deki adresi Heap'tir(içerisindeki veriler uygun şekilde stack'te tutulmaktadır).
+            //dizi içerisinde her türlü değer eklenebilir. Hem referans hem değer türlü verileri.
+            //Bir dizi sadece tek bir türde değer alabilir. Bir diziyi sadece int değerler ile oluşturacaksam onun içerisine char veri tipini ekleyemem. Fakat birden fazla ver tipli dizi yapacaksam bunu object olarak tutabilirim ama object'e gelmedim.
+            //dizi içerisine eklenen değerler işlevsel olarak aynı mahiyette olmalıdır. örnk. maaş kümesi oluşturduğum bir diziye yaş değerlerini eklemem maantıksız olacaktır.
+            //Dizi konusu yazılım dünyasına index kavramını kazandırmıştır.
+            //Diziler içerisine eleman/değer eklendikçe bunları serseri bir şekilde depolamaz sıralı/düzenli bir şekilde depolayacaktır.
+            //Dizilerde eklenen elemanlar/değerler index ismini verdiğimiz numaralar ile ardışık bir şekilde numaralandırılmaktadır.
+            //index: her bir elemana verilen ardışık sayı. İlk eleman 0'dan başlar n-1'e kadar gider.
+            //index numaralandırması compiler tarafından otomatik yapılmaktadır.
+            //Bir değişken tnaımlanırken türünün yanına [] bu operatörü eklersek o değişken ilgili türde bir dizi değişkeni olacaktır. [] bu operatörün ismi INDEXER'dır.
+            // string[] nameS = new string['''Buraya dizinin alacağı eleman sayısı bildirilir.'''];  buradaki '''new''' OOP'ta göreceğim. Bir dizi nesnesi oluşturmamızı sağlar. Şimdilik bir kalıptır. Mantıklı bir açılması var.
+            //Diziler sınırlı yapılardır. Sınırlılıklarını aşmak için ileride koleksiyonların üretilmesine sebep olmuşlardır. Koleksiyon yapıları dizilerin sınırlılıklarının aşılmış halidir.
+
+            #endregion
+
 
         }
     }
