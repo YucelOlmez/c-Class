@@ -2241,6 +2241,29 @@ namespace _210128Console
             #endregion
 
 
+            #region return Command
+            //Her yerde metot içerisinde her yerde kullanılabilir erişilebilir keyword'dür
+            // 2 işlevi görmektedir.
+            //1- nerede çağrılıyorsa çağrılsın bulunduğu metottan çıkış yapar. Yani metodu sonlandırır. return'den sonra hangi komut gelirse gelsin metot sonlanacağı için işlenmeyecektir.
+            //2- İleride göreceğim metotlar konusunda geriye değer döndürme sorumluluğunu da üstlenen bir keyword'dür.
+
+            //Exercise
+
+            while (true)
+            {
+                if (Console.ReadKey().KeyChar=='c')
+                {
+                    Console.WriteLine("Application has ended !");
+                    return;
+                }
+                Console.WriteLine("");
+                Console.WriteLine("Application is running...");
+            }
+
+            #endregion
+
+
+
 
 
 
