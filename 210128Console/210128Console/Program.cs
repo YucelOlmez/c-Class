@@ -2202,7 +2202,43 @@ namespace _210128Console
             #endregion
 
 
-            
+            #region continue Command
+            //Sadece döngülerde kullanılabilen keyword'dür.
+            //Amacı ''Devam et'' anlamına gelmektedir. Döngüde bir sonraki tura geçilmesini sağlar. Bir sonraki periyoda geçiş yaptırır.
+            //manevra yaptırmamızı sağlar.
+
+            for (int i = 0; i < 10; i++)
+            {
+                if (i % 2 != 0)
+                    continue;
+                Console.WriteLine(i);
+            }
+
+            //Exercise 1
+            int carpim = 1;
+            while (true)
+            {
+                Console.WriteLine("Lütfen bir sayı giriniz !");
+                string girilenDger = Console.ReadLine();
+                if (girilenDger=="t")
+                {
+                    Console.WriteLine(carpim);
+                }
+                    int sayi9 = int.Parse(girilenDger);
+                    if (sayi9 < 0)
+                        continue;
+                    carpim *= sayi9;
+            }
+
+            //Exercise
+            for (int i = 1; i < 1000; i++)
+            {
+                if (i % 7 == 0)
+                    continue;
+                Console.WriteLine(i);
+            }
+
+            #endregion
 
 
 
