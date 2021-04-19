@@ -2263,7 +2263,21 @@ namespace _210128Console
             #endregion
 
 
+            #region goto Command
+            //Kodun senkronizasyonunu bozup akışı ters istikamette almamızı sağlayan bir manevratik komuttur.
+            //Switch case yapılanmasında dahili olarak kullanılan bu komut metot içeriisnde her yerde kullanılabilir.
+            //Prototipinde yapısında 2 operasyonu barındırır. dönebilme ihtimali olan yere işaretleyen bir referans tanımlanabilir ''':''' koyduğumuz yerde goto keyword'ü buraya dönme ihtimali olabilir. yani tanımlanmış referansa kodun akışını yönlendiriyoruz. Compiler okuyucusunu referans ettiğim yere yönlendiriyorum.
+            //Döngü değildir fakat döngü davranışını sergiler.
+            //Gerekmediği sürece kullanılmamalıdır.
 
+            //Exercise
+            int mmm = 1;
+        x:
+            Console.WriteLine(mmm++);
+            if (mmm <= 100)
+                goto x;
+
+            #endregion
 
 
 
