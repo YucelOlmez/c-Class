@@ -2311,7 +2311,15 @@ namespace _210128Console
             //index numaralandırması compiler tarafından otomatik yapılmaktadır.
             //Bir değişken tnaımlanırken türünün yanına [] bu operatörü eklersek o değişken ilgili türde bir dizi değişkeni olacaktır. [] bu operatörün ismi INDEXER'dır.
             // string[] nameS = new string['''Buraya dizinin alacağı eleman sayısı bildirilir.'''];  buradaki '''new''' OOP'ta göreceğim. Bir dizi nesnesi oluşturmamızı sağlar. Şimdilik bir kalıptır. Mantıklı bir açılması var.
+            //Diziyi tanımladıktan sonra eleman sayısını bildirmemiz zorunludur ve belirtilen eleman sayısı kadar RAM'in heap bölümünde alan tahsisi yapılır. Bu zorunluluk bir sınırlılıktır.
+            //Bu sınırlılık kavramı tahsis edilen Heap'teki alanı kullansakta kullanmasakta bellek boyutunda bir maliyete sebep olacaktır. İşte bu sınırlılıktır. Bu sınırlılığı koleksiyonlar konusunda aşacağız.
             //Diziler sınırlı yapılardır. Sınırlılıklarını aşmak için ileride koleksiyonların üretilmesine sebep olmuşlardır. Koleksiyon yapıları dizilerin sınırlılıklarının aşılmış halidir.
+            //Diziler alan tahsisi yapıldığında ilgili alanalara türüne uygun default değerleri atarlar.
+            //dizilerdeki index kavramı dizilerin kullanılabilirliğini arttırmaktadır. ilgili verileri index numarası ile çağırıp işleyebilmemize olanak sağlar. okuma atama ekleme silme vb...
+            //Dizilerde indexleri çağırıp ilgili index'e değer atama işlemi== ilgili indexteki değişkeni çağırıp değer atama işlemiyle ayndır.
+            //indexler değişken davranışları gösterirler ki zaten değişkendirler. 
+
+
 
             #endregion
 
