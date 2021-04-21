@@ -1928,16 +1928,16 @@ namespace _210128Console
             //Console.WriteLine("Faktöriyel Sonuç: " + faksonc);
 
             //2. Çözüm
-            for (int i = faksonc; i>0; i--)
+            for (int i = faksonc; i > 0; i--)
             {
                 faksonc *= i;
                 fakSnnc += i + (i == 1 ? "=" : "x");
             }
-            Console.WriteLine("Faktöriyel 2. Çözüm sonucu: "+faksonc);
+            Console.WriteLine("Faktöriyel 2. Çözüm sonucu: " + faksonc);
 
 
             int forI = 0;
-            for ( forI=0; forI<10; )
+            for (forI = 0; forI < 10;)
             {
                 forI++;
             } //gibi bir kullanım senaryosu vardır.
@@ -1946,7 +1946,7 @@ namespace _210128Console
             // parametre alanını tamamen boş bırakma gibi bir olanağımız vardır fakat bu sonsuz döngüye sokacaktır.
             //1. ve 3. alanları yazıp 2. alanı boş bırakırsakta sonsuz döngüye girecektir.
 
-            for (int forII = 0, forIII=2; forII<10 && forIII<5; forIII--, forII++)
+            for (int forII = 0, forIII = 2; forII < 10 && forIII < 5; forIII--, forII++)
             {
                 Console.WriteLine(forII);
                 Console.WriteLine(forIII);
@@ -1987,7 +1987,7 @@ namespace _210128Console
             }
             //----------------------------------------------
             int ii = 0;
-            while (ii<10)
+            while (ii < 10)
             {
                 Console.WriteLine("Ölmez");
                 ii++;
@@ -2000,7 +2000,7 @@ namespace _210128Console
 
             while (true) // buradaki true sonsuze gittiğine işaret ediyor.
             {
-                if (DateTime.Now.Second%5==0)
+                if (DateTime.Now.Second % 5 == 0)
                 {
                     Console.WriteLine(DateTime.Now.Second);
                 }
@@ -2033,7 +2033,7 @@ namespace _210128Console
             #region Endless Cycle
             //aşağıda sonsuz döngülü for'a manevratik bir işlem ile kontrol yapabilmekteyiz.
             bool dongu = true;
-            for (; true ; )
+            for (; true;)
             {
                 dongu = !dongu;
             }
@@ -2049,7 +2049,7 @@ namespace _210128Console
             }
 
             //do-while sonsuz döngüsünü manevratik bir işlem ile kontrol edebilmekteyiz.
-            bool dongu3 = true; 
+            bool dongu3 = true;
             do
             {
                 dongu3 = !dongu3;
@@ -2060,7 +2060,7 @@ namespace _210128Console
 
             #region Nested Loop
 
-            for (int i = 0; i < 10;  i++)
+            for (int i = 0; i < 10; i++)
             {
                 while (true)
                 {
@@ -2077,11 +2077,11 @@ namespace _210128Console
             #region with for-nested Loop
             //iç içe for döngülerinde değişken isimleri farklı olmalıdır.
             //iç içe döngülerde maliyet tüm döngülerin maliyetinin yani tur sayisinin bir başka deyişle periyodik çalışmasına eşittir.
-            for (int k = 0; k<10; k++)
+            for (int k = 0; k < 10; k++)
             {
                 for (int kk = 0; kk < 5; kk++)
                 {
-                    for (int kkk = 0; kkk<3; kkk++)
+                    for (int kkk = 0; kkk < 3; kkk++)
                     {
 
                     }
@@ -2132,7 +2132,7 @@ namespace _210128Console
             //Kullanıldığı yapıdan çıkış yapılmasını kullanıldığı yapıyı sonlandırmaya yarayan bir keyword'Dür.
             //İç içe döngülerde en içteki metotta kullanılırsa sadece ilgili metottan çıkış yapacaktır.
             //switch'teki kullanımı üstteki belirtilen mantıkla aynıdır. yani switch'te case'in sonunda kullanılmazsa karşılaştırma yaptığımız değeri bulsa bile diğer caseleri okumaya devam edecektir. Bulduğu değeri ilgili case'in sonunda break ile sonlandırırsak. diğer karşılaştırmaları yapmadan kodumuz hızlı bir şekilde compile edilmeye devam edecektir.
-            switch (10) 
+            switch (10)
             {
                 case 5:
                     break;
@@ -2148,7 +2148,7 @@ namespace _210128Console
                 {
                     if (j == 2)
                         break;
-                        Console.WriteLine("i: "+i+" j: "+j);
+                    Console.WriteLine("i: " + i + " j: " + j);
                 }
             }
 
@@ -2220,14 +2220,14 @@ namespace _210128Console
             {
                 Console.WriteLine("Lütfen bir sayı giriniz !");
                 string girilenDger = Console.ReadLine();
-                if (girilenDger=="t")
+                if (girilenDger == "t")
                 {
                     Console.WriteLine(carpim);
                 }
-                    int sayi9 = int.Parse(girilenDger);
-                    if (sayi9 < 0)
-                        continue;
-                    carpim *= sayi9;
+                int sayi9 = int.Parse(girilenDger);
+                if (sayi9 < 0)
+                    continue;
+                carpim *= sayi9;
             }
 
             //Exercise
@@ -2251,7 +2251,7 @@ namespace _210128Console
 
             while (true)
             {
-                if (Console.ReadKey().KeyChar=='c')
+                if (Console.ReadKey().KeyChar == 'c')
                 {
                     Console.WriteLine("Application has ended !");
                     return;
@@ -2319,7 +2319,48 @@ namespace _210128Console
             //Dizilerde indexleri çağırıp ilgili index'e değer atama işlemi== ilgili indexteki değişkeni çağırıp değer atama işlemiyle ayndır.
             //indexler değişken davranışları gösterirler ki zaten değişkendirler. 
 
+            //Dizi içerisinde dönecek olan döngü kombinasyonunda dizinin eleman sayısını manuel şekilde kullanmamalı, bu sayısal değeri dizinin kendisinden almalıyız.
+            //Dizinin kaç elemanlı olduğunu int değer olarak geri döndürür. Bunu dizi değişkenin ismine .lenght diyerek döngünün koşuluna şartlaya biliyoruz.
 
+            int[] yaslarr = new int[10];
+            yaslarr[1] = 9;
+            yaslarr[9] = 13;
+            int whileSayi = 0;
+            while (whileSayi < yaslarr.Length)
+            {
+                Console.WriteLine(yaslarr[whileSayi++]);
+
+            }
+
+
+            #endregion
+
+            #region Dizilerde Sınırlılık ve Koleksiyon Yapılarının Doğuşu
+            //Dizilerde eleman sayısı bildirimi--belirttiğim eleman sayısı kadar RAM'de alan tahsisinin yapılması sonucu maliyet oluşumu--dizilerde istediğimiz zaman eleman sayısının genişletilemeyip daraltılamaması-- SINIRLILIKTIR !
+            //Bu sınırlılıklardan kurtulduktan sonra karşımıza arraylist dizi çeşiti gelecektir. Fakat arraylist'in de kendine göre sınırlılıkları vardır. Bu sınırlılıkları aşınca karşımıza daha esnek davranış sergileyen koleksiyonlarla karşılaşacağım.
+            #endregion
+
+            #region Dizi Tanımlama Varyasyonları
+            //1------------------------
+            int[] yaslar = new int[10];
+            yaslar[0] = 15;
+            yaslar[8] = 19;
+            Console.WriteLine(yaslar[0] + " " + yaslar[8]);
+
+
+            //2-----------------------
+            int[] yaslar2 = { 30, 22, 21, 30 };
+            Console.WriteLine(yaslar2[2]);
+
+            //3-----------------------
+            string[] isimler = new string[] { "ali", "mehmet", "ayşe", "fatma" };
+
+            //4-----------------------
+            string[] isimler2 = new string[3] {"atilla","raşit", "turgut"};
+            //Burada eleman sayısını belirttiğim için süslü parantezler içerisini boş bırakamayacağımı compiler hata vererek bildiriyor. Fazla yada eksik sayıda eleman sayısı giremem.
+
+            //5---------------------------------
+            var sayılar2 = new[] { 1, 2, 3, 55, 666 };
 
             #endregion
 
