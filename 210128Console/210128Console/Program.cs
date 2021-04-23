@@ -2365,6 +2365,19 @@ namespace _210128Console
             #endregion
 
 
+            #region Array
+
+            //Dizi olarak tanımlanan değişkenler Array sınıfından türetilmektedirler.
+            //Dolayısıyla dizilerde Array sınfından gelen belirli metodlar ve özellikler mevcuttur.
+
+
+            //Bir dizinin kendi türünde tanımlanması ile Array sınıfında tanımlanması arasındaki fark
+            int[] yaslar5 = new int[5];  
+            Array yaslar4 = new int[5];
+
+            #endregion
+
+
         }
     }
 }
