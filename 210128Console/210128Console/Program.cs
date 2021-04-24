@@ -2405,7 +2405,7 @@ namespace _210128Console
             //Clear
             //Dizi içerisindeki tüm elemanlara dizinin türüne uygun default değerleri atayan bir fonksiyondur. İndexlerdeki değerler kaybolmaz ama bu fonksiyon ilgili index'lere default değer atar. Index aralıklarını belirleyebiliyoruz.
             // .Lenght komutunu silme işleminde kullanırsak dizideki bulunan eleman sayısı kadar silme işlemi yapar
-            Array listX = new string[] { "Ali", "Ayşe", "Aydan", "Sinem", "Levent", "Halil", "Yağmur", "Mehmet", "Hasan" };
+            Array listX = new string[] { "Kemal", "Ali", "Jale", "Ayşe", "Hale", "Mete", "Aydan", "Sinem", "Levent", "Halil", "Yağmur", "Mehmet", "Hasan" };
             for (int i = 0; i < listX.Length; i++)
             {
                 Console.WriteLine(listX.GetValue(i));
@@ -2421,7 +2421,7 @@ namespace _210128Console
 
             //Copy Fonksiyonu
             //Elimizdeki bir dizinin verilerini bir başka diziye koplanmamızı sağlayan bir fonksiyondur.
-            Array nameSource = new[] { "Ali", "Ayşe", "Aydan", "Sinem", "Levent", "Halil", "Yağmur", "Mehmet", "Hasan" };
+            Array nameSource = new[] { "Kemal", "Ali", "Jale", "Ayşe", "Hale", "Mete", "Aydan", "Sinem", "Levent", "Halil", "Yağmur", "Mehmet", "Hasan" };
             string[] hedefDizi = new string[nameSource.Length];
 
 
@@ -2464,6 +2464,17 @@ namespace _210128Console
             {
                 Console.WriteLine(nameSource.GetValue(i));
             }
+
+
+
+            //Sort Function
+            //Elimizdeki dizinin sıralanmasını sağlayan fonksiyondur. Küçükten-Büyüğe -- A'dan-Z'ye gibi...
+            Array.Sort(nameSource);
+            for (int i = 0; i < nameSource.Length; i++)
+            {
+                Console.WriteLine(nameSource.GetValue(i));
+            }
+
 
 
 
