@@ -2486,6 +2486,18 @@ namespace _210128Console
             Console.WriteLine(nameSource.IsReadOnly);
 
 
+
+
+            //IsFixedSize
+            //Bir dizinin, bir veri kümesinin boyutunun eleman sayısının sabit olup olmama durumunu vermektedir. 
+            Console.WriteLine(nameSource.IsFixedSize);
+            //Tüm dizilerde eleman sayısı sabit olduğu için sürekli true dönecektir. 
+            //Örneğin ArrayList koleksiyonunda false dönmektedir.
+
+
+
+
+
             #endregion
 
 
