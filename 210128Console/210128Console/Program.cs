@@ -2372,9 +2372,49 @@ namespace _210128Console
 
 
             //Bir dizinin kendi türünde tanımlanması ile Array sınıfında tanımlanması arasındaki fark
-            int[] yaslar5 = new int[5];  
-            Array yaslar4 = new int[5];
+            int[] yaslar5 = new int[5];  //Dizi eğerki kendi türünde referans ediliyorsa indexer operatörü kullanılabilir. Bu şekilde çalışırken ilgili diziye verisel müdehaleler operatif yani indexer operatörü ile gerçekleştirilirken, Genellikle bu format algoritmalarda tercih edilir. Çünkü indexer operatörü algoritmalarda çok kullanılır.
+            Array yaslar4 = new int[5]; //Dizi eğer Array türünde referans ediliyorsa indexer operatörü kullanılmaz !! Bu şekilde çalışurken ilgili diziye verisel müdehaleler fonksyonel yani fonksiyonlar aracılığı ile gerçekleştirilir. Genellikle elimizdeki dizinin üzerinde işlem yapılırken tercih edilir. Dizi hakkında bilgilendirmeler vs.. kullanılır.
 
+
+            //Değer Atama ve Okuma
+            //1. Varyasyon
+            int[] dizii = new int[3];
+            dizii[0] = 99;
+            dizii[1] = 98;
+            dizii[2] = 97;
+            Array dizii2 = dizii;
+
+            //2. Varyasyon
+            Array dizi3 = new int[3] { 33, 22, 11 };
+
+            //3.Varyasyon
+            Array dizi4 = new int[] { 44, 55, 88 };
+
+            //4. Varyasyon
+            Array dizi5 = new int[3];
+            dizi5.SetValue(132, 0);
+            dizi5.SetValue(14, 2);
+            dizi5.SetValue(11, 1);
+
+            object diziDeger= dizi5.GetValue(2); //Burada .GetValue komutu ilgili index'teki değeri object'e boxing ediyor ve bize boxing çıktı veriyor. Biz gerekli gördüğümüzde ilgili değeri kendi türünde unboxing işlemi yapabiliriz.
+            Console.WriteLine(diziDeger);
+
+
+
+            //Array Metotları
+            //Clear
+            //Dizi içerisindeki tüm elemanlara dizinin türüne uygun default değerleri atayan bir fonksiyondur. İndexlerdeki değerler kaybolmaz ama bu fonksiyon ilgili index'lere default değer atar. Index aralıklarını belirleyebiliyoruz.
+            Array listX = new string[] { "Ali", "Ayşe", "Aydan","Sinem","Levent","Halil" };
+            for (int i = 0; i < listX.Length; i++)
+            {
+                Console.WriteLine(listX.GetValue(i));
+            }
+            Console.WriteLine("-------------------------------------------------");
+            Array.Clear(listX, 3, listX.Length);
+            for (int i = 0; i < listX.Length; i++)
+            {
+                Console.WriteLine(listX.GetValue(i));
+            }
             #endregion
 
 
