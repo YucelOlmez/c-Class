@@ -2454,6 +2454,21 @@ namespace _210128Console
 
 
 
+
+
+            //Reverse Function
+            //Elimizdeki dizinin elemanlarını tersine sıralayan bir fonksiyondur
+            //4 Tane overload senaryosu vardır. Belirlediğimiz index'ten itibaren örneğin 3 tane değeri döndür diyeibliyoruz.
+            Array.Reverse(nameSource);
+            for (int i = 0; i < nameSource.Length; i++)
+            {
+                Console.WriteLine(nameSource.GetValue(i));
+            }
+
+
+
+
+
             #endregion
 
 
