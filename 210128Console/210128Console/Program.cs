@@ -2438,7 +2438,26 @@ namespace _210128Console
                 Console.WriteLine(hedefDizi[i]);
             }
 
+
+
+            //IndexOf Operation
+            //Dizi içerisinde bir elemanın var olup olmadığını sorgulayabildğiniz fonksiyondur.
+            //Arama neticesinde ilgili değer varsa int olarak o değerin index numarasını döndürecektir.
+            //Eğer yoksa -1 değerini döndürür.
+            //Kullanım senaryosunun üçüncüsünde daha detaylı indexler arasında arama yapabilmekteyiz.
+            int indexOff = Array.IndexOf(nameSource, "Sinem");
+            if (indexOff != -1)
+            {
+                //Demekki aranan değer ilgili dizide bulunmaktadır.
+                Console.WriteLine("Sinem değeri dizide olduğu için bu yazıyı yazdırdı.");
+            }
+
+
+
             #endregion
+
+
+
 
 
         }
