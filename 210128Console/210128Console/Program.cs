@@ -2404,17 +2404,40 @@ namespace _210128Console
             //Array Metotları
             //Clear
             //Dizi içerisindeki tüm elemanlara dizinin türüne uygun default değerleri atayan bir fonksiyondur. İndexlerdeki değerler kaybolmaz ama bu fonksiyon ilgili index'lere default değer atar. Index aralıklarını belirleyebiliyoruz.
-            Array listX = new string[] { "Ali", "Ayşe", "Aydan","Sinem","Levent","Halil" };
+            // .Lenght komutunu silme işleminde kullanırsak dizideki bulunan eleman sayısı kadar silme işlemi yapar
+            Array listX = new string[] { "Ali", "Ayşe", "Aydan", "Sinem", "Levent", "Halil", "Yağmur", "Mehmet", "Hasan" };
             for (int i = 0; i < listX.Length; i++)
             {
                 Console.WriteLine(listX.GetValue(i));
             }
             Console.WriteLine("-------------------------------------------------");
-            Array.Clear(listX, 3, listX.Length);
+            Array.Clear(listX, 0, listX.Length);
             for (int i = 0; i < listX.Length; i++)
             {
                 Console.WriteLine(listX.GetValue(i));
             }
+
+
+
+            //Copy Fonksiyonu
+            //Elimizdeki bir dizinin verilerini bir başka diziye koplanmamızı sağlayan bir fonksiyondur.
+            Array nameSource = new[] { "Ali", "Ayşe", "Aydan", "Sinem", "Levent", "Halil", "Yağmur", "Mehmet", "Hasan" };
+            string[] hedefDizi = new string[nameSource.Length];
+
+
+            //Array.Copy(nameSource, hedefDizi, 4);
+            //for (int i = 0; i < hedefDizi.Length; i++)
+            //{
+            //    Console.WriteLine(hedefDizi[i]);
+            //}
+
+
+            Array.Copy(nameSource, 3, hedefDizi, 5, 4);    //Bu kullanım şekli daha esnek ve kontrolcü bir yapıya sahiptir. Zaten Copy fonksiyonunun 4 farklı kullanım senaryosunu compiler bize gösteriyor.
+            for (int i = 0; i < hedefDizi.Length; i++)
+            {
+                Console.WriteLine(hedefDizi[i]);
+            }
+
             #endregion
 
 
