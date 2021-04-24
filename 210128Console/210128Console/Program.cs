@@ -2497,6 +2497,27 @@ namespace _210128Console
 
 
 
+            //Lenght
+            //Bir dizinin eleman sayısını verir.
+
+
+
+            //Rank
+            //Bir dizinin derece sayısını döndürür.
+            //Oluşturduğumuz dizilerin önem sayısına göre sıralama yapabildiğimizi anlatan bir işleme yarıyor olabilir. İleride detaylı ArrayList'te öğrenilecek.
+
+            int[,,,] diziRank = new int[2, 3, 4, 6];
+            Console.WriteLine(diziRank.Rank);
+
+
+
+            //CreateInstance
+            //Normalde yukarıdakiler gibi tanımlaması yapılan diziler esnasında arkaplanda Array sınıfının CreateInstance metodunu kullanmaktadır. Biz bu metodu kullanarak fonksyonel diziler oluşturabilmekteyiz.
+            //Bazen programatik ve fonksyonel dizi oluşturma ihtiyacımız olduğunda kullanılabilir.
+            Array cinsArr= Array.CreateInstance(typeof(int), 5);
+
+
+
 
             #endregion
 
