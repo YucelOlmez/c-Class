@@ -2478,6 +2478,12 @@ namespace _210128Console
 
 
 
+            //IsReadOnly
+            //Array Sınıfının Property'leri
+            //Bir dizinin sadece okunabilir olup olmadığını boolean türde bildiren bir özelliktir.
+            //Salt okunabilirlik durumunu kontrol eder.
+            //Oluşturduğumuz dizinin sadece okunabilir olduğunu istediğimiz durumlar ve bu duruma bağlı olarak diziyi sınırlandırdığımız çalışmalar olabiliyor. Bu keyword ile dizilerin durumlarını inleyebiliyoruz.
+            Console.WriteLine(nameSource.IsReadOnly);
 
 
             #endregion
