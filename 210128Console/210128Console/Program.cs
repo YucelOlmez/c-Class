@@ -2535,6 +2535,18 @@ namespace _210128Console
             Console.WriteLine(ornkDz[index]);
 
 
+
+            //System.Range
+            //Veri kümelerinde hangi değerler ile çalışacağımızı(değer aralığı) belirleyebilmek için index üzerinden aralık vermemizi ve bunu .. operatörü ile gerçekleştirmemizi sağlayan yapılanmadır.
+            // .. operatörünün sağında ve solunda belirlediğimiz değer aralıkları ( örnk: 1..5) buradaki 1 index no iken 5 sayısı sıra numarasıdır.
+            // .. operatörü hedeflenen aralığı bize Range türünde geri getirecektir. Böylece biz ilgili aralığı bir dizi imiş gibi kullanabileceğiz.
+            // ^1..^6 gibi bir kullanım senaryosunda 0 index numarasını .. operatörünün solunda olan yok sayarken .. operatörünün sağında olan 0'nün olduğunu düşünüp 0'dan itibaren saydığında doğru çıktıyı alır.
+            // Indexer [] operatörü içerisine tam sayı ve ya index türü verilebildiği gibi Range türüde verilebilir.
+            int[] ornkDz2 = { 4, 55, 66, 789, 5, 45, 68, 83, 12, 2, 7, 987, 6 };
+            Range rnge = ^3..^9;
+
+
+
             #endregion
 
 
