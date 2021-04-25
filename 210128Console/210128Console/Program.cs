@@ -2504,8 +2504,6 @@ namespace _210128Console
 
             //Rank
             //Bir dizinin derece sayısını döndürür.
-            //Oluşturduğumuz dizilerin önem sayısına göre sıralama yapabildiğimizi anlatan bir işleme yarıyor olabilir. İleride detaylı ArrayList'te öğrenilecek.
-
             int[,,,] diziRank = new int[2, 3, 4, 6];
             Console.WriteLine(diziRank.Rank);
 
@@ -2514,9 +2512,27 @@ namespace _210128Console
             //CreateInstance
             //Normalde yukarıdakiler gibi tanımlaması yapılan diziler esnasında arkaplanda Array sınıfının CreateInstance metodunu kullanmaktadır. Biz bu metodu kullanarak fonksyonel diziler oluşturabilmekteyiz.
             //Bazen programatik ve fonksyonel dizi oluşturma ihtiyacımız olduğunda kullanılabilir.
+            //Overload'ları vardır.
             Array cinsArr= Array.CreateInstance(typeof(int), 5);
 
+           Array multiCi = Array.CreateInstance(typeof(string), 5, 66, 44, 8, 123); //5 dreceli dizi tanımlandı sırası ile eleman sayıları typeof'tan sonra gelen 5,66,44,8,123 elemanlı diziler tanımlanmıştır. çok boyutlu dizi tanımlamasıdır.
 
+
+
+            //Ranges and Indices
+            //c# 8.0 ile veri kaynakları üzerinde gerekli manipülasyonları sağlayabilmek ve bunun yanında kaynak içerisindeki tüm veriler üzerinde yapılan genel sorgulamalar ve algoritmalardan kaçınmak, yani direkt olarak hedef veri'ler odaklı çalışabilmek için yeni tipler ile operatörler geliştirilmiştir.
+            // System.Index-System.Range---------------   ..  -   ^(tersine sembolüdür) operatörleri gelmiştir.
+
+
+            //System.Index
+            //Dizi ve koleksiyon yapılaındaki index kavramının tip olarak belirlenmiş halidir.
+            //Index'i artık System.Index ile türleştirilmiştir. VE artık bu index numaralarına karşılık gelen değerdir.
+            //Temelde index değerini bir tür ile tutmakla beraber ^ operatörüyle birlikte daha fazla anlam ifade etmekte ve dizinin index değerlerini tersine ifade edecek şekilde bir sorumluluk yüklenmektedir.
+            // ^ operatörü ile tersini aldığımız index sıralamasında bu işlemi yaptığmız zaman 0'dan başlamaz direkt 1'den başlar.
+            // ^ operatörü diziyi tersinden baz alarak ve 1' index numarası vererek çalışır. Burada dizinin elemanlarının yeri değişmiyor sadece tersten işleme alıyor. soldan sağa(0,1,2,3) DEĞİL Sağdan sola(3,2,1) ÇALIŞIR !!
+            int[] ornkDz = { 4, 55, 66, 789, 5, 45, 68, 83, 12, 2, 7, 987, 6 };
+            Index index = ^5; //Sağdan 1. id vererek gelir ce çıktı 12 değeri olur.
+            Console.WriteLine(ornkDz[index]);
 
 
             #endregion
