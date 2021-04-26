@@ -2432,7 +2432,7 @@ namespace _210128Console
             //}
 
 
-            Array.Copy(nameSource, 3, hedefDizi, 5, 4);    //Bu kullanım şekli daha esnek ve kontrolcü bir yapıya sahiptir. Zaten Copy fonksiyonunun 4 farklı kullanım senaryosunu compiler bize gösteriyor.
+            Array.Copy(nameSource, 3, hedefDizi, 5, 4);    //Bu kullanım şekli daha esnek ve kontrolcü bir yapıya sahiptir. Zaten Copy fonksiyonunun 4 farklı kullanım senaryosunu overload ile compiler bize gösteriyor.
             for (int i = 0; i < hedefDizi.Length; i++)
             {
                 Console.WriteLine(hedefDizi[i]);
@@ -2482,7 +2482,7 @@ namespace _210128Console
             //Array Sınıfının Property'leri
             //Bir dizinin sadece okunabilir olup olmadığını boolean türde bildiren bir özelliktir.
             //Salt okunabilirlik durumunu kontrol eder.
-            //Oluşturduğumuz dizinin sadece okunabilir olduğunu istediğimiz durumlar ve bu duruma bağlı olarak diziyi sınırlandırdığımız çalışmalar olabiliyor. Bu keyword ile dizilerin durumlarını inleyebiliyoruz.
+            //Oluşturduğumuz dizinin sadece okunabilir olduğunu istediğimiz durumlar ve bu duruma bağlı olarak diziyi sınırlandırdığımız çalışmalar olabiliyor. Bu keyword ile dizilerin durumlarını inceleyebiliyoruz.
             Console.WriteLine(nameSource.IsReadOnly);
 
 
@@ -2513,9 +2513,11 @@ namespace _210128Console
             //Normalde yukarıdakiler gibi tanımlaması yapılan diziler esnasında arkaplanda Array sınıfının CreateInstance metodunu kullanmaktadır. Biz bu metodu kullanarak fonksyonel diziler oluşturabilmekteyiz.
             //Bazen programatik ve fonksyonel dizi oluşturma ihtiyacımız olduğunda kullanılabilir.
             //Overload'ları vardır.
-            Array cinsArr= Array.CreateInstance(typeof(int), 5);
+            // tür tanımlaması yapacaksak typeof keyword'ü ile tanımlama yaparız.
+            Array cinsArr= Array.CreateInstance(typeof(int), 3);
 
-           Array multiCi = Array.CreateInstance(typeof(string), 5, 66, 44, 8, 123); //5 dreceli dizi tanımlandı sırası ile eleman sayıları typeof'tan sonra gelen 5,66,44,8,123 elemanlı diziler tanımlanmıştır. çok boyutlu dizi tanımlamasıdır.
+           Array multiCi = Array.CreateInstance(typeof(int), 2, 66, 44, 8, 123); //5 dreceli dizi tanımlandı sırası ile eleman sayıları typeof'tan sonra gelen 2,66,44,8,123 elemanlı diziler tanımlanmıştır. çok boyutlu dizi tanımlamasıdır.
+            Console.WriteLine(multiCi.Rank);
 
 
 
@@ -2526,13 +2528,14 @@ namespace _210128Console
 
             //System.Index
             //Dizi ve koleksiyon yapılaındaki index kavramının tip olarak belirlenmiş halidir.
-            //Index'i artık System.Index ile türleştirilmiştir. VE artık bu index numaralarına karşılık gelen değerdir.
+            //Index'i artık System.Index ile türleştirilmiştir. VE artık bu, index numaralarına karşılık gelen değerdir.
             //Temelde index değerini bir tür ile tutmakla beraber ^ operatörüyle birlikte daha fazla anlam ifade etmekte ve dizinin index değerlerini tersine ifade edecek şekilde bir sorumluluk yüklenmektedir.
             // ^ operatörü ile tersini aldığımız index sıralamasında bu işlemi yaptığmız zaman 0'dan başlamaz direkt 1'den başlar.
             // ^ operatörü diziyi tersinden baz alarak ve 1' index numarası vererek çalışır. Burada dizinin elemanlarının yeri değişmiyor sadece tersten işleme alıyor. soldan sağa(0,1,2,3) DEĞİL Sağdan sola(3,2,1) ÇALIŞIR !!
+            // index numaraları matematiksel işleme tabii tutulamaz.
             int[] ornkDz = { 4, 55, 66, 789, 5, 45, 68, 83, 12, 2, 7, 987, 6 };
-            Index index = ^5; //Sağdan 1. id vererek gelir ce çıktı 12 değeri olur.
-            Console.WriteLine(ornkDz[index]);
+            Index indx = ^5; //Sağdan 1. id vererek gelir ce çıktı 12 değeri olur.
+            Console.WriteLine(ornkDz[indx]);
 
 
 
@@ -2542,12 +2545,44 @@ namespace _210128Console
             // .. operatörü hedeflenen aralığı bize Range türünde geri getirecektir. Böylece biz ilgili aralığı bir dizi imiş gibi kullanabileceğiz.
             // ^1..^6 gibi bir kullanım senaryosunda 0 index numarasını .. operatörünün solunda olan yok sayarken .. operatörünün sağında olan 0'nün olduğunu düşünüp 0'dan itibaren saydığında doğru çıktıyı alır.
             // Indexer [] operatörü içerisine tam sayı ve ya index türü verilebildiği gibi Range türüde verilebilir.
+            // .. operatörü geriye Range türünden değer döner
+            // .. operatörünün sağına ve soluna System.Index türünden değer de verebiliyoruz.
+            Range rngeX = ..; //ifadesi tüm diziye karşılık gelmektedir.
+
             int[] ornkDz2 = { 4, 55, 66, 789, 5, 45, 68, 83, 12, 2, 7, 987, 6 };
-            Range rnge = ^3..^9;
+            Range rnge = ^6..^2;
+            int[] diz6 = ornkDz2[rnge];
+            foreach (var item in diz6)
+            {
+                Console.WriteLine(item);
+
+            }
+            Console.WriteLine("Dizinin eleman sayısı " + diz6.Length);
+
+            // .. Kritik
+            //Burada index türünden değişkenleri Range türünde kullanabildiğimiz hatta indexer operatörünün içinde kullanabildiğimiz gözlenmektedir.
+            Index i2 = 2, i3 = 8;
+            Range rnge2 = i2..i3;
+            //var diz7 = ornkDz2[rnge2];
+            var diz7 = ornkDz2[i2..i3];
+
+
+            #endregion
+
+
+            #region Çok 'Boyutlu/Biçimli/Dereceli' Diziler
+
+            //Çok boyutlu diziler oyun programlamada ya da yüksek istatistiksel çalışmalarda kullanılan bir yapıdır.
+            //Çok boyutlu dizilerde indexer içerisine (,) ile tanımlama yapılmaktadır.
+                //int[] - Tek boyutlu dizi tanımlaması
+                //int[,] - İki boyutlu dizi tanımlaması
+                //int[,,,] - 4 boyutlu dizi tanımlaması
+                //
 
 
 
             #endregion
+
 
 
 
