@@ -2574,9 +2574,14 @@ namespace _210128Console
 
             //Çok boyutlu diziler oyun programlamada ya da yüksek istatistiksel çalışmalarda kullanılan bir yapıdır.
             //Çok boyutlu dizilerde indexer içerisine (,) ile tanımlama yapılmaktadır.
-                //int[] - Tek boyutlu dizi tanımlaması
-                //int[,] - İki boyutlu dizi tanımlaması
-                //int[,,,] - 4 boyutlu dizi tanımlaması
+            //int[] - Tek boyutlu dizi tanımlaması
+
+            //int[,] - İki boyutlu dizi tanımlaması
+            int[,] ciftArr = new int[3, 5]; //İki boyutlu diziler x ve y koordinantları ile imgeleyebileceğimiz dizilerdir. 3=x 5=y  koordinant sisteminde olduğunu hayal edebiliriz.
+
+            //int[,,,] - 4 boyutlu dizi tanımlaması
+            int[,,,] dortArr = new int[5, 9, 4, 2];  //2 ve çok boyutlu dizileri günlük hayatta pek imgelemiyor olsakda programlamatik olarak inşaa edebilmekteyiz. Her bir dereceye karşılık eleman sayısı assing solundaki indexer içerisine bildirilir.
+
                 //
 
 
