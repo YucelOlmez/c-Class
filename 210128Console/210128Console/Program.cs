@@ -15,6 +15,26 @@ namespace _210128Console
 
         {
 
+            #region When I started c#
+            //Compiler işlemi yazdığımız kodların bilgisayarın anlayacağı ve çalıştıracağı şekile dönüştürülmesi işlemidir.
+            //Compiler sonucu 2 çıktı alınır biri .exe diğeri .dll 
+            // .dll kütüphaneler konusunda detaylı görülecektir.
+            // .exe kullanıcının çalıştırabileceği yazılım uzantısıdır. Derleme sonucu oluşturulur. Eğer bir insan kullanmak isterse .exe uzantılı dosyayı user çift tıklar ve açar.
+            // .exe uzantılı dosya içerisinde compiler edilen programı oluşturan yazılım kodları bulunur. User çift tıklar ve programı açar.
+            // paket ve kütüphane kavramları aynı kapıya çıkmaktadır ve ortak bir havuz dediğimiz Nuget'ten alınırlar.
+            // Nuget dediğimiz havuzdaki farklı kütüphanelere paket diyoruz. Uzaktan çektiklerimiz kütüphaneler paket olarak nitelendirilir.
+            //Referanslar önceden yazılmış .dll idir. Fiziksel olara elimizde bulunan dosyalardır. Projeme fiziksel olarak sahip olduğum için ve uzantısı .dll ise aynı zamanda eklerken referans olarak eklerim. Daha detaylı olarak Class Library dersinde işlenecektir.
+            //Bir kütüphaneyi Nuget havuzundan projeme ekleyeceksem paket olarak eklerim. 
+            //Proje oluşturdum ve Build ettiğimde .dll dosyası bir yazulım tarafından kullanılabilir.
+            // .dll referans olarak nitelendirilir.
+
+            //İşletim sistemiyle iletişimini kontağını sağlayan fonksiyona Main fonksiyonu sağlar. Başlangıç kodları buraya yazılır. İlk tetiklenen fonksiyon burasıdır.
+            //Main fonksiyonu projede hangi uygulamada olursa olsun en az ve en fazla 1 tane olmak zorundadır.
+
+            // Visual Studio bir editördür.
+            #endregion
+
+
             #region Tuple Türüyle Değer Atama
 
             int sayi1 = 5;
