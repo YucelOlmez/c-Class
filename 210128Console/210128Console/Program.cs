@@ -2600,9 +2600,44 @@ namespace _210128Console
             int[,] ciftArr = new int[3, 5]; //İki boyutlu diziler x ve y koordinantları ile imgeleyebileceğimiz dizilerdir. 3=x 5=y  koordinant sisteminde olduğunu hayal edebiliriz.
 
             //int[,,,] - 4 boyutlu dizi tanımlaması
-            int[,,,] dortArr = new int[5, 9, 4, 2];  //2 ve çok boyutlu dizileri günlük hayatta pek imgelemiyor olsakda programlamatik olarak inşaa edebilmekteyiz. Her bir dereceye karşılık eleman sayısı assing solundaki indexer içerisine bildirilir.
+            int[,,] dortArr = new int[2, 2, 4];  //3 ve çok boyutlu dizileri günlük hayatta pek imgelemiyor olsakda programlamatik olarak inşaa edebilmekteyiz. Her bir dereceye karşılık eleman sayısı assing solundaki indexer içerisine bildirilir.
+            dortArr[0, 0, 0] = 1;
+            dortArr[0, 0, 1] = 2;
+            dortArr[0, 0, 2] = 3;
+            dortArr[0, 0, 3] = 4;
+            dortArr[0, 1, 0] = 5;
+            dortArr[0, 1, 1] = 6;
+            dortArr[0, 1, 2] = 7;
+            dortArr[0, 1, 3] = 8;
+            dortArr[1, 0, 0] = 9;
+            dortArr[1, 0, 1] = 10;
+            dortArr[1, 0, 2] = 11;
+            dortArr[1, 0, 3] = 12;
+            dortArr[1, 1, 0] = 13;
+            dortArr[1, 1, 1] = 14;
+            dortArr[1, 1, 2] = 15;
+            dortArr[1, 1, 3] = 16;
 
-                //
+            Console.WriteLine(dortArr[0,0,0]); //bu adresteki değeri okumamızı sağlar.
+            Console.WriteLine(dortArr.Rank);      //Dizinin kaç dereceli rank olduğunu okumamızı sağlar.
+            Console.WriteLine(dortArr.Length); //çok boyutlu Dizinin total hücre sayısına göre gelecektir. Yani her rank için belirlenen elemansayılarının çarpımı total eleman sayısını verir.
+            Console.WriteLine(dortArr.GetLength(0));
+            Console.WriteLine(dortArr.GetLength(1));
+            Console.WriteLine(dortArr.GetLength(2)); //çok boyutlu dizinin belirli bir dizisinin eleman saysını okuma 
+
+            for (int i = 0; i < dortArr.GetLength(0); i++)
+            {
+                for (int k = 0; k < dortArr.GetLength(1); k++)
+                {
+                    for (int p = 0; p < dortArr.GetLength(2); p++)
+                    {
+                        Console.WriteLine(dortArr[i,k,p]+ "           ");
+                    }
+                    Console.WriteLine("");
+                }
+            }
+
+
 
 
 
