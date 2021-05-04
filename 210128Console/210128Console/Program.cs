@@ -2355,10 +2355,12 @@ namespace _210128Console
 
             #endregion
 
+
             #region Dizilerde Sınırlılık ve Koleksiyon Yapılarının Doğuşu
             //Dizilerde eleman sayısı bildirimi--belirttiğim eleman sayısı kadar RAM'de alan tahsisinin yapılması sonucu maliyet oluşumu--dizilerde istediğimiz zaman eleman sayısının genişletilemeyip daraltılamaması-- SINIRLILIKTIR !
             //Bu sınırlılıklardan kurtulduktan sonra karşımıza arraylist dizi çeşiti gelecektir. Fakat arraylist'in de kendine göre sınırlılıkları vardır. Bu sınırlılıkları aşınca karşımıza daha esnek davranış sergileyen koleksiyonlarla karşılaşacağım.
             #endregion
+
 
             #region Dizi Tanımlama Varyasyonları
             //1------------------------
@@ -2631,7 +2633,7 @@ namespace _210128Console
                 {
                     for (int p = 0; p < dortArr.GetLength(2); p++)
                     {
-                        Console.WriteLine(dortArr[i,k,p]+ "           ");
+                        Console.Write(dortArr[i,k,p]+ "           ");
                     }
                     Console.WriteLine("");
                 }
@@ -2644,6 +2646,47 @@ namespace _210128Console
             #endregion
 
 
+            #region Irregular Array [Düzensiz Diziler]
+            //Düzensiz diziler her bir elemanı kendi içerisinde farklı bir dizi barındıran dizilerdir.
+            //Stratejik olarak kullanılırlar. Çok özel durumlarda devreye alınırlar gibi düşünmek gerek.
+            // int[][] dizisi türünde değerler tutacak bir dizi tanımlamış oluyoruz.
+            //Çok boyutlu dizilerden tek farkı - çok boyutlu dizilerin sütun sayılarının sabit, halbuki düzensiz dizilerin ise sütun sayılarının değişken olmasıdır.
+            //Çok spesifik bir yapıda çalışılması durumunda kullanılır.
+
+
+            // NOT : Çok boyutlu dizilerde ben Dereceye göre hareket ederken Düzensiz Dizilerde Ana diziye odaklı hareket etmekteyim.
+
+
+
+            int[][] IrregArr = new int[3][]; //3 Elemanlı içerisinde her bir eleman içinde dizi barındırabilecek şekilde düzensiz diziler oluşturuldu.
+            IrregArr[0] = new int[3] { 3, 5, 4 };
+            IrregArr[1] = new int[5] { 33, 105, 400, 20, 30 };
+            IrregArr[2] = new int[10] { 30, 50, 40,60,70,80,90,100,300,2000 };
+
+            Console.WriteLine(IrregArr[1][0]);    //Değer okundu
+            IrregArr[1][0] = 34;                  //Değer Atandı
+            Console.WriteLine(IrregArr[1][0]);    // Yeni atanan değer okundu.
+
+            Console.WriteLine(IrregArr.Length); //Burası ana dizinin eleman sayısıdır ve 3 değeri dönecektir. Bu 3 elemanın içerisinde 3 farklı index numarasına sahip farklı diziler tanımlanmıştır. BU Irregular Array'dir. 
+
+
+            // Eleman sayılarına ulaşabilmek için  ilgili elemanların içerisinde tanımlanan dizilerin index numaaralrını tek tek toplamamız gerekmektedir.
+            // .Lenght erişimi bize ilgili indexe atanan eleman saysını verecektir.
+            // [0] [1] [2] içerisinde indexini verdiğimizde bana gelen değer DİZİ olduğu için o dizinin Lenght' ini istemek ilgili indexin eleman saysını getireceği için çok mantıklı olacaktır.
+            Console.WriteLine(IrregArr[0].Length + IrregArr[1].Length + IrregArr[2].Length);
+
+
+            for (int i = 0; i < IrregArr.Length ; i++)
+            {
+                for (int P = 0; P < IrregArr[i].Length; P++)
+                {
+                    Console.Write(IrregArr[i][P]+"    -    ");
+                }
+                Console.WriteLine("");
+            }
+
+
+            #endregion
 
 
 
