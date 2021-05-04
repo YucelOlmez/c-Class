@@ -2691,6 +2691,77 @@ namespace _210128Console
 
 
 
+            //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+            #region String
+            //String: referans türlü olduğu halde programlama dilince bir keyword barındıran tek değerdir.
+            // Değer türlü değişkenlerin hepsi programlama dili tarafından önceden tanımlanmışlardır ve hepsi keyword ile tutulurlar.
+            //Referans türlü değişkenlerin string dışında programlama dilince keyword'ü yoktur. STRING dışında !!
+            // string---programlama dilince keyword ile tanımlanan tek değerdir. (Java, TypeScript...)
+            //değer türlü değişkenler Ram'de hem değeri hemde değişkeni/türü stack'te tutuluyor.
+            //Referans türlü değişkenler ve string değişkeninde işleyiş string tanımlandığında değeri Heap'te string türünün kendisi stack'te tutuluyor.
+            // String'in heap'te tutulan değeri aslen nesnedir.
+
+            //null Durumu
+            //bir değişken nullable ya da referans türlü olabilir. Eğer ki null alıyorsa bu durum ilgili değişkenin herhangi bir alanı tahsis etmediği anlamına gelir. 
+            //Herhangi bir değişken eğer null'sa hiç bir şeyi referans etmiyor, değeri yok, bir anlam ifade etmiyor ve Ram'te bir alan tahsisi edilmemiş demektir. Fakat doğal olarak tanımlaması yapılır.
+            //string'in pointer'i stack'te tutulur.
+            //Arsa yok-Ev yok!
+            //Değer türlü değişkenler null alamaz
+            //null alabilen türler sadece referans türlerdir.
+            //Değer türlü değişkenlerin null alabilmesi için nullable(?) olmaları gerekmektedir.
+            // null olan bir değer üzerinde işlem yapmaya çalıştığımızda runtime hatası meydana gelir. Fakat empty olan bir değer üzerinde işlem gerçekleştirilebilir.
+            int? asd = null;
+            string asd1 = null;
+
+            //empty Durumu
+            //Bir değişken nullable ya da referans türlü olabilir. Eğer ki empty ise bu değişkenin değeri yok anlamı anlamına gelir. Ram'de alan tahsisi bulunulmuştur fakat değeri yok değer almayı bekliyor halde olarak yorumlanır.
+            //Arsa var-Ev yok!
+            //Tüm değerlere empty atanabilir.
+            //Alan tahsisinde bulunduktan sonra ilgili alana bir değer eklememek bir empty durumdur.
+            //default değerlerin olduğu durumlar empty olarak geçerler.
+            //Eğerki değer türlü bir değişkene varsayılan default değeri atarsak ilgili değişken empty olarak değerlendirilir.
+            int asd3 = 0;
+            bool asd4 = false;
+            string asd5 = string.Empty; //ile
+            string asd6 = "";           // bu empty anlamına gelir.
+
+
+            //IsNullorEmpty fonksiyonu
+            //Elimizdeki string ifadenin null ya da empty olmama durumları hakkında bir check yapar ve geriye BOOL türde sonuç döner.
+            //Elimizdeki string ifadelerin işleme tabi tutulmadan önce kesinlikle kontrol edilmesi gerekmektedir.
+            //string değişkenimizin hiç bir zaman null yada empty olmasını istemeyiz bu yüzden ilgili değişkeni işleyişi kontrol etmek isteriz.
+            //Belki null yada empty bırakılması gereken zorunlulukları hariç tutuyorum.
+            //Eğer ki değer null yada empty ise geriye true değilse false dönecektir.
+            string asd11 = "";
+            if (!string.IsNullOrEmpty(asd11))  //elimdeki değişken null yada empty DEĞİLSE if'in içine gir.... Daha efektif.
+            {
+                //ilgili operasyon için girip çalışacaktır.
+            }
+
+
+            //IsNullorWhiteSpace
+            //Bu fonksiyon elimizdeki string ifadenin null empty yada boşlok karakterlerinden ibaret olma durumunda geriye boolean true değerini döndüren bir fonksiyondur.
+            string asd12 = "ali ata bak";
+            if (!string.IsNullOrWhiteSpace(asd12))
+            {
+                //null empty yada boşlok karakterlerinden ibaret olmadğı için if'e giriyor.
+            }
+
+
+
+
+
+            #endregion
+
+
+
+
+
+
+
         }
     }
 }
