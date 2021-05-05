@@ -2744,14 +2744,87 @@ namespace _210128Console
 
             //IsNullorWhiteSpace
             //Bu fonksiyon elimizdeki string ifadenin null empty yada boşlok karakterlerinden ibaret olma durumunda geriye boolean true değerini döndüren bir fonksiyondur.
-            string asd12 = "ali ata bak";
+            string asd12 = "elmayı elmacıdan getirirken elendim";
             if (!string.IsNullOrWhiteSpace(asd12))
             {
                 //null empty yada boşlok karakterlerinden ibaret olmadğı için if'e giriyor.
             }
 
+            //String ifadeler aslen bir char dizisidir. Yani yazılım açısından string ifade yoktur. Esasında char'ların bir araya gelmiş hali vardır. Dolayısı ile char'ları bir araya getirebilecek tek şey bir dizidir. String ifadeler yazılımsal açıdan bilgisayarda bir char dizisi olarak tarif edilmekte ve bu şekilde tutulmaktadır. String ifadeler özünde bir char dizisi olmasından dolayı referans türlü bir değişkenlerdir. Çünkü diziler referans türlüdürler. Yani nesnedirler ve Heap'te tutulurlar.
+            //String ifadeler char dizisi olduklarından dolayı her bir char baştan sona otomatik indexlenmektedir. Dolayısı ile string bir ifade üzerinde bizler indexer opretöründe kullanabilmekteyiz.
+            //String özünde bir char dizisi olabilir fakat yapısal olarak yinede string olduğu için Array referansına atılamaz, Array ile karşılanamaz !!
+            //String'in sahip olduğu özellikler: 1-Nesne 2-char Dizisi(Dizi)
+            for (int i = 0; i < asd12.Length; i++)
+            {
+                if (asd12[i]=='e')
+                {
+                    Console.WriteLine(i);
+                }
+            }
+
+            //String İfadelerde + Operatörü
+            //String ifadelerde + operatörü kullanılabilmektedir. 
+            //iki string ifade arasında birleştirme görevi görür.
+            //Bir string ifadeyle herhangi bir tür + operatörüyle işleme tabi tutulabilir.
+            //+ operatörü string bir ifadeyle herhangi bir türdeki ifadeleri işleme tabi tutarken object + string olarak davranış sergileyecek ve sonuç olarak geriye string değer dönecektir.
+            //Dolayısıyla herhangi bir ifadeki string'e dönüştürebilmek için o ifadeyi + " " ile işleme tutmak yeterli olabilir. ( + operatörü Maliyetlidir convert işlemleri daha az maliyetlidir.)
+            //+ ile string birleştirmeleri ya da formatlandırmlarında ternary operatörü kullanılıyorsa bunu parantez içine almamız gerekmektedir.
 
 
+            //String Formatlandırma
+            //Elimizdeki string değerleri stringe uygun olduğunu düşündüğümüz yerlere yerleştirme işlemidir. + operatörü -- string.Format -- ve $ string interpolation -- işlemleri ile yaparız.
+            // + operatörü ile string formatlandırma operasyonu hem kod hem performans açısından oldukça maliyetlidir. Tercih edilmemelidir.
+
+            //string.Format
+            //bu fonksiyon metinsel kalıbın içerisindeki indexsel belirlenen noktalara sırası ile değer göndermemizi sağlan bir fonksiyondur.
+            string formatIsim = "Yücel", formatSoyIsm = "Ölmez", forTC = "12345678901";
+            int forYas = 27;
+            bool forMedeni = false;
+
+            Console.WriteLine("TC Kimlik No:...... olan .... ..... şahsın bilgileri | Yaş: ... | Medeni Hal:.....");
+            Console.WriteLine(string.Format("TC Kimlik No: {0} olan {1} {2} şahsın bilgileri | Yaş: {3} | Medeni Hal: {4}", forTC, formatIsim, formatSoyIsm, forYas, forMedeni ? "Evli" : "Bekar"));
+
+
+
+            //$ (String Interpolation) [c# 6.0]
+            // String ifadenin içerisinde süslü parantez ile {} araya girerek programatik bir değişkenin değerini bırakmamızı sağlayan bir operatördür. string.Format'tan daha gelişmiştir.
+            // Bir string değerin başına $"  " bu ifadenin içerisinde string interpolation operasyonunun/operatörünün kullanılabilirliği sağlanır. Yani ilgili string içerisindeki {} süslü parantezler bir interpolation özelliği sergiler. 
+            Console.WriteLine($"TC Kimlik No:{forTC} olan {formatIsim} {formatSoyIsm} şahsın bilgileri | Yaş:{27} | Medeni Hal:{(forMedeni ? "Evli" : "Bekar")}");
+            //String InterPolation yapısal olarak arkaplanda string.Format fonksiyonuyla şekillenen bir operatördür.
+            //string InterPolation kullanılan string ifadelerde metinsel olarak {} süslü parantez kullanmak ihtiyacı durumunda operatif olan süslü parantezleri yine aynı operatörle ezerek metinsel hale getirebilir.
+
+
+
+            //String değerlerde Escape Karakterleri
+            //Kaçış karakterleri 1 tane değildir Google ile kısayolları bulunur.
+            //"............."..........." gibi bir string ifadenin içerisinde " sembolünü hiç bir şekilde salt olarak kullanılmasına izin verilmez. Bunu engellemek için escape karakterleri vardır.
+            //Eğer bu şekilde string için özel eylemsel mahiyet ifade eden bir karakteri metinsel olarak kuyllanacaksam bu karakterin o anlık özel karakter olmadığını ifade etmem gerekir.
+            //Bunun için escape karakterleri kullanılmalıdır.
+            //string içerisinde kaçış karakteri olarak \ (Backward Slash) kullanılmaktadır. String içerisinde özel operatif karakterleri ezen ve bunları metinsel hale getirmemizi sağlayan karakterdir.
+            //eğer \ backward operatörünü string içerisinde kullanmak istersek yine kendisini kullanarak ezip kullanabiliriz. \\ gibi...
+            Console.WriteLine("\"bugün hava\"");
+            Console.WriteLine("Yücel\\Ölmez");
+
+
+
+            //@ (Verbatim Strings) Operatörü
+            //3 Kullanımı vardır 
+            //1.si
+            //Bir değişken ya da metot vs. gibi yapılanma isimlerinin programatik bir keyword'e karşılık gelmesi mümkün değildir. Derleyici hatası verilir.
+            //illa ki bir keyword kullanmak istersem @ kullanabilirim.
+            //Yani tanımladığım değişkenin ismini string int namespace gibi isimler vermek istersem bunlarınbaşına @ operatörünü kullanıırm.
+            string @string = "Yücel";
+            //2.si
+            //Escape karakterleinin kullanılması gereken durumlarda @ operatörünü kullanarak eylemsel karakterleri kendileriyle ezebilecek özellik kazandırabiliyoruz.
+            string string1 = @"Bu gün hava çok ""güzel""";
+            //3.sü String İnterpolation ile Verbatim kullanımıdır. c# 8.0 ile birlikte kullanımı gelmiştir. Fakat öncelikli kullanım sırası vardır. -Verbatim @- önce sonrasında --Interpolation $-- bildirilmelidir.
+            string versiyon3 = $@"Merhaba {formatIsim} {formatSoyIsm}
+kimlik numaranız {forTC}
+yaşınız {forYas}";   
+
+
+
+            
 
 
             #endregion
