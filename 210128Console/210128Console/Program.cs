@@ -2820,20 +2820,146 @@ namespace _210128Console
             //3.sü String İnterpolation ile Verbatim kullanımıdır. c# 8.0 ile birlikte kullanımı gelmiştir. Fakat öncelikli kullanım sırası vardır. -Verbatim @- önce sonrasında --Interpolation $-- bildirilmelidir.
             string versiyon3 = $@"Merhaba {formatIsim} {formatSoyIsm}
 kimlik numaranız {forTC}
-yaşınız {forYas}";   
+yaşınız {forYas}";
 
 
 
-            
+            //String Fonksiyonlar
+            //Contains
+            //Bir metinsel ifadenin içerisinde herhangi bir değerin olup olmadığını check eden ve boolean sonuç döndüren fonksiyondur.
+            //Büyük küçük harf duyarlıdır.
+            string asd123 = "merhaba ali bu gün nasılsın ?";
+            bool metinASD = asd123.Contains("gün");
+            Console.WriteLine(metinASD);
 
+            //StartsWith
+            //İlgili metinin verilen değerle başlayıp başlamama durumunu kontrol edip sonuç olarak boolean sonuç döndürür.
+            //Küçük büyük harf duyarlıdır.
+            Console.WriteLine(asd123.StartsWith("mer"));
 
+            //EndsWith
+            //İlgili metinin verilen değerle sonlanıp sonlanmama durumunu kontrol edip sonuç olarak boolean sonuç döndürür.
+            Console.WriteLine(asd123.EndsWith("n ?"));
+
+            //Equals
+            //Elimizdeki metinsel ifadenin herhangi bir ifadenin değersel olarak eşit olup olmadığını check eden ve geriye boolean döner.
+            Console.WriteLine(asd123.Equals("merhaba ali bu gün"));
+
+            //Compare
+            //metinsel ifadeleri karşılaştırmamızı ve sonuç olarak int türde değer elde etmemizi sağlar.
+            // 0 \ Dönüyorsa karşılaştırılan iki değer birbirine eşit.
+            // 1 \ Soldaki sağdakinden alfanumerik olarak büyük
+            // -1 \ Soldaki sağdakinden alfanumerik olarak küçük
+            Console.WriteLine(string.Compare(asd123, "M"));
+            string.Compare(asd123, "a");
+            string.Compare(asd123, asd123);
+            string.Compare(asd123,9,asd123,8,5);   //6. Overload property'sidir.
+
+            //CompareTo
+            //Compare ile bir bir aynı amaca hizmet eder ve yapısal olarak aynı şekilde kullanılır.
+            //Hangisni istiyorsan onu kullanabilirsin. (Compare or CompareTo)
+            Console.WriteLine(asd123.CompareTo("ali"));
+            asd123.CompareTo("g");
+
+            //IndexOf
+            //Verilen değerin string ifade içerisinde olup olammasını geriye int döndüren bir fonksiyondur.
+            //Geriye int olarak indexNo'yu döndürür. (Aradığım ifadenin index numarasını döndürür.) Eğer kelime arıyorsam kelimenin ilk harfinin index numarasını döndürür.
+            //Aradığın değer yoksa -1 döndürür yoktur demektir.
+            //IndexOf metinsel ifadelerde ilk eşleşen değerin index numarasını döndürür.
+            Console.WriteLine(asd123.IndexOf("aba"));
+            Console.WriteLine(asd123.IndexOf(" gü"));
+
+            //Insert
+            //Elimizdeki metinsel ifadeye bir değer eklememizi değer dahil etmemizi sağlayan fonksiyondur.
+            //ekleme yaptığımız metin aslen ayrıyetten korunuyor fakat Insert fonksiyonu ^^geriye^^ eklenen değiştirilen ifadeyi bize döndürür. Davranış sergilediği nokta burasıdır.
+            string addMetin = asd123.Insert(8, "SELAM"); 
+            Console.WriteLine(addMetin);
+
+            //Remove
+            //Metinsel ifade de indexel olarak verilen değer aralığını silen bir fonksiyondur.
+            //Insert'te olduğu gibi ilgili fonksiyon yapmış olduğu işlem neticesinde yeni değeri üreterek bizlere string olarak dönecektir. Elimizdeki orjinal metin değişmeyecektir.
+            asd123.Remove(5);     //5. indexten sonraki tüm değerleri siler.
+            asd123.Remove(5, 6); //5. indexten başlar ve 6 adet değer siler.
+
+            //Replace
+            //Elimizdeki metinsel ifade de belirtilen değerleri ya da karakterleri belirtilen diğer değerler ya da karakterler ile değiştirmemizi sağlayan bir fonksiyondur.
+            //Sonuç olarak string değer üretecek ve geriye döndürecektir.
+            asd123.Replace('a', 'b');
+            asd123.Replace("aba", "eke");
+
+            //Split
+            //Metinsel ifadeyi verilen değeri ayraç olarak kullanıp, parçalayan ve sonucu string dizisi olarak döndüren bir fonksiyondur.
+            string[] strngDizi = asd123.Split(' '); //Fonksiyonuna yazdığım boşluk karakterine göre metinsel ifadeyi parçalayıp bana string dizisi olarak döndürdü.
+            string[] strngDizi2= asd123.Split(' ', 'a');
+
+            //Substring (***Çok Önemli -Evrensel-)
+            //Elimizdeki metinsel bir ifadenin belirli bir aralığını elde edip çalışmamızı sağlar.
+            //Sonuç string döner.
+            //Var olanı bozmaz. Yeniden üretip getirir.
+            asd123.Substring(5); //5. indexten sonuna kadar tüm değerleri getirir.
+            asd123.Substring(5, 7); //5. indexten itibaren 7 karakter getirir.
+
+            //ToLower
+            //Elimizdeki metinsel ifadenin tüm karakterlerini küçük karakter olarak düzenler.
+            Console.WriteLine(asd123.ToLower());
+
+            //ToUpper
+            //Elimizdeki metinsel ifadenin tüm karakterlerini büyük karakter olarak düzenler.
+            Console.WriteLine(asd123.ToUpper());
+
+            //Trim
+            //Metinsel ifadelerin varsa'' ''-solunda ve sağındaki-'' boşluk karakterlerini temizleyen bir fonksiyondur.
+            Console.WriteLine("     selami    şahin   ".Trim());
+
+            //TrimEnd
+            //Elimizdeki metinsel ifadenin sağındaki yani SONUNdaki boşluğu silmemizi sağlar.
+            Console.WriteLine("         asdasdasdasd    ".TrimEnd());
+
+            //TrimStart
+            //Elimizdeki metinsel ifadenin sağındaki yani BAŞINDAKİ boşluğu silmemizi sağlar.
+            Console.WriteLine("         asdasdasdasd    ".TrimStart());
             #endregion
 
 
+            //Exercise
+            //Baştan 3. harfi ve sondan 5. harfi getiren çalışma
+            string formatIsim1 = "Yücel Ölmez";
+            string aralik = formatIsim1[2..^4];      //index numaraları ile aralığı yakaladım
+            Console.WriteLine(aralik[0]);            //0. index yakaladığım aralıktaki ilk harf
+            Console.WriteLine(aralik[aralik.Length - 1]);  //belirlediğim aralıktaki harf sayısının -1 i index numarasıdır.  
+                                                           //Odak noktası algoritma kurmamızdır.
 
 
+            //Exercise
+            //girilen metinde ki 'n' harf sayısını bulan kodu yazınız.
+            Console.WriteLine("bir cümle giriniz");
+            string cumle = Console.ReadLine();
+            int adet = 0;
+            for (int i = 0; i < cumle.Length; i++)
+            {
+                if (cumle[i] == 'n')                
+                    adet++;              
+            }
+            Console.WriteLine(adet);
 
 
+            //Exercise
+            //Girilen metindeki kelime sayısını bulunuz.
+            Console.WriteLine("Lütfen bir metin giriniz.");
+            string metin2 = Console.ReadLine();
+            string[] kelimeler=metin2.Split(' ');
+            Console.WriteLine(kelimeler.Length);
+            //Döngü ile çözümü
+            int adett = 1;
+            while (true)
+            {
+               int @index1 = metin2.IndexOf(' ');
+                if (index1 != -1)
+                    break;
+                    adett++;
+                metin2 = metin2.Substring(@index1+1);
+            }
+            Console.WriteLine(adett);
 
         }
     }
