@@ -2961,6 +2961,20 @@ yaşınız {forYas}";
             }
             Console.WriteLine(adett);
 
+
+
+            #region Dizilerde Verisel Performans Nedir ?
+            //Dizilerin kendi doğasında var olan performans maliyetini ortadan kaldırmak için ArraySegment ve StringSegment kullanılır.
+            //Elimizdeki dizi verilerinde çalışmak ve ilgili dizi içerisinde belirli aralıkta belirli indexler ve istenilen indexler ile çalışmak ilgili verileri çağırıp işlem yapmak dizi içerisinden çıkarılan veriler yeniden RAM'de dizi alanı oluşturulup bellek tahsisi yapıplıp çalışılırdı. Artık bu gereksiz performans ve bellek tahsisine son verilerek çalışmak istediğimiz dizi içerisindeki belirlenen index aralığını referans edip yönetmemize imkan veren türlerdir. 
+            //Önceden dizilerdeki veriler çoğaltılıp dizi içerisine atanıp çalışılırdı artık bu çoğaltma klonlama işi bitmiştir arkadaşlar. Nerede bu 128 milyar dolar ?
+            //String zaten yapısı gereği referans türlü yani char'dan referans edilen karakterler bütünü olduğu için string üzerinde belirli aralıkları çekip çalışmamız maliyetlidir. Dizi olanın içinden veri seçip işlem yapmak için yeniden dizi alanı ayrılıp çalışma mantığı gereksizdir. Maliyettir. Bunları ArraySegment ve StringSegment ile aşıyoruz.
+
+            #endregion
+
+
+
+
+
         }
     }
 }
