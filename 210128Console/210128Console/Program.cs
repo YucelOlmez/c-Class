@@ -2969,6 +2969,18 @@ yaşınız {forYas}";
             //Önceden dizilerdeki veriler çoğaltılıp dizi içerisine atanıp çalışılırdı artık bu çoğaltma klonlama işi bitmiştir arkadaşlar. Nerede bu 128 milyar dolar ?
             //String zaten yapısı gereği referans türlü yani char'dan referans edilen karakterler bütünü olduğu için string üzerinde belirli aralıkları çekip çalışmamız maliyetlidir. Dizi olanın içinden veri seçip işlem yapmak için yeniden dizi alanı ayrılıp çalışma mantığı gereksizdir. Maliyettir. Bunları ArraySegment ve StringSegment ile aşıyoruz.
 
+
+            //ArraySegment
+            //Bir dizinin bütününden ziyade belirli bir kısmına yahut parçasına ihtiyaç dahilinde ilgili diziyi kopyalamak yerine(Oldukça maliyetli bir operasyon) bağımsız bir referans ile erişmemizi ve böylece salt bir şekilde temsil etmemizi sağlayan bir yapıdır.
+
+            int[] numbS = { 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 };
+            ArraySegment<int> segment1 = new ArraySegment<int>(numbS);//diziye erişip değişiklik yapabilmek için referans tanımladım.
+
+            ArraySegment<int> segment2 = new ArraySegment<int>(numbS,2,5); //ilgili dizinin 2. indexinden itibaren 5 eleman aralığında çalışmak istediğimi belirttim. (30-50 değerleri seçili)
+            segment1[0] *= 10;
+            segment2[0] *= 10;
+            //Çalışılan alan ortak bir havuz olduğu için tüm değişiklikler kod sırasına göre yapıplıp ortak havuzdaki verileri etkilemektedir. Fakat maliyet kazancı vardır.
+
             #endregion
 
 
