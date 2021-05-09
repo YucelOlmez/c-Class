@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
+using Microsoft.Extensions.Primitives;
 
 namespace _210128Console
 {
@@ -2974,12 +2975,73 @@ yaşınız {forYas}";
             //Bir dizinin bütününden ziyade belirli bir kısmına yahut parçasına ihtiyaç dahilinde ilgili diziyi kopyalamak yerine(Oldukça maliyetli bir operasyon) bağımsız bir referans ile erişmemizi ve böylece salt bir şekilde temsil etmemizi sağlayan bir yapıdır.
 
             int[] numbS = { 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 };
-            ArraySegment<int> segment1 = new ArraySegment<int>(numbS);//diziye erişip değişiklik yapabilmek için referans tanımladım.
+            ArraySegment<int> segmentMain = new ArraySegment<int>(numbS);//diziye erişip değişiklik yapabilmek için referans tanımladım. dizinin belirli bir alanını referans edeceğimi tanımlıyorum.
 
-            ArraySegment<int> segment2 = new ArraySegment<int>(numbS,2,5); //ilgili dizinin 2. indexinden itibaren 5 eleman aralığında çalışmak istediğimi belirttim. (30-50 değerleri seçili)
+            ArraySegment<int> segment1 = new ArraySegment<int>(numbS,2,5); //(3.overload) ilgili dizinin 2. indexinden itibaren 5 eleman aralığında çalışmak istediğimi belirttim. (30-50 değerleri seçili)
+            segmentMain[0] *= 10;
             segment1[0] *= 10;
-            segment2[0] *= 10;
             //Çalışılan alan ortak bir havuz olduğu için tüm değişiklikler kod sırasına göre yapıplıp ortak havuzdaki verileri etkilemektedir. Fakat maliyet kazancı vardır.
+            //ArraySegment Slicing (Dilimleme) Özelliği
+            //Bir dizi üzerinde birden fazla parçada çalışacaksan eğer her bir parçayı ayrı bir ArraySegment olarak tanımlayabiliriz. Bu tanımlamaların dışında diziyi tek bir ArraySegment ile referans edip ilgili parçaları o segment üzerinden talep edebiliriz. Yani ilgili diziyi tek bir segment üzerinden daha rahat bir şekilde parçalayabiliriz. Bu durumda bize yazılımsal açıdan efektiflik kazandırmış olacaktır.
+            ArraySegment<int> segment2 = segmentMain.Slice(0, 6);
+            ArraySegment<int> segment3 = segmentMain.Slice(5, 10);
+
+
+
+
+            //StringSegment
+            //Yapısal olarak char kökenli dizi olan string kendine has özellikler fonksiyonlar barındırdığı için ArraySegment yerine StringSegment oluşturup buradaki maliyet kazancını elde etmektedir.
+            //StringSegment, ArraySegment'in string değerler nezdindeki bir muadilidir.
+            //Esasında metinsel değerlerdeki bir çok analitik operasyonlarda bizleri kurtarmakta ve Substring vs. gibi fonksiyonlar yerine string değerde hedef kesit üzerinde işlem yapmamızı sağlayan bir türdür.
+            //StringSegment kodunu kullanabilmek için uygulamaya Microsoft.Extensions.Primitives paketin yüklenmesi gerekmektedir.
+            string text0 = "sana sarı laleler aldım çiçek pazarından";
+            StringSegment segmentSTRMain = new StringSegment(text0);
+            StringSegment segmentSTR1 = new StringSegment(text0, 5, 20);
+            Console.WriteLine(segmentSTR1);
+
+
+
+            //StringBuilder Sınıfı
+            //StringBuilder string birleştirme operasyonlarında + operatörüne nazaran yüksek maliyeti absorbe edebilmek için arkaplanda StringSegment algoritması kullanan ve bu algoritma ile bizlere ilgili değerleri olabilecek en az maliyetle birleştirip döndüren bir sınıftır.
+            string blderName = "Yücel", blderLastName="Ölmez";          
+            StringBuilder builder = new StringBuilder();
+            builder.Append(blderName);
+            builder.Append("");
+            builder.Append(blderLastName);
+            Console.WriteLine(builder.ToString());  //Çıktısı Yücel Ölmez olacaktır.
+
+
+
+            //Span & Memory Türleri
+            //Span Türü
+            //Bellek üzerinde belirli bir alanı temsil ederek işlemler gerçekleştirmemizi sağlayan bir struct'tır.
+            //Bu belirli alanlardan kasıt tabi ki ardışık alan kaplayan Array değerlerdir.
+            //Nomral şartlarda Array'lerin belleğin Heap kısmında tutulduğunu biliyoruz. Lakin stackalloc keyword'ü sayesinde Stack'te de Array tanımlayabilmekteyiz.
+            //Span, stack yahut heap farketmeksizin tanımlanmış olan Array'lerin tümünü ya da bir bölümünü bizler için refere edebilen ve üzerinde işlemler gerçekleştirmemizi sağlayan kullanışlı yapılardır.
+            //Span, dizi ve string gibi maliyetli veriler üzerinde yapılacak operasyonlarda performans açısından yüksek getiriyle birlikte maliyeti olabildiğince düşürmekte ve ekstradan değer kopyalamaya gerek kalmaksızın tüm faaliyetleri gerçekleştirmemize olanak sağlamaktadır.
+
+            //Span ile ArraySegment & StringSegment Farkı Nedir ?
+            //ArraySegment sadece string ve dizilerde temsiliyet yapabiliyorken Span bellek üzerinde olan herhangi bir yeri temsil edebilir.
+            //ArraySegment'te referans edilen alana her türlü müdahale edilebilirken, ReadOnlySpan'da bu verisel operasyonlar engellenebilir ve sadece okunabilir bir davranış sergilenebilir.
+            //Sadece string yahut array türler ile çalışılacaksa eğer ArraySegment ve StringSegment tavsiye edilir. [Bu developer ilkesidir. Yerinde kullanılması doğru olanı yerinde kullan !]
+
+            //Memory Türü Nedir ?
+            //Span ref struct olarak tasarlanmış bir struct'tır.
+            //Dolayısı ile Heap'te allocation(tahsis) edilememe, object, dynamic yahut interface türleri aracılığıyla referans edilmeme ya da bir class içerisinde field ve ya property olarak tanımlanamama gibi kısıtlamaları vardır.
+            //Memory türü Span'ın bu ksıtlamalarından münezzeh versiyonudur.
+            //ReadOnlyMemory memory türünün sadece okunabilir halidir.
+            int[] numbS1 = { 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 };
+            Span<int> span = new Span<int>(numbS1);
+            Span<int> span1 = numbS1;
+            Span<int> span2 = new Span<int>(numbS1, 3, 5);  //Buradaki detay ilgili dizideki elemanları belirlerken ilkinde index No verdikten sonra devamında kaç eleman alacağını belirlediğimiz eleman sayısı olacaktır yani 3.indexten itibaren 5 eleman al diyoruz. Ve diğer ayrıntı buradaki tanımlamalarda hangi dizide olacağını & hangi alanları tarif edeceğini spana veriyoruz. bildirip indexleri alabiliyoruz.
+
+            Span<int> span3 = numbS1.AsSpan();
+            Span<int> span4 = numbS1.AsSpan(3, 5);   //Dizi üzerinden hangi tür span döneceğini bildiriyoruz.
+
+            string text1 = "sana mavi laleler aldım kadınlar pazarından";
+           ReadOnlySpan<char> readOSpan=text1.AsSpan();   //Elimdeki metinsel ifadenin bir kısmını spanla referans ediyorsam bu readonlyspan olarak davranış sergiler.
+            ReadOnlySpan<char> readOSpan1 = text1;
+
 
             #endregion
 

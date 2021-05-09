@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "ZdQCuoOA5CWBR4KcLHPgKZVQkz2a71KGtqL9Hn+DZNcMK4YXt0EqCgfclX1Kfky89AadQkjEoLzTLC0CMqxEfA==",
+  "dgSpecHash": "QJj+7hgDqvzc/1/aPJiUTUY2fILwpjM4VIqeunUJOSufZ/vGTzLe7taWpRzQz7agL/YdCnGdPGQmriWOmj4Siw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Yücel\\cSharpClassNotes\\cSharp-Class\\210128Console\\210128Console\\210128Console.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Yücel\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.1\\microsoft.extensions.primitives.5.0.1.nupkg.sha512",
     "C:\\Users\\Yücel\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\Yücel\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\Yücel\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.7.0\\runtime.native.system.data.sqlclient.sni.4.7.0.nupkg.sha512",
