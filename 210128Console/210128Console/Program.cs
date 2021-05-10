@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
 using Microsoft.Extensions.Primitives;
+using System.Text.RegularExpressions;
 
 namespace _210128Console
 {
@@ -324,7 +325,7 @@ namespace _210128Console
             //var derleme aşamasında değerin türüne bürünürken, 
             //dynamic ise runtime'da verilen değerin türüne bürünecektir.
             //dynamic amacı çalışır halde olan programımıza dışarıdan gelecek verilerin/değerlerin neye göre geldiğini anlayıp karar vermesine olanak sağlar. Güzel özellikmiş birader web'de işime yarar.
-            //dynamic runtime'da esnek çalışabilmeye olanak sağlar. Kararlı yapısı yoktur. Bi ipnelik var.
+            //dynamic runtime'da esnek çalışabilmeye olanak sağlar. Kararlı yapısı yoktur. Bi dengesizlik var.
 
 
             var dgr = 12; //dediğimizde var dgr değişkeni direkt değere göre int değerini almıştır.
@@ -2919,7 +2920,7 @@ yaşınız {forYas}";
             //TrimStart
             //Elimizdeki metinsel ifadenin sağındaki yani BAŞINDAKİ boşluğu silmemizi sağlar.
             Console.WriteLine("         asdasdasdasd    ".TrimStart());
-            #endregion
+            
 
 
             //Exercise
@@ -2962,6 +2963,7 @@ yaşınız {forYas}";
             }
             Console.WriteLine(adett);
 
+#endregion
 
 
             #region Dizilerde Verisel Performans Nedir ?
@@ -3044,6 +3046,109 @@ yaşınız {forYas}";
 
 
             #endregion
+
+
+
+            #region Regular Expressions (Düzenli İfadeler)
+            //Metinsel yapılanmalarda belirli koşulları sağlayabilen ifadelerdir.
+            //Metinsel ifade içerisinde ihtiyaca istinaden düzenlenirler.
+            //Örneğin bir metinsel ifadenin içerisindeki mail adreslerini yakalayacak olan kodu yazmak istersek koşullarımız arasında asd12345@asd.com @ ve . ifadelerinin birbiri ardına geldğini ve bunun bir kalıp şeklinde olduğu için değişmediği bilgisini kodumuza algoritmamızla sağlayabiliriz.
+            //Bunun gibi düzenli ifadeleri yakalamamızı sağlayan bir işlev vardır.
+            //Bu yüzden c#'da bu gibi düzenli ifadeleri temsil edebilmek için Regular Expression ifadeleri geliştirilmiştir.
+            //Bu operatörler eşliğinde elde edilen verinin tasarlanan metinsel düzene uyup uymadığı değerlendirilebilmektedir.
+            //Regular ifadeler System.Text.RegularExpressions namespace'i altındaki Regex sınıfı tarafından temsil edilmektedir.
+            //Regular Expressions kavramı ufak tefek farklılıklar olsa da hemen hemen tüm programlama dillerinde olan evrensel yapıdır.
+            //Regular Expressions kendi başına büyük bir konudur.
+
+            // ^ Operatörü
+            //Satır başının istenilen ifadeyle başlamasını sağlayan operatördür. ilgili metinsel değerin ^ operatöründen sonra 'ne?' ile başlamasını kontrol eder.
+            string text11 = "W^+Gwpşhe5i2felan filean looean"; //Buradaki ifadeyi belirli bir sınıf ile  check edebilmemiz olayın amacıdır. Algoritmalarımızda hızlı bir şekilde erişebilmek için [custom döngüler ifler yerine] kullanırız.
+            Regex regex1 = new Regex("^W");
+            Match match1 = regex1.Match(text11);
+            Console.WriteLine(match1.Success); //Eğer vermiş olduğum değer belirtilen patterne uygunsa true değilse false döner.
+
+
+            //  \ operatörü
+            // bu operatör ilgili metinsel ifadede kullanıldığı noktada belirtilen karakter gruplarını içermesini istiyorsak kullanılır.
+            //   \ operatörü tek başına kullanılamaz. Yanına alacağı parametereler ile davranışını şekillendirir.
+            //   \ yanına alacağı parametreler alfabetik olabilir ve \D \d  \W \w  \S \s gibi büyüklü küçüklü olması aklımda olsun ve Büyük harfların olumsuzluk anlamı içerdiği aklımda olacak.
+            //Exercise
+            //9 ile başlayan ikinci karakteri herhangi bir sayı olan ve son karakteride boşluk olmayan bir düzenli ifade oluşturunuz.
+            //    ^9\d\S
+            string text22 = "W^+Gwpşhe5i2felan filean looean";
+            Regex regex22 = new Regex(@"^9\d\S");  //Burada ^9\d\S kodunun sırası önemlidir ve sıra ile metindeki 1. 2. ve 3. karakterlere atıfta bulunuyor.
+            Match match22 = regex22.Match(text22);
+            Console.WriteLine(match22.Success);
+
+
+
+            //  + operatörü
+            // Regular Expression operasyonlarında belirtilen ''gruptaki'' karakterlerden bir yada daha fazlasını olmasını istediğimiz operatördür. 
+            //9 ile başlayan, arada herhangi bir sayı olan ve son karakteride boşluk olmayan bir düzenli ifade oluşturunuz.
+            string text33 = "90  4selin2met%et";
+            Regex regex33 = new Regex(@"^9\d+\S");
+
+
+
+
+            //  | veya operatörü
+            // Elimizdeki metinsel ifadenin belirli noktalarında birden fazla karakterin kullanılması söz konusuylsa bunu | operatörü ile ifade ederiz.
+            //Büyük küçük harf duyarlıdır.
+            // baş harfi a yada B yada C olan metinsel ifadeyi giriniz
+            // a|B|C
+
+
+            // {} operatörü
+            //Elimizdeki metinsel ifadelerin belirli noktalarında sabit sayıda karakterin olmasını garanti altına alabilmekteyiz.
+            //Tc kimlik numarası kontrolü oalbilir.
+            //Telefon numaranızı giriniz! 
+            //507-7514592
+            //  \d{3}-\d{6}
+
+
+
+            // ? operatörü
+            // Bazen metinsel ifadelerin içerisinde belirli karakterlerin en fazla 1 kez yada hiç kullanılmamasını tercih edebiliyoruz. Bunu izah edebilmek için ? operatörünü kullanırız. ? operatörü önüne gelen karakteri en fazla 1 yada hiç kullanulmamasını temsil eder.
+            // \d{3}B?A      çıktısı     123BA(True), 865BA(True), 456A(True), 151BBA(False)
+
+
+
+            //  . operatörü
+            //  \n: Kullanıldığı yerde \n karakteri dışında herhangi bir karakter bulunabilir.
+            //  \d{2}.A    çıktısı     12!A gibi olabilir.
+
+
+
+            //   \b \B operatörleri
+            //   \B : Bu ifade ile kelimenin başında yada sonunda olmaması gereken karakterler bildirilir.
+            //   \b : Bu ifade ilgili kelimenin belirtilen karakter dizisi ile sonlanmasını sağlar.
+
+            // \d{3}dır\B       çıktısı      123dır(false), dır123(false), 123dır2(true)
+
+
+            //   [] operatörü
+            // Metinsel ifadede belirli bir noktada belirli karakter aralığındaki değerleri olmasını istiyorsak eğer bu operatörü kullanırız.
+            //Ayrıca özel karakterlerin yerinde yazılmasınıda ifade eder.
+            //   \d{3}[A-Ç]      çıktısı    123A(true) 123B(true) 123C(true) 123Ç(true) 123D(False)
+            // (530) 750 45 92
+            // [(]\d{3}[)]\s\d{3}\s\d{2}\s\d{2}
+
+
+            // Mikro düzeyde Performans açısından inanılmaz iyidir. Fakat daha güzel bir algoritma ile bunu ezebilirsin. Neden olmasın ?
+
+
+            //Match
+            string text111 = "(530) 750 45 92xgrxgrgrxxrgrxgx";
+            Regex regex44 = new Regex(@"[(]\d{3}[)]\s\d{3}\s\d{2}\s\d{2}");
+            Match march2 = regex44.Match(text111);
+
+            Console.WriteLine($"Success : {match22.Success}");
+            Console.WriteLine($"Value : {match22.Value}");
+            Console.WriteLine($"Index : {match22.Index}");
+            Console.WriteLine($"Length : {match22.Length}");
+
+            #endregion
+
 
 
 
