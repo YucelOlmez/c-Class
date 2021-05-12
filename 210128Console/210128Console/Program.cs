@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Configuration;
 using Microsoft.Extensions.Primitives;
 using System.Text.RegularExpressions;
+using System.Collections;
 
 namespace _210128Console
 {
@@ -2380,7 +2381,7 @@ namespace _210128Console
             string[] isimler = new string[] { "ali", "mehmet", "ayşe", "fatma" };
 
             //4-----------------------
-            string[] isimler2 = new string[3] {"atilla","raşit", "turgut"};
+            string[] isimler2 = new string[3] { "atilla", "raşit", "turgut" };
             //Burada eleman sayısını belirttiğim için süslü parantezler içerisini boş bırakamayacağımı compiler hata vererek bildiriyor. Fazla yada eksik sayıda eleman sayısı giremem.
 
             //5---------------------------------
@@ -2420,7 +2421,7 @@ namespace _210128Console
             dizi5.SetValue(14, 2);
             dizi5.SetValue(11, 1);
 
-            object diziDeger= dizi5.GetValue(2); //Burada .GetValue komutu ilgili index'teki değeri object'e boxing ediyor ve bize boxing çıktı veriyor. Biz gerekli gördüğümüzde ilgili değeri kendi türünde unboxing işlemi yapabiliriz.
+            object diziDeger = dizi5.GetValue(2); //Burada .GetValue komutu ilgili index'teki değeri object'e boxing ediyor ve bize boxing çıktı veriyor. Biz gerekli gördüğümüzde ilgili değeri kendi türünde unboxing işlemi yapabiliriz.
             Console.WriteLine(diziDeger);
 
 
@@ -2538,9 +2539,9 @@ namespace _210128Console
             //Bazen programatik ve fonksyonel dizi oluşturma ihtiyacımız olduğunda kullanılabilir.
             //Overload'ları vardır.
             // tür tanımlaması yapacaksak typeof keyword'ü ile tanımlama yaparız.
-            Array cinsArr= Array.CreateInstance(typeof(int), 3);
+            Array cinsArr = Array.CreateInstance(typeof(int), 3);
 
-           Array multiCi = Array.CreateInstance(typeof(int), 2, 66, 44, 8, 123); //5 dreceli dizi tanımlandı sırası ile eleman sayıları typeof'tan sonra gelen 2,66,44,8,123 elemanlı diziler tanımlanmıştır. çok boyutlu dizi tanımlamasıdır.
+            Array multiCi = Array.CreateInstance(typeof(int), 2, 66, 44, 8, 123); //5 dreceli dizi tanımlandı sırası ile eleman sayıları typeof'tan sonra gelen 2,66,44,8,123 elemanlı diziler tanımlanmıştır. çok boyutlu dizi tanımlamasıdır.
             Console.WriteLine(multiCi.Rank);
 
 
@@ -2622,7 +2623,7 @@ namespace _210128Console
             dortArr[1, 1, 2] = 15;
             dortArr[1, 1, 3] = 16;
 
-            Console.WriteLine(dortArr[0,0,0]); //bu adresteki değeri okumamızı sağlar.
+            Console.WriteLine(dortArr[0, 0, 0]); //bu adresteki değeri okumamızı sağlar.
             Console.WriteLine(dortArr.Rank);      //Dizinin kaç dereceli rank olduğunu okumamızı sağlar.
             Console.WriteLine(dortArr.Length); //çok boyutlu Dizinin total hücre sayısına göre gelecektir. Yani her rank için belirlenen elemansayılarının çarpımı total eleman sayısını verir.
             Console.WriteLine(dortArr.GetLength(0));
@@ -2635,7 +2636,7 @@ namespace _210128Console
                 {
                     for (int p = 0; p < dortArr.GetLength(2); p++)
                     {
-                        Console.Write(dortArr[i,k,p]+ "           ");
+                        Console.Write(dortArr[i, k, p] + "           ");
                     }
                     Console.WriteLine("");
                 }
@@ -2663,7 +2664,7 @@ namespace _210128Console
             int[][] IrregArr = new int[3][]; //3 Elemanlı içerisinde her bir eleman içinde dizi barındırabilecek şekilde düzensiz diziler oluşturuldu.
             IrregArr[0] = new int[3] { 3, 5, 4 };
             IrregArr[1] = new int[5] { 33, 105, 400, 20, 30 };
-            IrregArr[2] = new int[10] { 30, 50, 40,60,70,80,90,100,300,2000 };
+            IrregArr[2] = new int[10] { 30, 50, 40, 60, 70, 80, 90, 100, 300, 2000 };
 
             Console.WriteLine(IrregArr[1][0]);    //Değer okundu
             IrregArr[1][0] = 34;                  //Değer Atandı
@@ -2678,11 +2679,11 @@ namespace _210128Console
             Console.WriteLine(IrregArr[0].Length + IrregArr[1].Length + IrregArr[2].Length);
 
 
-            for (int i = 0; i < IrregArr.Length ; i++)
+            for (int i = 0; i < IrregArr.Length; i++)
             {
                 for (int P = 0; P < IrregArr[i].Length; P++)
                 {
-                    Console.Write(IrregArr[i][P]+"    -    ");
+                    Console.Write(IrregArr[i][P] + "    -    ");
                 }
                 Console.WriteLine("");
             }
@@ -2758,7 +2759,7 @@ namespace _210128Console
             //String'in sahip olduğu özellikler: 1-Nesne 2-char Dizisi(Dizi)
             for (int i = 0; i < asd12.Length; i++)
             {
-                if (asd12[i]=='e')
+                if (asd12[i] == 'e')
                 {
                     Console.WriteLine(i);
                 }
@@ -2855,7 +2856,7 @@ yaşınız {forYas}";
             Console.WriteLine(string.Compare(asd123, "M"));
             string.Compare(asd123, "a");
             string.Compare(asd123, asd123);
-            string.Compare(asd123,9,asd123,8,5);   //6. Overload property'sidir.
+            string.Compare(asd123, 9, asd123, 8, 5);   //6. Overload property'sidir.
 
             //CompareTo
             //Compare ile bir bir aynı amaca hizmet eder ve yapısal olarak aynı şekilde kullanılır.
@@ -2874,7 +2875,7 @@ yaşınız {forYas}";
             //Insert
             //Elimizdeki metinsel ifadeye bir değer eklememizi değer dahil etmemizi sağlayan fonksiyondur.
             //ekleme yaptığımız metin aslen ayrıyetten korunuyor fakat Insert fonksiyonu ^^geriye^^ eklenen değiştirilen ifadeyi bize döndürür. Davranış sergilediği nokta burasıdır.
-            string addMetin = asd123.Insert(8, "SELAM"); 
+            string addMetin = asd123.Insert(8, "SELAM");
             Console.WriteLine(addMetin);
 
             //Remove
@@ -2892,7 +2893,7 @@ yaşınız {forYas}";
             //Split
             //Metinsel ifadeyi verilen değeri ayraç olarak kullanıp, parçalayan ve sonucu string dizisi olarak döndüren bir fonksiyondur.
             string[] strngDizi = asd123.Split(' '); //Fonksiyonuna yazdığım boşluk karakterine göre metinsel ifadeyi parçalayıp bana string dizisi olarak döndürdü.
-            string[] strngDizi2= asd123.Split(' ', 'a');
+            string[] strngDizi2 = asd123.Split(' ', 'a');
 
             //Substring (***Çok Önemli -Evrensel-)
             //Elimizdeki metinsel bir ifadenin belirli bir aralığını elde edip çalışmamızı sağlar.
@@ -2920,7 +2921,7 @@ yaşınız {forYas}";
             //TrimStart
             //Elimizdeki metinsel ifadenin sağındaki yani BAŞINDAKİ boşluğu silmemizi sağlar.
             Console.WriteLine("         asdasdasdasd    ".TrimStart());
-            
+
 
 
             //Exercise
@@ -2939,8 +2940,8 @@ yaşınız {forYas}";
             int adet = 0;
             for (int i = 0; i < cumle.Length; i++)
             {
-                if (cumle[i] == 'n')                
-                    adet++;              
+                if (cumle[i] == 'n')
+                    adet++;
             }
             Console.WriteLine(adet);
 
@@ -2949,21 +2950,21 @@ yaşınız {forYas}";
             //Girilen metindeki kelime sayısını bulunuz.
             Console.WriteLine("Lütfen bir metin giriniz.");
             string metin2 = Console.ReadLine();
-            string[] kelimeler=metin2.Split(' ');
+            string[] kelimeler = metin2.Split(' ');
             Console.WriteLine(kelimeler.Length);
             //Döngü ile çözümü
             int adett = 1;
             while (true)
             {
-               int @index1 = metin2.IndexOf(' ');
+                int @index1 = metin2.IndexOf(' ');
                 if (index1 != -1)
                     break;
-                    adett++;
-                metin2 = metin2.Substring(@index1+1);
+                adett++;
+                metin2 = metin2.Substring(@index1 + 1);
             }
             Console.WriteLine(adett);
 
-#endregion
+            #endregion
 
 
             #region Dizilerde Verisel Performans Nedir ?
@@ -2979,7 +2980,7 @@ yaşınız {forYas}";
             int[] numbS = { 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 };
             ArraySegment<int> segmentMain = new ArraySegment<int>(numbS);//diziye erişip değişiklik yapabilmek için referans tanımladım. dizinin belirli bir alanını referans edeceğimi tanımlıyorum.
 
-            ArraySegment<int> segment1 = new ArraySegment<int>(numbS,2,5); //(3.overload) ilgili dizinin 2. indexinden itibaren 5 eleman aralığında çalışmak istediğimi belirttim. (30-50 değerleri seçili)
+            ArraySegment<int> segment1 = new ArraySegment<int>(numbS, 2, 5); //(3.overload) ilgili dizinin 2. indexinden itibaren 5 eleman aralığında çalışmak istediğimi belirttim. (30-50 değerleri seçili)
             segmentMain[0] *= 10;
             segment1[0] *= 10;
             //Çalışılan alan ortak bir havuz olduğu için tüm değişiklikler kod sırasına göre yapıplıp ortak havuzdaki verileri etkilemektedir. Fakat maliyet kazancı vardır.
@@ -3005,7 +3006,7 @@ yaşınız {forYas}";
 
             //StringBuilder Sınıfı
             //StringBuilder string birleştirme operasyonlarında + operatörüne nazaran yüksek maliyeti absorbe edebilmek için arkaplanda StringSegment algoritması kullanan ve bu algoritma ile bizlere ilgili değerleri olabilecek en az maliyetle birleştirip döndüren bir sınıftır.
-            string blderName = "Yücel", blderLastName="Ölmez";          
+            string blderName = "Yücel", blderLastName = "Ölmez";
             StringBuilder builder = new StringBuilder();
             builder.Append(blderName);
             builder.Append("");
@@ -3041,7 +3042,7 @@ yaşınız {forYas}";
             Span<int> span4 = numbS1.AsSpan(3, 5);   //Dizi üzerinden hangi tür span döneceğini bildiriyoruz.
 
             string text1 = "sana mavi laleler aldım kadınlar pazarından";
-           ReadOnlySpan<char> readOSpan=text1.AsSpan();   //Elimdeki metinsel ifadenin bir kısmını spanla referans ediyorsam bu readonlyspan olarak davranış sergiler.
+            ReadOnlySpan<char> readOSpan = text1.AsSpan();   //Elimdeki metinsel ifadenin bir kısmını spanla referans ediyorsam bu readonlyspan olarak davranış sergiler.
             ReadOnlySpan<char> readOSpan1 = text1;
 
 
@@ -3148,6 +3149,58 @@ yaşınız {forYas}";
             Console.WriteLine($"Length : {match22.Length}");
 
             #endregion
+
+
+
+
+            #region Koleksiyonları Tanıma
+            //Koleksiyonlar dizilerin sınırlılıklarını ortadan kaldırmak ya da sınırlılıklarına esneklik katıp daha efektif ve işlevsel olmasına karşılık geliştirilmiş yapılardır.
+            //Aslen OOP yapısı olsada şimdiden işleyişi hakkında yüzeysel bilgi sahibi olmam OOP'a geldiğimde daha iyi anlamlandırma ve kavramaya yardımcı olacaktır.
+
+            //ArrayList Collection
+            //Koleksiyonların doğan ilk çocuğu olduğu için kendine has sınırlılıklara sahiptir ve daha sonrasında diğer kardeşlerinin daha işlevsel ve efektif olmasına sebep olacaktır. Çünkü geliştiriciler bu ArrayList'in bu sınırlılıklarını daha da ortadan kaldırabilecekleri Koleksiyonlar geliştireceklerdir.
+            //Diziler tanımlanırken kaç eleman tutacakları bildirilmek zorundadır.(Sınırlılık)
+            //ArrayList'te bu durum söz konusu değildir. 
+            int[] diziYaslar = new int[30];
+            diziYaslar[5] = 18;
+
+            ArrayList collecYaslar = new ArrayList();
+            collecYaslar.Add(18);
+
+            for (int i = 0; i < 30; i++)
+            {
+                diziYaslar[i] = i + 10;
+                collecYaslar.Add(i + 10);
+            }
+            Console.WriteLine(diziYaslar[15]);
+            Console.WriteLine(collecYaslar[15]);
+
+            //Dizilerde değer atarken index numarasını belirleyip ilgili index'e değer atanırdı. Fakat bu Sınırlılık olduğu için sürekli bu index numaralarını takip edip çalışmamız yavaşlayacaktır(Dağınık ve yönetimi zordur). Koleksiyonlarda bu sınırlılık durumuda ortadan kalmıştır. Koleksiyon yapısına değeri gönderirim ve bu yapı benim yerime index atama numaralandırması yaparak işimi kolaylaştırmış oluyor.
+
+
+            //ArrayList Boxing-Unboxing
+            //ArrayList içerisine veri alırken object türde veri alır ve bu işlem doğal boxing işlemidir. İçerisine eklenen veri boxing'e tabii olur. Bu verilerle çalışmak(Kendi öz türünde elde etmek) istersem eğer unboxing yapmam gerekiyor ve asıl maliyet(performans) burada ortaya çıkıyor. ArrayList'in dizilere karşı tek dezavantajlı olduğu nokta burasıdır. Bu durumu ilerleyen koleksiyonlar eğitiminde Generic yapılanmarında aşacağını şimdi yüzeysel olarak bilsem yeterli olacaktır. Bu Generic yapılar kendi içerisinde hangi türleri alabildiğini bileceğinden dolayı herhangi bir dönüşüme (boxing-unboxing) gerek duymaksızın işlem yapmamıza yarayacaktır. Buradaki ArrayList sınırlılığı aşacağız.
+            //Collection'da eleman sayısını öğrenebilmek için Count property'sini kullanıyoruz.
+            int collecTop = 0;
+            for (int i = 0; i < collecYaslar.Count; i++)
+            {
+                if (collecYaslar[i] is int)
+                {
+                    toplam += (int)collecYaslar[i];
+                }
+            }
+
+            //ArrayList Collection Initializers (Koleksiyon İlklendirici)
+            //ArrayList içerisinde farklı türlere ait veriler üzerinde çalışırken hangi türde olduğunu kontrol edip ona göre operaasyona tabii tutulması gerekir.
+            ArrayList arColInit = new ArrayList() { "Ali", 132,'?', true};
+
+
+
+
+
+            #endregion
+
+
 
 
 
