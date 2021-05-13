@@ -3202,6 +3202,12 @@ yaşınız {forYas}";
 
 
 
+            //Foreach İterasyonu
+            //Mantıksal açıdan her tahminin altında iterasyon yatar.
+            //İterasyon her veriyi tek tek alır aldıktan sonra işlem anında o veriyi tanıyıp işlem yapıp yapmama kararını veririz.
+
+
+
 
 
 
