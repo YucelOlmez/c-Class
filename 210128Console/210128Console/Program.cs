@@ -3150,7 +3150,6 @@ namespace _210128Console
 
 
 
-
             #region Koleksiyonları Tanıma
             //Koleksiyonlar dizilerin sınırlılıklarını ortadan kaldırmak ya da sınırlılıklarına esneklik katıp daha efektif ve işlevsel olmasına karşılık geliştirilmiş yapılardır.
             //Aslen OOP yapısı olsada şimdiden işleyişi hakkında yüzeysel bilgi sahibi olmam OOP'a geldiğimde daha iyi anlamlandırma ve kavramaya yardımcı olacaktır.
@@ -3230,9 +3229,122 @@ namespace _210128Console
 
 
 
+            #region Hazır Sınıflar ve Fonksiyonlar Nedir ?
+            //Belirli işlemleri hızlı bir şekilde yapmamızı sağlayan hazır fonksiyonlar vardır.
+
+            //Math Sınıfı
+
+            //Abs Fonksiyonu
+            //Mutlak değer işlemini yapar. İlgli değeri her zaman pozitif döndürür.
+            //Absolute Value
+            int absV = Math.Abs(-5);
+
+            //Ceilling Fonksiyonu
+            //Elimizdeki herhangi bir kusuratlı değeri yuvarlayıp tam sayıya dönüştürebilir. 3.14 gibi bir değerimiz varsa bunu 4'e yuvarlar ve sabit rakama atar. Çıktısı double değer türlü döner.
+            Console.WriteLine(Math.Ceiling(3.14));
+
+            //Floor Fonksiyonu
+            //Elimizdeki herhangi bir kusuratlı değeri aşağı yuvarlayıp tam sayıya dönüştürebilir. 3.14 gibi bir değerimiz varsa bunu 3'e yuvarlar ve sabit rakama atar. Hangi değer türlü veri gönderirsek o değerde çıktısı olur.
+            Console.WriteLine(Math.Floor(3.14));
+
+            //Round Fonksiyonu
+            //Elimizdeki ondalıklı değerin kendisine en yakın olan tam sayıya yuvalanmasını sağlayan fonksiyonudur. 3.4(3 olur) 3.5(4 olur)
+
+            //Pow Fonksiyonu
+            //Herhangi bir sayının üssünü almamız gerekebilir. Üs almamızı sağlar.
+            //Sonuç double döner.
+            Console.WriteLine(Math.Pow(2,9)); //2taban 9 üssüdür. 
+
+            //Sqrt Fonksiyonu
+            //Elimizdeki değerlerin 2. dereceden kökünü (karekökünü) almamızı sağlar.
+            Console.WriteLine(Math.Sqrt(16));
+            Console.WriteLine(Math.Sqrt(156));
+
+            //Truncate Fonksiyonu
+            //Ondalıklı değerlerin tam sayısını elde etmek isteyebiliriz. 3.14'ün 3 tam sayısını alır.
+            Console.WriteLine(Math.Truncate(3.14));
 
 
 
+
+            //V.S. da property'ler ingiliz anahtarı ile method(fonksiyon) dediğimiz yapılar pembe kutucuklar ile sembolize edilir.
+
+
+
+
+
+            //DateTime Fonksiyonları (Struct)
+
+            //Now Property
+            //Şimdiki zamanın o an o kodun tetiklendiği andaki zamanın mili saniyesine kadar döndüren property'dir. Tarih ve zaman getirir.
+            Console.WriteLine(DateTime.Now);
+
+            //Today Property
+            //Tetiklendiği anda tarih bilgisini getirir.
+            Console.WriteLine(DateTime.Today);
+
+            //Compare Fonksiyonu
+            //İki tarihi karşılaştırmak isteyebiliriz. Compare fonksiyonu bunu yapar. Sonuç int döner.
+            DateTime tarih1 = new DateTime(2012, 04, 30);
+            DateTime tarih2 = new DateTime(2020, 04, 10);
+
+            int result22= DateTime.Compare(tarih1, tarih2);
+            if (result22<0)
+            {
+                Console.WriteLine($"{tarih1}küçüktür{tarih2}");
             }
+            else if (result22==0)
+            {
+                Console.WriteLine($"{tarih1}eşittir{tarih2}");
+            }
+            if (result22>0)
+            {
+                Console.WriteLine($"{tarih1}büyüktür{tarih2}");
+            }
+
+            //Add Fonksiyonları
+            //.Now.Add... fonksiyonları gelmektedir.
+            Console.WriteLine(DateTime.Now.AddYears(999));
+            Console.WriteLine(DateTime.Now.AddSeconds(99999));
+
+            //TimeSpan Struct
+            //İki tarih arasındaki farkı timespan ile karşılayabiliriz. Sonuç timespan dönecektir.
+            DateTime t1 = DateTime.Now;
+            DateTime t2 = new DateTime(2000, 1, 30);
+            TimeSpan spann = t1 - t2;
+            Console.WriteLine(spann.Days);
+            Console.WriteLine(spann.Minutes);
+
+
+
+
+
+
+
+            //Random Sınıfı
+            //Bu sınıf ile ilgili operasyon yapabilmek için nesneyi oluşturmamız gerekmektedir.
+            //Rastgele sayısal değer oluşturur. Birden çok örnekleri vardır en bilineni budur.
+            Random randm = new Random();
+            //Next Sınıfı
+            //Random sınıfında belirli bir aralıkta tam sayı değeri oluşturmak istersek bunu kullanabiliriz.
+            Console.WriteLine(randm.Next()); // 0 - ...
+            Console.WriteLine(randm.Next(100)); // 0 - 100
+            Console.WriteLine(randm.Next(50,100)); // 50 - 100 aralığında değer seçer
+            //Negatif değer istersem -1 ile çarpabiliriz.
+
+            //NextDouble Fonksiyonu
+            //0 ve 1 arasında rastgele sayı üretir.
+            Console.WriteLine(randm.NextDouble());
+
+
+
+
+
+            #endregion
+
+
+
+
+        }
     }
 }
