@@ -2694,7 +2694,7 @@ namespace _210128Console
 
 
 
-            //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+            //--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
@@ -2821,9 +2821,7 @@ namespace _210128Console
             //Escape karakterleinin kullanılması gereken durumlarda @ operatörünü kullanarak eylemsel karakterleri kendileriyle ezebilecek özellik kazandırabiliyoruz.
             string string1 = @"Bu gün hava çok ""güzel""";
             //3.sü String İnterpolation ile Verbatim kullanımıdır. c# 8.0 ile birlikte kullanımı gelmiştir. Fakat öncelikli kullanım sırası vardır. -Verbatim @- önce sonrasında --Interpolation $-- bildirilmelidir.
-            string versiyon3 = $@"Merhaba {formatIsim} {formatSoyIsm}
-kimlik numaranız {forTC}
-yaşınız {forYas}";
+            string versiyon3 = $@"Merhaba {formatIsim} {formatSoyIsm}kimlik numaranız {forTC}yaşınız {forYas}";
 
 
 
@@ -3201,18 +3199,40 @@ yaşınız {forYas}";
             #endregion
 
 
+            #region
 
             //Foreach İterasyonu
+            //Foreach(İterasyon) bir döngü değildir.
             //Mantıksal açıdan her tahminin altında iterasyon yatar.
             //İterasyon her veriyi tek tek alır aldıktan sonra işlem anında o veriyi tanıyıp işlem yapıp yapmama kararını veririz.
+            //Elimizdeki verileri tek tek elde ederek bunların üzerinde işlem yapmamızı sağlayan yapılanmadır.
+            //İterasyonel mantık yüzdelik işlemlerde kullanılmaya uygun değildir.
+            //Algortma üzerinde hangi verinin çekileceğini ve hangi veri üzerinde çalışılacağına karar veremeyiz.
+            //Her veriyi illa ki tek tek alacaktır. Aldıktan sonra işlem anında ilgili veriyi tanıyıp işlem yapıp yapmama kararına veririz.
+            //Döngü ile işlem yaparken bir sonraki işlem önemli değildir. Kombinasyon[mantık] önemlidir.
+            //İterasyon elindeki veri kümesi sayısı kadar işlem yapar. Sonsuza kadar işlem yapmaz.
+            //İterasyon ile çalışmak için elimizde veri kümesi olması zorunludur.
+            //Foreach elinde veri kaynağı olmadan çalışmaz.
+            //Döngünün çalışması için bir yakıta ihtiyacı yoktur. Döngüyü algoritma ile farklı şekilde kontrol edersin ve döngünün şartı sağlandığı sürece çalışmaya devam edecektir.
+            //Fakat foreach[iterasyon] yapısının çalışması için gerekli olan yakıtı veri kümesidir.(Diziler,Koleksiyonlar) Veri kümesi üzerinden beslenen foreach küme içerisinde veri kalmadığında çalışmasını sonlandıracaktır. Dolayısı ile veri kümesi yoksa foreach çalışmaz. Çalıştığında üzerinde iterasyona başladığı veri kaynağının değişmemesi gerekmektedir. Değişirse foreach patlayacaktır.
+            //Patlamasının sebebi foreach üzerinde çalıştığı verikümesinin bir sonraki veriyi takip edebilme mekanizmasından kaynaklanmaktadır.
+            ArrayList iterDizi =new ArrayList { 5, 41, 565 , 8527, 27, 2, 128, 89, 67 };
+
+            foreach (object item in iterDizi)
+            {
+                Console.WriteLine(item);
+            }
+
+
+
+
+            #endregion
 
 
 
 
 
 
-
-
-        }
+            }
     }
 }
