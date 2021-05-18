@@ -3344,6 +3344,21 @@ namespace _210128Console
 
 
 
+            #region Method Nedir ? Ne İşe Yarar ?
+            //Method OOP'ta bulunan sınıf member'larından birisidir.
+            //Method=Yöntem, Yordam, Functions
+            //Method dediğimiz kavram fiilin terminolojik izahıdır.
+            //Yazılımda gerçekleştirdiğimiz yani fiilen(operasyon,algoritma yani kod yazmak istiyorsam) gerçekleştirdiğimiz tüm operasyonlar bir method'tur ve method içerisinde yapmam gerekiyor.
+            //Matematikteki fonksiyonlar konusu yazılımdaki method'lar konusu ile birebir aynıdır.
+            //Method prosedürel programlamanın temel elemanıdır.
+            //OOP'ta object dediğimiz yapının temel elemanıdır.
+            //Bir iş operasyon fiiliyat yapan en küçük program parçacığıdır.
+            //Method'un dışındaki yerler tanımlama yerleridir. Class tanımlama, struct tanımlama, mimari oluşturma...
+            //Method işlem yapmamı sağlayan program parçacığıdır.
+            //Property özünde compiler seviyesinde bir method'dur.
+            //
+            #endregion
+
 
         }
     }
