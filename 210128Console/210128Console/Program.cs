@@ -3198,7 +3198,7 @@ namespace _210128Console
             #endregion
 
 
-            #region
+            #region Foreach İterasyonu
 
             //Foreach İterasyonu
             //Foreach(İterasyon) bir döngü değildir.
@@ -3356,7 +3356,29 @@ namespace _210128Console
             //Method'un dışındaki yerler tanımlama yerleridir. Class tanımlama, struct tanımlama, mimari oluşturma...
             //Method işlem yapmamı sağlayan program parçacığıdır.
             //Property özünde compiler seviyesinde bir method'dur.
-            //
+            //Yazılmış olan kodu çağırmak ile kodu tekrar tekrar yazmak arasında fark vardır.
+            //Method'lar içerisine yazılan kodun tekrarlı bir şekilde kullanılmasını sağlarlar ve bunu yaparken kaynak kodun tekrar edilmesini de engellemiş olurlar. Böylece ideal kodlamaya erişmiş oluruz ve maliyeti(performansı)azaltmış oluruz.
+            //Tek seferde yazmış olduğumuz kaynak kodun tekrarına düşmeden istediğimiz zaman uygun yerlerde kullanına metodlaştırma demekteyiz.
+
+            //Method'un imzası ve kalıbı
+
+            // [erişim belirleyicisi] [geri dönüş değeri] [metodun adı] (parametre) İmza olarak adlandırılan kısım
+            // {
+
+            // }
+            //Erişim belirleyicileri ileride göreceğimiz [Access Modifier] yapılarıdır. Oluşturulmuş olan bir yapının dışarıdan erişilip erişilmeyeceğini belirlememizi sağlayan komutlardır. metot tanımlaması yaparken bu belirleyiciyi yazmazsak default olarak private gelecektir.  public = Erişilir private = Gizli / Erişilmez
+
+            //Geri dönüş değeri: Metodlar yaptıkları operasyonlar algoritmalar işlemler neticesinde geriye değerler dönebilir. Geri dönüş değeri programatik olarak kodun içinde kullanılabilen bir değerdir. Ekran çıktısı olarak düşünülmemelidir. Bu değer kodun içerisinde yakalanabilir ve programatik olarak işlemlere tabii tutulabilir. Akış kontrol mekanizmaları ile işlenip kodu yönlendirebiliriz gibi...
+
+            //Metodun Adı: Programlama geleneğinde metodlar diğer yapılarda olduğu gibi bir isim almaktadırlar. Burada temel isimlendirme kuralı geçerli olacaktır. Rakamla başlayamaz, özel karakter olamaz gibi...
+
+            // Parametre () metot dediğimiz bu yapılanmalar dış dünyadan parametreler alabilmekte ve bu parametrelerdeki değerler üzerinde işlemler gerçekleştirebilmektedir. İşte bu parametreleri parantez içerisinden alabilmekteyiz. Bir metot illa ki parametre almak zorunda değildir. eğer ki parametre alacaksa alacak parametrenin türü cinsi belirtilmelidir. (int sayi1, int sayi2) gibi...
+
+            //{
+            //Burası metodun gerçekleştireceği operasyonun Fiiliyatı/eylemi/algoritmayı oluşturduğumuz kodlarımızın faaliyet alanıdır. Gövde olarak adlandırılır.
+            //}
+
+
             #endregion
 
 
