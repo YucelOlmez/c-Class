@@ -3379,6 +3379,46 @@ namespace _210128Console
             //}
 
 
+            //Tüm programlama dillerinde 4 farklı varyasyonda/davranışta method oluşturabiliriz.
+            //Yapılacak işleme göre 4 farklı varyasyonda metot oluşturabiliriz.
+
+            //1 - Geriye değer döndürmeye - parametre almayan
+            //Aslında burada tanımlayacağım metot zaten bir metod'un içerisinde olduğu için yanlış olacaktır. Fakat bunu Class'ın içerisinde Main metot'unun dışındaymış gibi düşümeliyim. bir metot geri dönüş değeri döndürmeyecekse boş bırakamayız. Bunu void keyword'ü ile belirtmek zorundayız. 
+            private void metot1()
+            {
+                Console.WriteLine("1 - Geriye değer döndürmeye - parametre almayan metot budur.");
+            } 
+
+            // 2 - Geriye değer döndürmeyen - parametre alan
+            //Metotlardaki parametreler değişkenlerin ta kendisidir.
+            //Metotlarda sınırsız sayıda parametre değeri girebiliriz.
+            //Oluşturmuş olduğumuz metotlardaki parametreler değerlerine metodun gövdesinden yani faaliyet alanından erişebiliriz.
+            //Eğerki bir değişken metodun parametre kısmında tanımlanıyorsa biz buna parametre deriz. Metodun ya da class'ın içerisinde tanımlanıyorsa değişken diyoruz.
+            public void metot2(int pr1, bool pr22, char pr333)
+            {
+                pr22 //Parametresine burada erişebilmekte ve kullanabilmekteyiz.
+            }
+
+            // 3 - Geriye değer döndüren - parametre almayan
+            //geriye değer döndüreceğimizi bildirmemiz gerektiği için burayı yapacağımız işlemin türüne göre yazmamız gerekmektedir.
+            //Eğerki bir metot geriye herhangi bir türde değer döndüreceğini ifade ediyorsa kesinlikle o türde bir değer döndürmelidir. Aksi taktirde hata verir.
+            //Geriye değer döndüren metotlarda geriye değer döndürmek zorunludur.
+            //return keyword'ü geriye değeri döndürmemizi sağlar.
+            //return keyword'ünün bir diğer özelliği ilgili metottan çıkıp sonlanmasını sağlar.
+            //boolean gibi true yada false dönen sonuçlarda dahi bir değer dönmesi gerekiyor. aksi taktirde değer dönmediği için hata verecektir.
+            //return değerleri ilgili metottu tanımlarken belirttiğimiz türe uygun değer döndürmelidir. 
+            private char metot3()
+            {
+                return 'a'; 
+            }
+
+            // 4 - Geriye değer döndüren - parametre alan
+            public bool metot4(int xx1) //eğer int olsaydı
+            {
+                return false || true;   // return DateTime.Now.Year > 2000 ? 1 : 0; yazabilirdik.
+            }
+
+
             #endregion
 
 
