@@ -3422,6 +3422,16 @@ namespace _210128Console
             #endregion
 
 
+            #region Object Oriented Programming
+
+            //OOP Kavramı bir yaklaşım bir felsefedir.
+            //OOP bir teknoloji değildir.
+            //Gerçek hayattaki tüm olguları programlama için simüle eden nesneleri baz alan bir programlama tekniğidir.
+            //OOP her şeyi nesne olarak gören bir programlama yaklaşımıdır.
+
+            #endregion
+
+
         }
     }
 }
